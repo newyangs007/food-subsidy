@@ -2,7 +2,7 @@
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
 var D, P, C, G, R, K, V;            // data, products, candidates, geo, regions, keywords, coverage
-var S = {year:null, rpage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
+var S = {year:null, rpage:1, ppage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var ST = {on:'진행 중', chk:'확인 필요', soon:'예정', off:'종료'};
@@ -311,7 +311,10 @@ function renderProducts(){
   $('#pCount').innerHTML='<span style="color:var(--brand)">'+f.length+'개 모델</span>';
   f.sort(function(a,b){ return (b.mine?1:0)-(a.mine?1:0); });
   var grp=[], gi={}; f.forEach(function(p){ var k=[p.brand,p.cert,p.method,p.list].join('|'); if (gi[k]==null){ gi[k]=grp.length; grp.push(Object.assign({models:[]},p)); } grp[gi[k]].models.push(p.model); });
-  $('#prows').innerHTML = grp.map(function(p){ return '<tr style="cursor:default"'+(p.mine?' class="mine"':'')+'><td><b>'+esc(p.brand)+'</b>'+(p.mine?'<span class="new" style="background:var(--soon)">등록 제품</span>':'')+'</td><td><div class="mdl">'+p.models.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div></td><td style="font-size:13px">'+esc(p.method)+'</td><td><span class="cert '+esc(p.cert)+'">'+esc(p.cert)+'</span><div class="ls">'+esc(p.body)+'</div></td><td class="hide-m" style="font-size:12.5px">'+esc(p.maker)+'<div class="ls">'+esc(p.phone||'')+'</div></td><td class="hide-m"><span class="ls">'+({L26:'2026 공고',L25:'2025.6 목록',L27:'2027 공고'}[p.list]||p.list)+'</span></td></tr>'; }).join('') || (all.length?'':yearChecklist()) || '<tr><td colspan="6" class="empty">일치하는 모델이 없습니다. 목록에 없더라도 품질인증+KC를 받았다면 대상일 수 있으니 초록누리·제조사에 인증서를 확인하세요.</td></tr>';
+  var pps=10, ppages=Math.max(1,Math.ceil(grp.length/pps)); if (S.ppage>ppages) S.ppage=ppages;
+  $('#pinfo2').textContent = grp.length ? '제품 '+grp.length+'개(모델 '+f.length+'개) · '+S.ppage+'/'+ppages+'페이지' : '';
+  $('#ppg').innerHTML = grp.length>pps ? pager(S.ppage,ppages,'ppg') : '';
+  $('#prows').innerHTML = grp.slice((S.ppage-1)*pps, S.ppage*pps).map(function(p){ return '<tr style="cursor:default"'+(p.mine?' class="mine"':'')+'><td><b>'+esc(p.brand)+'</b>'+(p.mine?'<span class="new" style="background:var(--soon)">등록 제품</span>':'')+'</td><td><div class="mdl">'+p.models.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div></td><td style="font-size:13px">'+esc(p.method)+'</td><td><span class="cert '+esc(p.cert)+'">'+esc(p.cert)+'</span><div class="ls">'+esc(p.body)+'</div></td><td class="hide-m" style="font-size:12.5px">'+esc(p.maker)+'<div class="ls">'+esc(p.phone||'')+'</div></td><td class="hide-m"><span class="ls">'+({L26:'2026 공고',L25:'2025.6 목록',L27:'2027 공고'}[p.list]||p.list)+'</span></td></tr>'; }).join('') || (all.length?'':yearChecklist()) || '<tr><td colspan="6" class="empty">일치하는 모델이 없습니다. 목록에 없더라도 품질인증+KC를 받았다면 대상일 수 있으니 초록누리·제조사에 인증서를 확인하세요.</td></tr>';
   var L=P.lists; $('#plist').innerHTML='출처: <a href="'+L.L26.url+'" target="_blank" rel="noopener">'+L.L26.name+'</a> · <a href="'+L.L25.url+'" target="_blank" rel="noopener">'+L.L25.name+'</a> — 지자체마다 인정 목록이 다를 수 있습니다.';
 }
 
@@ -402,11 +405,12 @@ document.addEventListener('click', function(ev){
   if (t.matches('tbody tr[data-id]')){ openDrawer(t.dataset.id); return; }
   if (false && t.matches('tbody tr[data-rid]')){ var x=t.dataset.rid.split('|'); S.sido=x[0]; S.sgg=x[1]; S.status='all'; S.page=1; setView('subsidy'); focusSido(S.sido); window.scrollTo({top:0,behavior:'smooth'}); return; }
   if (t.dataset.pg){ var pp=+t.dataset.pg; if (pp>=1){ S.page=pp; renderList(); } return; }
+  if (t.dataset.ppg){ var pq=+t.dataset.ppg; if (pq>=1){ S.ppage=pq; renderProducts(); var tb=$('#prows'); if (tb) tb.closest('.card').scrollIntoView({behavior:'smooth',block:'start'}); } return; }
   if (t.dataset.rpg){ var rp=+t.dataset.rpg; if (rp>=1){ S.rpage=rp; renderRadar(); } return; }
   if (t.dataset.view){ setView(t.dataset.view); return; }
-  if (t.dataset.pm){ S.pm=t.dataset.pm; renderProducts(); return; }
-  if (t.dataset.pc){ S.pc = S.pc===t.dataset.pc?'all':t.dataset.pc; renderProducts(); return; }
-  if (t.dataset.brand!=null){ S.brand=t.dataset.brand||null; renderProducts(); return; }
+  if (t.dataset.pm){ S.pm=t.dataset.pm; S.ppage=1; renderProducts(); return; }
+  if (t.dataset.pc){ S.pc = S.pc===t.dataset.pc?'all':t.dataset.pc; S.ppage=1; renderProducts(); return; }
+  if (t.dataset.brand!=null){ S.brand=t.dataset.brand||null; S.ppage=1; renderProducts(); return; }
   if (t.dataset.i!=null && t.closest('#sugg')){ pick($('#sugg')._o[+t.dataset.i]); return; }
   if (t.id==='dx'){ closeDrawer(); return; }
   if (t.id==='qx'){ $('#q').value=''; S.q=''; $('#searchBox').classList.remove('has'); S.page=1; render(); return; }
@@ -416,7 +420,7 @@ document.addEventListener('click', function(ev){
 });
 $('#scrim').addEventListener('click', closeDrawer);
 document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ closeDrawer(); $('#sugg').classList.remove('on'); } });
-var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; render(); suggest(); }, 120); });
+var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; S.ppage=1; render(); suggest(); }, 120); });
 $('#q').addEventListener('focus', suggest);
 $('#q').addEventListener('blur', function(){ setTimeout(function(){ $('#sugg').classList.remove('on'); }, 150); });
 $('#q').addEventListener('keydown', function(e){

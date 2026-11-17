@@ -202,6 +202,10 @@ dd{margin:4px 0 0;font-size:14px;color:var(--ink2);word-break:keep-all;overflow-
 footer{margin-top:22px;color:var(--mute);font-size:12px;line-height:1.7}
 footer b{color:var(--ink2)}
 [hidden]{display:none!important}
+.disc{display:flex;flex-wrap:wrap;gap:4px 18px;background:#3F4248;color:#F1F5F9;border-radius:12px;padding:11px 16px;margin:0 0 14px;font-size:13px;line-height:1.55}
+.disc b{color:#FDE68A;font-weight:700}
+footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
+@media (max-width:780px){.disc{flex-direction:column;font-size:12.5px}}
 #sggChips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
 #sggChips .chip{justify-content:flex-start;padding:5px 7px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
 .go.t0{color:var(--brand)}.go.t1{color:#2563EB}.go.t2{color:#7C3AED}.go.t3{color:var(--mute)}
@@ -309,6 +313,12 @@ tr.mine{background:#F5F9FF}
   </div>
   <div class="hint" id="hint">음식물처리기 · 음식물폐기물 감량기 · 소형감량기 · 보조금 · 지원금 등 <b>연관검색어 <span id="kwN"></span>개</b>를 모두 같은 사업으로 묶어 검색합니다. <button class="linkbtn" type="button" id="kwToggle">연관검색어 사전 보기</button><div id="kwList" class="chips" hidden></div></div>
 
+  <div class="disc" role="note">
+    <span>* 지역별 지원금 규모는 상이할 수 있습니다.</span>
+    <span>* 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다.</span>
+    <span>* 지자체 예산이 소진되면 접수가 <b>조기 마감</b>될 수 있습니다.</span>
+  </div>
+
   <!-- ───── 보조금 현황 ───── -->
   <section id="v-subsidy">
     <div class="kpis" id="kpis"></div>
@@ -385,7 +395,8 @@ tr.mine{background:#F5F9FF}
           <tbody id="prows"></tbody>
         </table>
         </div>
-        <div class="pager"><span id="plist"></span></div>
+        <div class="pager"><span id="pinfo2"></span><div class="pg" id="ppg"></div></div>
+        <div class="pager" style="padding-top:0"><span id="plist"></span></div>
       </div>
     </div>
   </section>
@@ -403,6 +414,7 @@ tr.mine{background:#F5F9FF}
     <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 마감 전이지만 공식 공고로 확인되지 않은 공고는 <b>표시하지 않습니다</b>(확실하게 확인된 공고만 표시).<br>
     상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. ‘보조금 뉴스’에 자동으로 모인 기사는 공고문을 확인한 뒤에 지도·목록에 올립니다.<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
+    <span class="disc2">* 지역별 지원금 규모는 상이할 수 있습니다. * 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다. * 지자체 예산 소진 시 조기 마감될 수 있습니다.</span>
     <b>최종 업데이트</b> <span id="lastUpd">/*__LASTUPD__*/</span>
   </footer>
 </div>

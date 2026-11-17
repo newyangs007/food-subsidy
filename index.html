@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   전국 음식물처리기 보조금 대동여지도
-  최종 업데이트(페이지 생성): 2026-11-18 07:27 KST
+  최종 업데이트(페이지 생성): 2026-11-18 07:32 KST
   공고 데이터 검증: 2026-11-18 07:15 KST
   자동 점검(2시간 주기): 2026-11-18 06:39
   점검 대상: 전국 230개 기초지자체 × 연관검색어 사전(keywords.json)
@@ -9,7 +9,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="last-updated" content="2026-11-18 07:27 KST">
+<meta name="last-updated" content="2026-11-18 07:32 KST">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>전국 음식물처리기 보조금 대동여지도</title>
 <meta name="description" content="전국 시·도·시군구 음식물처리기(가정용 소형감량기) 보조금 공고를 지도와 지역 검색으로 찾습니다. 신청기간·지원금액·대상·필요서류·전화번호·공식 공고 링크 제공.">
@@ -210,6 +210,10 @@ dd{margin:4px 0 0;font-size:14px;color:var(--ink2);word-break:keep-all;overflow-
 footer{margin-top:22px;color:var(--mute);font-size:12px;line-height:1.7}
 footer b{color:var(--ink2)}
 [hidden]{display:none!important}
+.disc{display:flex;flex-wrap:wrap;gap:4px 18px;background:#3F4248;color:#F1F5F9;border-radius:12px;padding:11px 16px;margin:0 0 14px;font-size:13px;line-height:1.55}
+.disc b{color:#FDE68A;font-weight:700}
+footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
+@media (max-width:780px){.disc{flex-direction:column;font-size:12.5px}}
 #sggChips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
 #sggChips .chip{justify-content:flex-start;padding:5px 7px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
 .go.t0{color:var(--brand)}.go.t1{color:#2563EB}.go.t2{color:#7C3AED}.go.t3{color:var(--mute)}
@@ -317,6 +321,12 @@ tr.mine{background:#F5F9FF}
   </div>
   <div class="hint" id="hint">음식물처리기 · 음식물폐기물 감량기 · 소형감량기 · 보조금 · 지원금 등 <b>연관검색어 <span id="kwN"></span>개</b>를 모두 같은 사업으로 묶어 검색합니다. <button class="linkbtn" type="button" id="kwToggle">연관검색어 사전 보기</button><div id="kwList" class="chips" hidden></div></div>
 
+  <div class="disc" role="note">
+    <span>* 지역별 지원금 규모는 상이할 수 있습니다.</span>
+    <span>* 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다.</span>
+    <span>* 지자체 예산이 소진되면 접수가 <b>조기 마감</b>될 수 있습니다.</span>
+  </div>
+
   <!-- ───── 보조금 현황 ───── -->
   <section id="v-subsidy">
     <div class="kpis" id="kpis"></div>
@@ -393,7 +403,8 @@ tr.mine{background:#F5F9FF}
           <tbody id="prows"></tbody>
         </table>
         </div>
-        <div class="pager"><span id="plist"></span></div>
+        <div class="pager"><span id="pinfo2"></span><div class="pg" id="ppg"></div></div>
+        <div class="pager" style="padding-top:0"><span id="plist"></span></div>
       </div>
     </div>
   </section>
@@ -411,7 +422,8 @@ tr.mine{background:#F5F9FF}
     <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 마감 전이지만 공식 공고로 확인되지 않은 공고는 <b>표시하지 않습니다</b>(확실하게 확인된 공고만 표시).<br>
     상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. ‘보조금 뉴스’에 자동으로 모인 기사는 공고문을 확인한 뒤에 지도·목록에 올립니다.<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
-    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 07:27 (KST)</span>
+    <span class="disc2">* 지역별 지원금 규모는 상이할 수 있습니다. * 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다. * 지자체 예산 소진 시 조기 마감될 수 있습니다.</span>
+    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 07:32 (KST)</span>
   </footer>
 </div>
 
@@ -424,7 +436,7 @@ tr.mine{background:#F5F9FF}
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
 var D, P, C, G, R, K, V;            // data, products, candidates, geo, regions, keywords, coverage
-var S = {year:null, rpage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
+var S = {year:null, rpage:1, ppage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var ST = {on:'진행 중', chk:'확인 필요', soon:'예정', off:'종료'};
@@ -733,7 +745,10 @@ function renderProducts(){
   $('#pCount').innerHTML='<span style="color:var(--brand)">'+f.length+'개 모델</span>';
   f.sort(function(a,b){ return (b.mine?1:0)-(a.mine?1:0); });
   var grp=[], gi={}; f.forEach(function(p){ var k=[p.brand,p.cert,p.method,p.list].join('|'); if (gi[k]==null){ gi[k]=grp.length; grp.push(Object.assign({models:[]},p)); } grp[gi[k]].models.push(p.model); });
-  $('#prows').innerHTML = grp.map(function(p){ return '<tr style="cursor:default"'+(p.mine?' class="mine"':'')+'><td><b>'+esc(p.brand)+'</b>'+(p.mine?'<span class="new" style="background:var(--soon)">등록 제품</span>':'')+'</td><td><div class="mdl">'+p.models.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div></td><td style="font-size:13px">'+esc(p.method)+'</td><td><span class="cert '+esc(p.cert)+'">'+esc(p.cert)+'</span><div class="ls">'+esc(p.body)+'</div></td><td class="hide-m" style="font-size:12.5px">'+esc(p.maker)+'<div class="ls">'+esc(p.phone||'')+'</div></td><td class="hide-m"><span class="ls">'+({L26:'2026 공고',L25:'2025.6 목록',L27:'2027 공고'}[p.list]||p.list)+'</span></td></tr>'; }).join('') || (all.length?'':yearChecklist()) || '<tr><td colspan="6" class="empty">일치하는 모델이 없습니다. 목록에 없더라도 품질인증+KC를 받았다면 대상일 수 있으니 초록누리·제조사에 인증서를 확인하세요.</td></tr>';
+  var pps=10, ppages=Math.max(1,Math.ceil(grp.length/pps)); if (S.ppage>ppages) S.ppage=ppages;
+  $('#pinfo2').textContent = grp.length ? '제품 '+grp.length+'개(모델 '+f.length+'개) · '+S.ppage+'/'+ppages+'페이지' : '';
+  $('#ppg').innerHTML = grp.length>pps ? pager(S.ppage,ppages,'ppg') : '';
+  $('#prows').innerHTML = grp.slice((S.ppage-1)*pps, S.ppage*pps).map(function(p){ return '<tr style="cursor:default"'+(p.mine?' class="mine"':'')+'><td><b>'+esc(p.brand)+'</b>'+(p.mine?'<span class="new" style="background:var(--soon)">등록 제품</span>':'')+'</td><td><div class="mdl">'+p.models.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div></td><td style="font-size:13px">'+esc(p.method)+'</td><td><span class="cert '+esc(p.cert)+'">'+esc(p.cert)+'</span><div class="ls">'+esc(p.body)+'</div></td><td class="hide-m" style="font-size:12.5px">'+esc(p.maker)+'<div class="ls">'+esc(p.phone||'')+'</div></td><td class="hide-m"><span class="ls">'+({L26:'2026 공고',L25:'2025.6 목록',L27:'2027 공고'}[p.list]||p.list)+'</span></td></tr>'; }).join('') || (all.length?'':yearChecklist()) || '<tr><td colspan="6" class="empty">일치하는 모델이 없습니다. 목록에 없더라도 품질인증+KC를 받았다면 대상일 수 있으니 초록누리·제조사에 인증서를 확인하세요.</td></tr>';
   var L=P.lists; $('#plist').innerHTML='출처: <a href="'+L.L26.url+'" target="_blank" rel="noopener">'+L.L26.name+'</a> · <a href="'+L.L25.url+'" target="_blank" rel="noopener">'+L.L25.name+'</a> — 지자체마다 인정 목록이 다를 수 있습니다.';
 }
 
@@ -824,11 +839,12 @@ document.addEventListener('click', function(ev){
   if (t.matches('tbody tr[data-id]')){ openDrawer(t.dataset.id); return; }
   if (false && t.matches('tbody tr[data-rid]')){ var x=t.dataset.rid.split('|'); S.sido=x[0]; S.sgg=x[1]; S.status='all'; S.page=1; setView('subsidy'); focusSido(S.sido); window.scrollTo({top:0,behavior:'smooth'}); return; }
   if (t.dataset.pg){ var pp=+t.dataset.pg; if (pp>=1){ S.page=pp; renderList(); } return; }
+  if (t.dataset.ppg){ var pq=+t.dataset.ppg; if (pq>=1){ S.ppage=pq; renderProducts(); var tb=$('#prows'); if (tb) tb.closest('.card').scrollIntoView({behavior:'smooth',block:'start'}); } return; }
   if (t.dataset.rpg){ var rp=+t.dataset.rpg; if (rp>=1){ S.rpage=rp; renderRadar(); } return; }
   if (t.dataset.view){ setView(t.dataset.view); return; }
-  if (t.dataset.pm){ S.pm=t.dataset.pm; renderProducts(); return; }
-  if (t.dataset.pc){ S.pc = S.pc===t.dataset.pc?'all':t.dataset.pc; renderProducts(); return; }
-  if (t.dataset.brand!=null){ S.brand=t.dataset.brand||null; renderProducts(); return; }
+  if (t.dataset.pm){ S.pm=t.dataset.pm; S.ppage=1; renderProducts(); return; }
+  if (t.dataset.pc){ S.pc = S.pc===t.dataset.pc?'all':t.dataset.pc; S.ppage=1; renderProducts(); return; }
+  if (t.dataset.brand!=null){ S.brand=t.dataset.brand||null; S.ppage=1; renderProducts(); return; }
   if (t.dataset.i!=null && t.closest('#sugg')){ pick($('#sugg')._o[+t.dataset.i]); return; }
   if (t.id==='dx'){ closeDrawer(); return; }
   if (t.id==='qx'){ $('#q').value=''; S.q=''; $('#searchBox').classList.remove('has'); S.page=1; render(); return; }
@@ -838,7 +854,7 @@ document.addEventListener('click', function(ev){
 });
 $('#scrim').addEventListener('click', closeDrawer);
 document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ closeDrawer(); $('#sugg').classList.remove('on'); } });
-var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; render(); suggest(); }, 120); });
+var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; S.ppage=1; render(); suggest(); }, 120); });
 $('#q').addEventListener('focus', suggest);
 $('#q').addEventListener('blur', function(){ setTimeout(function(){ $('#sugg').classList.remove('on'); }, 150); });
 $('#q').addEventListener('keydown', function(e){
