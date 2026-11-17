@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   전국 음식물처리기 보조금 지도
-  최종 업데이트(페이지 생성): 2026-11-18 06:44 KST
+  최종 업데이트(페이지 생성): 2026-11-18 06:47 KST
   공고 데이터 검증: 2026-11-18 06:15 KST
   자동 점검(2시간 주기): 2026-11-18 06:39
   점검 대상: 전국 230개 기초지자체 × 연관검색어 사전(keywords.json)
@@ -9,7 +9,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="last-updated" content="2026-11-18 06:44 KST">
+<meta name="last-updated" content="2026-11-18 06:47 KST">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>전국 음식물처리기 보조금 지도</title>
 <meta name="description" content="전국 시·도·시군구 음식물처리기(가정용 소형감량기) 보조금 공고를 지도와 지역 검색으로 찾습니다. 신청기간·지원금액·대상·필요서류·전화번호·공식 공고 링크 제공.">
@@ -133,7 +133,9 @@ th{font-size:12px;color:var(--mute);font-weight:600;text-align:left;padding:8px 
 td{padding:11px 12px;border-bottom:1px solid var(--line2);vertical-align:middle}
 tbody tr{cursor:pointer;transition:background .1s}
 tbody tr:hover{background:#FAFBFC}
-.rg b{font-weight:700;display:block;font-size:14px}
+.rg b{font-weight:700;display:block;font-size:14px;white-space:nowrap}
+.rg small{white-space:nowrap}
+.amt b,.amt small{white-space:nowrap}
 .rg small{color:var(--mute);font-size:12px}
 .amt b{font-size:14px;font-weight:700}
 .amt small{display:block;color:var(--mute);font-size:12px}
@@ -255,7 +257,7 @@ footer b{color:var(--ink2)}
 .yempty{background:linear-gradient(180deg,#F8FAFF,#FFFFFF);border-color:#DBEAFE}
 .ck{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--ink2);line-height:1.7}
 tr.mine{background:#F5F9FF}
-@media (max-width:1180px){.grid{grid-template-columns:220px minmax(0,1fr)}.listcol{grid-column:1/-1}}
+@media (max-width:1320px){.grid{grid-template-columns:232px minmax(0,1fr)}.listcol{grid-column:1/-1}}
 @media (max-width:780px){
   .wrap{padding:14px 12px 40px}
   .grid,.pgrid{grid-template-columns:minmax(0,1fr)}
@@ -434,7 +436,7 @@ tr.mine{background:#F5F9FF}
     <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 2차 출처 공고는 ‘진행 중’으로 단정하지 않고 <b>확인 필요</b>로 표시합니다.<br>
     상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. 자동 감지 결과는 사람이 공고문을 확인하기 전까지 정식 목록에 넣지 않습니다.<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
-    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 06:44 (KST)</span>
+    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 06:47 (KST)</span>
   </footer>
 </div>
 
