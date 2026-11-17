@@ -56,7 +56,7 @@ h1{font-size:22px;line-height:1.25;margin:0;font-weight:800;letter-spacing:-.03e
 .hint{font-size:12px;color:var(--mute);margin:-6px 0 12px 2px}
 .hint b{color:var(--ink2);font-weight:600}
 /* KPI */
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .kpi{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:2px;transition:border .15s,transform .15s}
 .kpi:hover{border-color:#cbd5e1}
 .kpi[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
@@ -72,7 +72,7 @@ h1{font-size:22px;line-height:1.25;margin:0;font-weight:800;letter-spacing:-.03e
 .ch{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 10px}
 .ch small{color:var(--mute);font-size:12px}
 /* index */
-.idx{position:sticky;top:12px}
+.idx{position:static}
 .sido{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 12px}
 .sb{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 9px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;text-align:left;gap:4px;min-height:38px}
 .sb:hover{border-color:#cbd5e1;background:#fafbfc}
@@ -202,6 +202,11 @@ dd{margin:4px 0 0;font-size:14px;color:var(--ink2);word-break:keep-all;overflow-
 footer{margin-top:22px;color:var(--mute);font-size:12px;line-height:1.7}
 footer b{color:var(--ink2)}
 [hidden]{display:none!important}
+#sggChips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+#sggChips .chip{justify-content:flex-start;padding:5px 7px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
+.go.t0{color:var(--brand)}.go.t1{color:#2563EB}.go.t2{color:#7C3AED}.go.t3{color:var(--mute)}
+.tg{flex:none;font-size:11.5px;font-weight:800;border-radius:7px;padding:3px 8px}
+.tg.t0{background:var(--brand-50);color:var(--brand)}.tg.t1{background:var(--soon-50);color:var(--soon)}.tg.t2{background:#F5F3FF;color:#7C3AED}
 .linkbtn{border:0;background:none;padding:0;color:var(--soon);font-weight:600;font-size:12px;text-decoration:underline;text-underline-offset:2px}
 #kwList{margin-top:8px}#kwList .chip{font-size:11.5px;cursor:default}
 #kwList .grp{font-size:11px;color:var(--mute);width:100%;margin-top:4px}
@@ -259,7 +264,7 @@ tr.mine{background:#F5F9FF}
   .yearbar{padding:10px}.yb{min-width:0;flex:1}.ybs{width:100%}.yn{margin-left:0;width:100%}
   h1{font-size:19px}.sub{font-size:12px}
   .idx{position:static}
-  .kpis{grid-template-columns:repeat(3,1fr)}
+  .kpis{grid-template-columns:repeat(2,1fr)}
   .kpi .v{font-size:21px}
   .sido{grid-template-columns:repeat(4,1fr)}
   .sb{flex-direction:column;align-items:flex-start;min-height:0}
@@ -308,7 +313,6 @@ tr.mine{background:#F5F9FF}
   <!-- ───── 보조금 현황 ───── -->
   <section id="v-subsidy">
     <div class="kpis" id="kpis"></div>
-    <div class="chknote" id="chkNote" hidden><b>확인 필요란?</b> 마감일은 지나지 않았지만 ① 지자체 공식 공고 본문을 직접 확인하지 못했거나 ② ‘예산 소진 시까지’ 접수라 지금도 받고 있는지 알 수 없는 공고입니다. ‘진행 중’으로 단정하지 않고 따로 표시했어요. 신청 전 담당 부서에 전화로 확인하세요. 공고문을 대조하면 ‘진행 중’ 또는 ‘종료’로 바로 바뀝니다.</div>
     <div class="grid">
       <aside class="card idx">
         <div class="ch"><h2>지역 검색</h2><small>운영 지자체 / 전체</small></div>
@@ -323,7 +327,7 @@ tr.mine{background:#F5F9FF}
           <div class="tip" id="tip"></div>
         </div>
         <div class="legend">
-          <span><i class="sw" style="background:#34D399"></i>접수 중</span><span><i class="sw" style="background:#60A5FA"></i>접수 예정</span><span><i class="sw" style="background:#FBBF24"></i>확인 필요·새 공고 감지</span><span><i class="sw" style="background:#B6C2D2"></i>올해 운영(마감)</span><span><i class="sw" style="background:#E9EEF4"></i>공고 없음</span><span><i class="sw unk"></i>점검 대기</span>
+          <span><i class="sw" style="background:#34D399"></i>접수 중</span><span><i class="sw" style="background:#60A5FA"></i>접수 예정</span><span><i class="sw" style="background:#B6C2D2"></i>올해 운영(마감)</span><span><i class="sw" style="background:#E9EEF4"></i>확인된 공고 없음</span><span><i class="sw unk"></i>점검 대기</span>
         </div>
       </div>
       <div class="card listcol">
@@ -362,10 +366,10 @@ tr.mine{background:#F5F9FF}
         <div class="cvf"><div class="seg" id="covSeg"></div>
           <select id="covSido" aria-label="시도 선택"></select>
           <select id="covDbl" aria-label="확인 수준"><option value="">확인 수준 전체</option><option value="2">2중 확인</option><option value="1">1차 확인</option><option value="0">미확인</option></select></div>
-        <span class="upd">지역마다 <b>네이버·구글</b> 버튼으로 즉시 직접 재확인할 수 있습니다</span>
+        <span class="upd">바로가기는 <b>구청 공고문 → 뉴스 → 블로그</b> 순으로 연결됩니다</span>
       </div>
       <div style="overflow-x:auto"><table>
-        <thead><tr><th>지자체</th><th id="covStHead">운영 상태</th><th>확인된 공고</th><th class="hide-m">확인 수준</th><th class="hide-m">최근 점검</th><th>직접 재확인</th></tr></thead>
+        <thead><tr><th>지자체</th><th id="covStHead">운영 상태</th><th>확인된 공고</th><th class="hide-m">확인 수준</th><th class="hide-m">최근 점검</th><th>바로가기</th></tr></thead>
         <tbody id="covRows"></tbody></table></div>
       <div class="pager"><span id="covInfo"></span><div class="pg" id="covPg"></div></div>
     </div>
@@ -375,7 +379,7 @@ tr.mine{background:#F5F9FF}
         <div><b><i>1</i>전수 순회</b>전국 기초지자체 전체를 2시간마다 하나도 빠짐없이 지역명 × 연관검색어로 검색합니다.</div>
         <div><b><i>2</i>두 경로 교차</b>네이버 검색(뉴스·웹·블로그)과 Google 뉴스를 따로 돌려 결과를 대조합니다.</div>
         <div><b><i>3</i>2중 확인 기준</b>공고 있음: 공식·언론 출처 + 서로 다른 출처 2곳 이상. 공고 없음: 두 경로 모두 정상 동작하고 0건.</div>
-        <div><b><i>4</i>사람 확인</b>자동 감지는 ‘검증 대기’로만 표시하고, 공고문을 대조한 뒤 정식 목록에 올립니다.</div>
+        <div><b><i>4</i>사람 확인</b>자동 감지 결과는 ‘신규 감지’ 탭에만 보이고, 공고문을 대조한 뒤에 지도·목록에 올립니다.</div>
       </div>
     </div>
   </section>
@@ -419,13 +423,14 @@ tr.mine{background:#F5F9FF}
   <!-- ───── 신규 감지 ───── -->
   <section id="v-radar" hidden>
     <div class="card">
-      <div class="lh"><h2>자동 감지된 공고 · 보도 <span class="new" style="background:var(--chk)">검증 대기</span></h2><small style="color:var(--mute)" id="radarMeta"></small></div>
+      <div class="lh"><h2>자동 감지된 공고 · 보도</h2><small style="color:var(--mute)" id="radarMeta"></small></div>
       <div class="cand" id="cand"></div>
+      <div class="pager"><span id="radarInfo"></span><div class="pg" id="radarPg"></div></div>
     </div>
   </section>
 
   <footer>
-    <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 2차 출처 공고는 ‘진행 중’으로 단정하지 않고 <b>확인 필요</b>로 표시합니다.<br>
+    <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 마감 전이지만 공식 공고로 확인되지 않은 공고는 <b>표시하지 않습니다</b>(확실하게 확인된 공고만 표시).<br>
     상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. 자동 감지 결과는 사람이 공고문을 확인하기 전까지 정식 목록에 넣지 않습니다.<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
     <b>최종 업데이트</b> <span id="lastUpd">/*__LASTUPD__*/</span>

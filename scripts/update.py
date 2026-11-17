@@ -135,8 +135,11 @@ class GoogleNews(Engine):
             time.sleep(1.0)
         out = []
         for it in ET.fromstring(raw).iter("item"):
-            out.append(dict(title=clean(it.findtext("title")), link=(it.findtext("link") or "").strip(),
-                            desc=clean(it.findtext("description")), published=to_iso(it.findtext("pubDate")), via="google-news"))
+            src = it.find("source")
+        out.append(dict(title=clean(it.findtext("title")), link=(it.findtext("link") or "").strip(),
+                            desc=clean(it.findtext("description")), published=to_iso(it.findtext("pubDate")), via="google-news",
+                            source=(src.text or "").strip() if src is not None else "",
+                            source_url=src.get("url", "") if src is not None else ""))
         return out, False
 
 def region_tokens(r):
@@ -180,7 +183,7 @@ def main():
         if k in cands: return
         sido, name = (region_id.split("|") if region_id else ("", ""))
         cands[k] = dict(hit, keyword=q, region=region_id or "", sido=sido, sigungu=name, year=hit.get("year"),
-                        gov=bool(re.search(r"\.go\.kr", hit["link"])),
+                        gov=bool(re.search(r"\.go\.kr", hit["link"] + " " + hit.get("source_url", ""))),
                         first_seen=old_cand.get(hit["link"], {}).get("first_seen", now.isoformat(timespec="seconds")))
 
     # 1) 전국 단위 연관검색어

@@ -83,7 +83,7 @@ add("서울", "성북구", "2026-04-13", "2026-04-20", 50, 21, verify="official"
 add("서울", "송파구", "2026-03-16", "2026-04-03", 30, 21, verify="official", notice="송파구 공고 제2026-334호",
     target="2026년 소형감량기를 구매한 송파구민 · 166대(4인 이상 130대 우선)",
     docs="지원신청서, 인증제품 구매 증빙(설치사진 등), 사용실적서",
-    url="https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&key=2776")
+    url="https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&key=2776")
 add("서울", "도봉구", "2026-03-16", "2026-04-24", 30, 21, verify="official",
     target="소형감량기를 구매한 도봉구민 · 100대",
     docs="보조금 지원 신청서 및 구비서류", how="동 주민센터 방문 또는 자원순환센터 등기우편",
@@ -113,11 +113,11 @@ add("서울", "강북구", "2026-03-16", "2026-04-30", 30, 21, verify="news",
     target="공고일 기준 강북구 주민등록 세대(아파트 포함) · 250세대 선착순 · '22~'25 수혜 세대 제외",
     how="강북구청 청소행정과 방문 또는 이메일", url="https://m.news.nate.com/view/20260316n31043")
 add("서울", "영등포구", "2026-05-18", "2026-05-22", 30, 15,
-    url="https://www.ydp.go.kr/www/selectBbsNttView.do?bbsNo=40&nttNo=414009&key=2848", sources=[JAB, FWS])
+    url="https://www.ydp.go.kr/www/selectBbsNttView.do?bbsNo=40&nttNo=414009&&pageUnit=10&key=2848&pageIndex=1", sources=[JAB, FWS])
 add("서울", "구로구", "2026-03-16", "2026-04-03", 30, 20, notice="구로구 공고 제2026-428호",
-    url="https://www.guro.go.kr/www/selectBbsNttGosiView.do?bbsNo=663&nttNo=49602&key=1791", sources=[FWS])
+    url="https://www.guro.go.kr/www/selectBbsNttGosiView.do?bbsNo=663&nttNo=49602&rowNum=147&&pageUnit=10&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=1791&pageIndex=1", sources=[FWS])
 add("서울", "광진구", "2026-04-06", "2026-04-24", 30, 21, notice="광진구 공고 제2026-460호",
-    url="https://www.gwangjin.go.kr/portal/bbs/B0000378/view.do?notAncmtMgtNo=15924&menuNo=200192", sources=[FWS])
+    url="https://www.gwangjin.go.kr/portal/bbs/B0000378/view.do?notAncmtMgtNo=15924&menuNo=200192&menuNo=200192&noticeType=&searchCnd=&searchWrd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1", sources=[FWS])
 add("서울", "동작구", "2026-03-09", "2026-03-13", 30, 21, sources=[FWS])
 add("서울", "중랑구", "2026-03-16", "2026-04-03", 30, 21, sources=[FWS])
 add("서울", "용산구", "2026-03-09", None, 30, 21, closed=True, note="예산 소진 시 마감(집계 사이트 기준 종료)", sources=[FWS])
@@ -130,9 +130,9 @@ add("부산", "연제구", "2026-11-09", "2026-11-23", 70, 70, round="재공고"
     phone="051-665-4000(구 대표)",
     url="https://www.yeonje.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=43822&isLinkage=Y&mId=0206030000")
 add("부산", "기장군", "2026-11-04", "2026-11-13", 70, 70, notice="기장군 공고 제2026-1971호",
-    note="기초생활수급세대 90%, 최대 90만원", url="https://www.gijang.go.kr/", sources=[JAB])
+    note="기초생활수급세대 90%, 최대 90만원", url="https://eminwon.gijang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=53035&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject", sources=[JAB])
 add("부산", "해운대구", "2026-10-27", "2026-11-13", 90, 90, round="저소득층", notice="해운대구 공고 제2026-1430호",
-    target="저소득층 세대", url="https://www.haeundae.go.kr/", sources=[JAB])
+    target="저소득층 세대", url="https://eminwon.haeundae.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=54136&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject", sources=[JAB])
 add("부산", "해운대구", "2026-10-01", "2026-10-16", 70, 70, round="일반", sources=[FWS])
 add("부산", "강서구", "2026-09-28", "2026-10-16", 70, 70, round="하반기", note="기초생활수급세대 90%, 최대 90만원",
     url="https://www.bsgangseo.go.kr/portal/board/post/view.do?bcIdx=500&mid=0501010000&idx=409746", sources=[JAB, FWS])
@@ -159,10 +159,10 @@ add("인천", "제물포구", "2026-08-03", "2026-12-20", 50, 30, round="하반�
     phone="032-770-6493",
     url="https://www.jemulpo.go.kr/main/bbs/bbsMsgDetail.do?bcd=announce&keyfield=title&msg_seq=13984&pgno=7")
 add("인천", "연수구", "2026-02-11", None, 50, 30, notice="연수구 공고 제2026-237호",
-    note="예산 소진 시 마감 — 잔여 예산 전화 확인", url="https://www.yeonsu.go.kr/", sources=[JAB, FWS])
+    note="예산 소진 시 마감 — 잔여 예산 전화 확인", sources=[JAB, FWS])
 add("인천", "옹진군", "2026-01-12", None, 50, 30, notice="옹진군 공고 제2026-37호",
     note="예산 소진 시 마감 — 잔여 예산 전화 확인",
-    url="https://www.ongjin.go.kr/open_content/main/eminwon/eminwonAnnounceDetail.do?mgt_no=36267", sources=[JAB, FWS])
+    url="https://www.ongjin.go.kr/open_content/main/eminwon/eminwonAnnounceDetail.do?mgt_no=36267&keyfield=title&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC", sources=[JAB, FWS])
 add("인천", "남동구", "2026-01-26", None, 50, 30, note="단독주택 1.26.~, 공동주택 2.2.~ 예산 소진 시까지",
     docs="음식물류 폐기물 감량기 설치 보조금 신청서 등",
     sources=["https://dikr.co.kr/2026%EB%85%84-%EC%9D%B8%EC%B2%9C-%EB%82%A8%EB%8F%99%EA%B5%AC-%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0-%EC%A7%80%EC%9B%90%EA%B8%88-50%EB%A7%8C%EC%9B%90-%EC%8B%A0%EC%B2%AD-%EC%A0%95/"])
@@ -187,30 +187,30 @@ add("대구", "수성구", "2026-04-20", "2026-04-24", 50, 30, sources=[FWS])
 
 # ───────────── 경기 ─────────────
 add("경기", "남양주시", "2026-03-03", "2026-09-30", 50, 30, notice="남양주시 공고 제2026-231호",
-    url="https://www.nyj.go.kr/www/selectEminwonWebView.do?sc1=SJ&key=2492&pk=84814", sources=[JAB, FWS])
+    url="https://www.nyj.go.kr/www/selectEminwonWebView.do?sc1=SJ&sa1Join=01;02;04;05&sc2=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=2492&pk=84814", sources=[JAB, FWS])
 add("경기", "포천시", "2026-03-03", "2026-03-27", 50, 20, sources=[FWS])
 add("경기", "동두천시", "2026-04-20", "2026-11-30", 50, 30, note="예산 소진 여부 확인 필요", sources=[FWS])
 
 # ───────────── 강원 ─────────────
 add("강원", "영월군", "2026-03-17", "2026-04-06", 80, 70, notice="영월군 공고 제2026-428호",
-    url="https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269", sources=[JAB, FWS])
+    url="https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269&searchCtgry=&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&integrDeptCode=&pageUnit=10", sources=[JAB, FWS])
 add("강원", "양구군", "2026-03-16", "2026-04-10", 70, 50, notice="양구군 공고 제2026-372호",
-    url="https://www.yanggu.go.kr/", sources=[JAB, FWS])
+    url="https://www.yanggu.go.kr/user_sub?gfnc=www&pg=1&bk=DVCYN260316095654705&mu_idx=226&bt=rd&pgsize=10&bcd=announcement", sources=[JAB, FWS])
 add("강원", "철원군", "2026-04-29", None, 70, 50, note="예산 소진 시 마감 — 잔여 예산 전화 확인", sources=[FWS])
 add("강원", "동해시", "2026-03-03", "2026-09-30", 50, 50,
-    url="https://www.dh.go.kr/www/selectBbsNttView.do?key=478&bbsNo=87&nttNo=198804", sources=[JAB, FWS])
+    url="https://www.dh.go.kr/www/selectBbsNttView.do?key=478&bbsNo=87&nttNo=198804&searchCtgry=&searchCnd=SJ&searchKrwd=%ec%9d%8c%ec%8b%9d%eb%ac%bc&integrDeptCode=&pageIndex=1", sources=[JAB, FWS])
 add("강원", "삼척시", "2026-01-12", "2026-02-06", 50, 30, sources=[FWS])
 add("강원", "평창군", "2026-02-02", "2026-02-27", 80, 50,
     url="https://www.pc.go.kr/portal/government/government-notification?noticeMgrNo=40679", sources=[FWS])
 
 # ───────────── 충북 / 충남 ─────────────
 add("충북", "청주시", "2026-02-20", "2026-03-31", 80, 50,
-    url="https://www.cheongju.go.kr/www/selectEminwonNoticeView.do?key=281&notAncmtMgtNo=151645", sources=[JAB, FWS])
+    url="https://www.cheongju.go.kr/www/selectEminwonNoticeView.do?key=281&nowDongGn=&notAncmtSeCd=&notAncmtMgtNo=151645", sources=[JAB, FWS])
 add("충북", "진천군", "2026-01-12", "2026-02-13", 60, 50, sources=[FWS])
 add("충남", "계룡시", "2026-03-18", "2026-03-31", 50, 20, notice="계룡시 공고 제2026-268호", note="대상자 선정 후 구입한 제품만 인정",
     url="https://gyeryong.go.kr/kr/html/sub03/030102.html?mode=V&mng_no=51ca4857f6802df765919bcd84c4e0ee", sources=[JAB])
 add("충남", "부여군", "2026-01-12", "2026-11-30", 50, 35, closed=True, notice="부여군 공고 제2026-55호", note="공고 제목상 사업 종료 확인",
-    url="https://www.buyeo.go.kr/html/kr/news/news_040202.html?mode=V&mng_no=1746454", sources=[JAB])
+    url="https://www.buyeo.go.kr/html/kr/news/news_040202.html?mode=V&mng_no=1746454&page_size=10&skey=not_ancmt_sj&sval=%EC%9D%8C%EC%8B%9D%EB%AC%BC", sources=[JAB])
 add("충남", "청양군", "2026-01-19", "2026-12-18", 50, 30, note="예산 소진 여부 확인 필요", sources=[FWS])
 
 # ───────────── 전남광주 (2026.7.1 통합특별시) ─────────────
@@ -218,10 +218,10 @@ add("전남광주", "함평군", "2026-11-02", "2026-11-13", 50, 30, verify="off
     notice="함평군 공고 제2026-1255호",
     target="공고일 기준 함평군 주민등록, 구매·구매예정 주민(사업장 제외) · 50세대 이내 · 수거구역 외 세대 우선 · 품질인증 1개 이상",
     phone="061-320-1833",
-    url="https://www.hampyeong.go.kr/pg/GosiDetail.do?SEQ=32876&pageId=www273",
+    url="https://www.hampyeong.go.kr/pg/GosiDetail.do?SEQ=32876&pageId=www273&listGubun=&notAncmtSeCode=01,02,03,04&search_Type=&search_Text=&pageIndex=1",
     sources=["https://www.hampyeong.go.kr/upload/file/work/2026/11.pdf", JAB])
 add("전남광주", "영광군", "2026-01-22", "2026-02-27", 80, 56, notice="영광군 공고 제2026-132호",
-    url="https://www.yeonggwang.go.kr/bbs/?b_id=gosigonggo&site=headquarter_new&mn=9059&type=view&bs_idx=27981", sources=[JAB, FWS])
+    url="https://www.yeonggwang.go.kr/bbs/?b_id=gosigonggo&site=headquarter_new&mn=9059&type=view&sc_cate=&per_page=10&start_date=&end_date=&sc_key=subject&sc_word=%EC%9D%8C%EC%8B%9D%EB%AC%BC&bs_idx=27981", sources=[JAB, FWS])
 add("전남광주", "해남군", "2026-01-08", "2026-02-04", 50, 30, sources=[FWS])
 
 # ───────────── 경북 ─────────────
@@ -240,10 +240,11 @@ add("경북", "경산시", "2026-07-06", "2026-07-31", 50, 40, round="2차", sou
 add("경북", "구미시", "2026-05-21", None, 50, 30, round="2차 추가", notice="구미시 공고 제2026-1604호",
     target="RFID 종량기 미설치 세대", note="예산 소진 시 마감 — 잔여 예산 전화 확인",
     url="https://www.gumi.go.kr/portal/saeol/gosi/view.do?mid=0401040000&notAncmtMgtNo=71980", sources=[JAB])
-add("경북", "경주시", "2026-03-04", "2026-03-10", 50, 30, target="공고일 전일 기준 세대주 · 약 28대", sources=[JAB, FWS])
+add("경북", "경주시", "2026-03-04", "2026-03-10", 50, 30, target="공고일 전일 기준 세대주 · 약 28대",
+    url="https://www.gyeongju.go.kr/open_content/ko/page.do?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&step=258&parm_bod_uid=315110&srchVoteType=-1&parm_mnu_uid=0&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=1960-01-01&srchColumn=&srchEDate=9999-12-31&mnu_uid=423&", sources=[JAB, FWS])
 add("경북", "울진군", "2026-01-08", "2026-01-30", None, None, notice="울진군 공고 제2026-34호",
     note="지원금액 출처 간 불일치(집계 사이트: 50%·최대 40만원) — 공고문 확인",
-    url="https://www.uljin.go.kr/index.uljin?menuCd=DOM_000000103002007002&type=view&ancmtMgtNo=33702", sources=[JAB])
+    url="https://www.uljin.go.kr/index.uljin?menuCd=DOM_000000103002007002&type=view&ancmtMgtNo=33702&searchType=NOT_ANCMT_SJ&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC&startPage=1", sources=[JAB])
 add("경북", "울릉군", "2026-05-13", "2026-05-26", 60, 50, sources=[FWS])
 
 # ───────────── 2027년 공고는 아래에 year=2027 로 추가 ─────────────
@@ -256,7 +257,7 @@ add("경남", "거창군", "2026-01-21", None, None, None, verify="news", force=
 add("경남", "남해군", "2026-02-09", "2026-11-30", 50, 40, note="예산 소진 여부 확인 필요", sources=[FWS])
 add("경남", "창녕군", "2026-01-07", None, 50, 30, note="예산 소진 시 마감 — 잔여 예산 전화 확인", sources=[FWS])
 add("경남", "통영시", "2026-01-13", None, 50, 30, notice="통영시 공고 제2026-65호", note="예산 소진 시 마감 — 잔여 예산 전화 확인",
-    url="https://www.tongyeong.go.kr/00852/00853/00858.web?amode=view&not_ancmt_mgt_no=49162", sources=[JAB, FWS])
+    url="https://www.tongyeong.go.kr/00852/00853/00858.web?amode=view&not_ancmt_mgt_no=49162&sstring=%EC%9D%8C%EC%8B%9D%EB%AC%BC&stype=all&cpage=1", sources=[JAB, FWS])
 add("경남", "고성군", "2026-02-25", "2026-10-30", 50, 50, sources=[FWS])
 add("경남", "김해시", "2026-01-14", "2026-02-13", 30, 20, sources=[FWS])
 add("경남", "산청군", "2026-01-12", None, 50, 40, closed=True, sources=[FWS])

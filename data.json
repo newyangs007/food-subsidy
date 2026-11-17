@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-18T06:15:14+09:00",
+ "updated_at": "2026-11-18T07:15:21+09:00",
  "verified_at": "2026-11-18",
  "years": [
   2026,
@@ -373,7 +373,7 @@
    "notice": "송파구 공고 제2026-334호",
    "target": "2026년 소형감량기를 구매한 송파구민 · 166대(4인 이상 130대 우선)",
    "docs": "지원신청서, 인증제품 구매 증빙(설치사진 등), 사용실적서",
-   "url": "https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&key=2776",
+   "url": "https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&key=2776",
    "closed": false,
    "how": "",
    "phone": "",
@@ -558,7 +558,7 @@
    "end": "2026-05-22",
    "rate": 30,
    "max": 15,
-   "url": "https://www.ydp.go.kr/www/selectBbsNttView.do?bbsNo=40&nttNo=414009&key=2848",
+   "url": "https://www.ydp.go.kr/www/selectBbsNttView.do?bbsNo=40&nttNo=414009&&pageUnit=10&key=2848&pageIndex=1",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -585,7 +585,7 @@
    "rate": 30,
    "max": 20,
    "notice": "구로구 공고 제2026-428호",
-   "url": "https://www.guro.go.kr/www/selectBbsNttGosiView.do?bbsNo=663&nttNo=49602&key=1791",
+   "url": "https://www.guro.go.kr/www/selectBbsNttGosiView.do?bbsNo=663&nttNo=49602&rowNum=147&&pageUnit=10&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=1791&pageIndex=1",
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
@@ -611,7 +611,7 @@
    "rate": 30,
    "max": 21,
    "notice": "광진구 공고 제2026-460호",
-   "url": "https://www.gwangjin.go.kr/portal/bbs/B0000378/view.do?notAncmtMgtNo=15924&menuNo=200192",
+   "url": "https://www.gwangjin.go.kr/portal/bbs/B0000378/view.do?notAncmtMgtNo=15924&menuNo=200192&menuNo=200192&noticeType=&searchCnd=&searchWrd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1",
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
@@ -737,7 +737,7 @@
    "max": 70,
    "notice": "기장군 공고 제2026-1971호",
    "note": "기초생활수급세대 90%, 최대 90만원",
-   "url": "https://www.gijang.go.kr/",
+   "url": "https://eminwon.gijang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=53035&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "sources": [
     "https://jab-guyver.co.kr/7817"
    ],
@@ -764,7 +764,7 @@
    "round": "저소득층",
    "notice": "해운대구 공고 제2026-1430호",
    "target": "저소득층 세대",
-   "url": "https://www.haeundae.go.kr/",
+   "url": "https://eminwon.haeundae.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=54136&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "sources": [
     "https://jab-guyver.co.kr/7817"
    ],
@@ -1138,7 +1138,6 @@
    "max": 30,
    "notice": "연수구 공고 제2026-237호",
    "note": "예산 소진 시 마감 — 잔여 예산 전화 확인",
-   "url": "https://www.yeonsu.go.kr/",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1149,6 +1148,7 @@
    "docs": "",
    "how": "",
    "phone": "",
+   "url": "",
    "round": "",
    "posted": "2026-02-11",
    "force": "",
@@ -1165,7 +1165,7 @@
    "max": 30,
    "notice": "옹진군 공고 제2026-37호",
    "note": "예산 소진 시 마감 — 잔여 예산 전화 확인",
-   "url": "https://www.ongjin.go.kr/open_content/main/eminwon/eminwonAnnounceDetail.do?mgt_no=36267",
+   "url": "https://www.ongjin.go.kr/open_content/main/eminwon/eminwonAnnounceDetail.do?mgt_no=36267&keyfield=title&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1521,7 +1521,7 @@
    "rate": 50,
    "max": 30,
    "notice": "남양주시 공고 제2026-231호",
-   "url": "https://www.nyj.go.kr/www/selectEminwonWebView.do?sc1=SJ&key=2492&pk=84814",
+   "url": "https://www.nyj.go.kr/www/selectEminwonWebView.do?sc1=SJ&sa1Join=01;02;04;05&sc2=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=2492&pk=84814",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1598,7 +1598,7 @@
    "rate": 80,
    "max": 70,
    "notice": "영월군 공고 제2026-428호",
-   "url": "https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269",
+   "url": "https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269&searchCtgry=&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&integrDeptCode=&pageUnit=10",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1625,7 +1625,7 @@
    "rate": 70,
    "max": 50,
    "notice": "양구군 공고 제2026-372호",
-   "url": "https://www.yanggu.go.kr/",
+   "url": "https://www.yanggu.go.kr/user_sub?gfnc=www&pg=1&bk=DVCYN260316095654705&mu_idx=226&bt=rd&pgsize=10&bcd=announcement",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1676,7 +1676,7 @@
    "end": "2026-09-30",
    "rate": 50,
    "max": 50,
-   "url": "https://www.dh.go.kr/www/selectBbsNttView.do?key=478&bbsNo=87&nttNo=198804",
+   "url": "https://www.dh.go.kr/www/selectBbsNttView.do?key=478&bbsNo=87&nttNo=198804&searchCtgry=&searchCnd=SJ&searchKrwd=%ec%9d%8c%ec%8b%9d%eb%ac%bc&integrDeptCode=&pageIndex=1",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1752,7 +1752,7 @@
    "end": "2026-03-31",
    "rate": 80,
    "max": 50,
-   "url": "https://www.cheongju.go.kr/www/selectEminwonNoticeView.do?key=281&notAncmtMgtNo=151645",
+   "url": "https://www.cheongju.go.kr/www/selectEminwonNoticeView.do?key=281&nowDongGn=&notAncmtSeCd=&notAncmtMgtNo=151645",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -1832,7 +1832,7 @@
    "closed": true,
    "notice": "부여군 공고 제2026-55호",
    "note": "공고 제목상 사업 종료 확인",
-   "url": "https://www.buyeo.go.kr/html/kr/news/news_040202.html?mode=V&mng_no=1746454",
+   "url": "https://www.buyeo.go.kr/html/kr/news/news_040202.html?mode=V&mng_no=1746454&page_size=10&skey=not_ancmt_sj&sval=%EC%9D%8C%EC%8B%9D%EB%AC%BC",
    "sources": [
     "https://jab-guyver.co.kr/7817"
    ],
@@ -1885,7 +1885,7 @@
    "notice": "함평군 공고 제2026-1255호",
    "target": "공고일 기준 함평군 주민등록, 구매·구매예정 주민(사업장 제외) · 50세대 이내 · 수거구역 외 세대 우선 · 품질인증 1개 이상",
    "phone": "061-320-1833",
-   "url": "https://www.hampyeong.go.kr/pg/GosiDetail.do?SEQ=32876&pageId=www273",
+   "url": "https://www.hampyeong.go.kr/pg/GosiDetail.do?SEQ=32876&pageId=www273&listGubun=&notAncmtSeCode=01,02,03,04&search_Type=&search_Text=&pageIndex=1",
    "sources": [
     "https://www.hampyeong.go.kr/upload/file/work/2026/11.pdf",
     "https://jab-guyver.co.kr/7817"
@@ -1908,7 +1908,7 @@
    "rate": 80,
    "max": 56,
    "notice": "영광군 공고 제2026-132호",
-   "url": "https://www.yeonggwang.go.kr/bbs/?b_id=gosigonggo&site=headquarter_new&mn=9059&type=view&bs_idx=27981",
+   "url": "https://www.yeonggwang.go.kr/bbs/?b_id=gosigonggo&site=headquarter_new&mn=9059&type=view&sc_cate=&per_page=10&start_date=&end_date=&sc_key=subject&sc_word=%EC%9D%8C%EC%8B%9D%EB%AC%BC&bs_idx=27981",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -2081,6 +2081,7 @@
    "rate": 50,
    "max": 30,
    "target": "공고일 전일 기준 세대주 · 약 28대",
+   "url": "https://www.gyeongju.go.kr/open_content/ko/page.do?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&step=258&parm_bod_uid=315110&srchVoteType=-1&parm_mnu_uid=0&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=1960-01-01&srchColumn=&srchEDate=9999-12-31&mnu_uid=423&",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
@@ -2090,7 +2091,6 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
    "note": "",
    "round": "",
    "posted": "2026-03-04",
@@ -2108,7 +2108,7 @@
    "max": null,
    "notice": "울진군 공고 제2026-34호",
    "note": "지원금액 출처 간 불일치(집계 사이트: 50%·최대 40만원) — 공고문 확인",
-   "url": "https://www.uljin.go.kr/index.uljin?menuCd=DOM_000000103002007002&type=view&ancmtMgtNo=33702",
+   "url": "https://www.uljin.go.kr/index.uljin?menuCd=DOM_000000103002007002&type=view&ancmtMgtNo=33702&searchType=NOT_ANCMT_SJ&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC&startPage=1",
    "sources": [
     "https://jab-guyver.co.kr/7817"
    ],
@@ -2232,7 +2232,7 @@
    "max": 30,
    "notice": "통영시 공고 제2026-65호",
    "note": "예산 소진 시 마감 — 잔여 예산 전화 확인",
-   "url": "https://www.tongyeong.go.kr/00852/00853/00858.web?amode=view&not_ancmt_mgt_no=49162",
+   "url": "https://www.tongyeong.go.kr/00852/00853/00858.web?amode=view&not_ancmt_mgt_no=49162&sstring=%EC%9D%8C%EC%8B%9D%EB%AC%BC&stype=all&cpage=1",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"

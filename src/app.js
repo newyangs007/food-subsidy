@@ -2,14 +2,14 @@
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
 var D, P, C, G, R, K, V;            // data, products, candidates, geo, regions, keywords, coverage
-var S = {year:null, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
+var S = {year:null, rpage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var ST = {on:'진행 중', chk:'확인 필요', soon:'예정', off:'종료'};
 var RANK = {on:0, soon:1, chk:2, off:3};
 var VF = {official:['o','공식 공고'], news:['n','언론 보도'], secondary:['s','2차 출처']};
-var RS = {on:'접수 중', soon:'접수 예정', chk:'확인 필요', auto:'새 공고 감지', done:'운영·마감', none:'공고 없음', unk:'점검 대기'};
-var RS_ORDER = ['on','soon','chk','auto','done','none','unk'];
+var RS = {on:'접수 중', soon:'접수 예정', done:'운영·마감', none:'확인된 공고 없음', unk:'점검 대기'};
+var RS_ORDER = ['on','soon','done','none','unk'];
 var RS_COL = {on:'#34D399', soon:'#60A5FA', chk:'#FBBF24', auto:'#FBBF24', done:'#B6C2D2', none:'#E9EEF4', unk:'url(#hatch)'};
 var SYN = [];
 var today, nowD;
@@ -19,6 +19,17 @@ function ymd(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0
 function fmtDT(iso){ if(!iso) return null; var m=String(iso).match(/(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/); if(!m) return iso; return m[2]+'.'+m[3]+(m[4]?' '+m[4]+':'+m[5]:''); }
 function md(s){ if(!s) return ''; var p=s.split('-'); return +p[1]+'.'+ +p[2]; }
 function days(a,b){ return Math.round((new Date(b)-new Date(a))/864e5); }
+var BLOGS=/(^|\.)(blog\.naver\.com|tistory\.com|brunch\.co\.kr|velog\.io|wikidocs\.net|tilnote\.io|make2t\.kr|jab-guyver\.co\.kr|foodwastesubsidy\.kr|yellowit\.co\.kr|studygov\.kr|glasswallet\.com|dikr\.co\.kr|icems2021\.com|naturelove40\.com|ajd\.co\.kr|gusle\.kr|thecheck\.co\.kr|wooyupost\.com|braindetox\.kr|post\.naver\.com|cafe\.naver\.com|medium\.com)$|blog/i;
+function tier(u){ var h=host(u); if(!h) return 9; if (/\.go\.kr$/.test(h)) return 0; if (BLOGS.test(h)) return 2; return 1; }
+var TIER=['공고문','뉴스','블로그'];
+function bestLink(e){
+  var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i}).sort(function(a,b){return tier(a)-tier(b)});
+  if (c.length) return {u:c[0], t:tier(c[0])};
+  var r=REG[e.sido+'|'+e.sigungu]||{q:e.sigungu};
+  return {u:'https://www.google.com/search?q='+encodeURIComponent('"'+r.q+'" 음식물처리기 감량기 보조금 '+(e.year||S.year)+' 공고 site:go.kr'), t:3};
+}
+function linkHTML(e, cls){ var b=bestLink(e); var lbl=b.t<3?TIER[b.t]+' 보기':'공고 찾기';
+  return '<a class="go '+(cls||'')+' t'+b.t+'" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">'+lbl+' ↗</a>'; }
 function host(u){ try{ return new URL(u).hostname.replace(/^www\.|^m\./,''); }catch(e){ return ''; } }
 
 /* ── 공고 단위 상태 ── */
@@ -42,11 +53,12 @@ function sidoName(k){ for (var i=0;i<D.sido.length;i++) if (D.sido[i][0]===k) re
 function amount(e){ if (e.max==null) return {b:'공고문 확인', s:''}; return {b:'최대 '+e.max+'만원', s:(e.rate? '구매가의 '+e.rate+'%' : '')}; }
 
 /* ── 사업연도 ── */
-function yItems(){ return D.items.filter(function(e){ return (e.year||2026)===S.year; }); }
+function sure(e){ return status(e)!=='chk'; }
+function yItems(){ return D.items.filter(function(e){ return (e.year||2026)===S.year && sure(e); }); }
 function autoYear(){ var y=+today.slice(0,4), ys=D.years||[2026]; if (ys.indexOf(y)>=0) return y; var past=ys.filter(function(x){return x<=y}); return past.length?Math.max.apply(null,past):ys[0]; }
-function yearStats(y){ var it=D.items.filter(function(e){return (e.year||2026)===y}), rs={}, on=0;
+function yearStats(y){ var it=D.items.filter(function(e){return (e.year||2026)===y && sure(e)}), rs={}, on=0;
   it.forEach(function(e){ rs[e.sido+'|'+e.sigungu]=1; if (status(e)==='on') on++; });
-  var cv=(V&&V.years&&V.years[y]&&V.years[y].regions)||{}, auto=Object.keys(cv).filter(function(k){return cv[k].signal==='found' && !rs[k]}).length;
+  var cv=(V&&V.years&&V.years[y]&&V.years[y].regions)||{}, auto=0;
   return {items:it.length, regions:Object.keys(rs).length, on:on, auto:auto, checked:Object.keys(cv).length}; }
 function renderYearBar(){
   var y0=autoYear(), sw=D.default_switch||'', ys=D.years||[2026];
@@ -71,15 +83,9 @@ function rstate(id){
   var es=BYR[id]||[], c=cov(id);
   if (es.length){
     var best=Math.min.apply(null, es.map(function(e){return RANK[status(e)]}));
-    var st=['on','soon','chk','done'][best];
-    if (st==='done' && c && c.signal==='found' && c.hits && c.hits[0] && c.hits[0].published){
-      var last=es.map(function(e){return e.end||e.start||''}).sort().pop();
-      if (c.hits[0].published.slice(0,10) > last) return 'auto';
-    }
-    return st;
+    return ['on','soon','on','done'][best];
   }
-  if (c && c.signal==='found') return 'auto';
-  if (c && c.signal==='none') return 'none';
+  if (c && c.signal) return 'none';
   return 'unk';
 }
 function dlevel(id){            // 2 = 2중 확인, 1 = 1차 확인, 0 = 미확인
@@ -90,20 +96,10 @@ function dlevel(id){            // 2 = 2중 확인, 1 = 1차 확인, 0 = 미확�
     if (c && c.hits) c.hits.forEach(function(h){ var x=host(h.link); if(x) hs[x]=1; });
     return (strong && Object.keys(hs).length>=2) ? 2 : 1;
   }
-  if (c && c.signal) return c.double ? 2 : 1;
+  if (c && c.signal==='none') return c.double ? 2 : 1;
   return 0;
 }
 var DL = ['미확인','1차 확인','2중 확인'];
-function qlinks(r){
-  var dev='(음식물처리기 | 감량기 | 소형감량기 | 음식물폐기물)', pr='(보조금 | 지원금 | 지원)';
-  var nq = r.q+' '+dev+' '+pr;
-  var gq = '"'+r.q+'" (음식물처리기 OR 감량기 OR 소형감량기 OR "음식물폐기물") (보조금 OR 지원금 OR 지원) '+S.year;
-  nq = S.year+' '+nq;
-  return '<div class="ql"><a class="n" href="https://search.naver.com/search.naver?where=nexearch&query='+encodeURIComponent(nq)+'" target="_blank" rel="noopener">네이버</a>'+
-         '<a class="g" href="https://www.google.com/search?q='+encodeURIComponent(gq+' site:go.kr')+'" target="_blank" rel="noopener">구글·관공서</a>'+
-         '<a class="g" href="https://www.google.com/search?tbm=nws&q='+encodeURIComponent(gq)+'" target="_blank" rel="noopener">뉴스</a></div>';
-}
-
 /* ── 검색어 정규화(연관검색어 사전) ── */
 function norm(s){ return String(s||'').toLowerCase().replace(/\s+/g,''); }
 function buildSyn(){
@@ -146,11 +142,10 @@ function filtered(){
 function renderKPI(){
   var b=base(), c={all:b.length,on:0,new:0,chk:0,off:0,soon:0};
   b.forEach(function(e){ c[status(e)]++; if (isNew(e)) c.new++; });
-  var defs=[['all','전체 공고',''],['on','진행 중','d-on'],['new','신규','d-new'],['chk','확인 필요','d-chk'],['off','종료','d-off']];
+  var defs=[['all','전체 공고',''],['on','진행 중','d-on'],['new','신규','d-new'],['off','종료','d-off']];
   $('#kpis').innerHTML = defs.map(function(d){
     return '<button class="kpi" type="button" data-st="'+d[0]+'" aria-pressed="'+(S.status===d[0])+'"'+(d[0]==='chk'?' title="'+CHK_TIP+'"':'')+'><span class="l">'+(d[2]?'<i class="dot '+d[2]+'"></i>':'')+d[1]+'</span><span class="v">'+c[d[0]]+'<small>건</small></span></button>';
   }).join('');
-  $('#chkNote').hidden = !(S.status==='chk' && c.chk);
   $('#seg').innerHTML = defs.map(function(d){ return '<button type="button" data-st="'+d[0]+'" aria-pressed="'+(S.status===d[0])+'">'+d[1]+' '+c[d[0]]+'</button>'; }).join('');
 }
 
@@ -182,13 +177,11 @@ function renderIndex(){
 /* ── 공고 목록 ── */
 function regionCard(id){
   var r=REG[id]; if(!r) return ''; var st=rstate(id), c=cov(id), lv=dlevel(id);
-  var hits = c && c.hits && c.hits.length ? '<div class="hitl">'+c.hits.map(function(h){return '<a href="'+esc(h.link)+'" target="_blank" rel="noopener">'+esc(h.title)+(h.published?' · '+fmtDT(h.published):'')+' ↗</a>'}).join('')+'</div>' : '';
+  if (BYR[id] && BYR[id].length) return '';
   return '<div class="rcard"><h4>'+esc(sidoName(r.sido))+' '+esc(r.name)+' <span class="rs '+st+'">'+rsl(st)+'</span> <span class="dbl d'+lv+'">'+DL[lv]+'</span></h4>'+
     (r.note?'<p>'+esc(r.note)+'</p>':'')+
-    '<p>'+(st==='unk'?'아직 자동 점검 전입니다. 아래 버튼으로 지금 바로 직접 확인할 수 있어요.':
-          st==='none'?'최근 점검('+fmtDT(c.checked_at)+')에서 '+(c.double?'네이버·구글 두 경로 모두':'')+' 관련 공고·보도가 발견되지 않았습니다.':
-          st==='auto'?'자동 점검에서 관련 공고·보도가 감지됐습니다(검증 대기). 공고문을 확인해 주세요.':'')+'</p>'+hits+
-    '<div style="margin-top:8px">'+qlinks(r)+'</div></div>';
+    '<p>'+(st==='unk'?S.year+'년 확인된 공고가 아직 없습니다. 자동 점검(2시간마다)에서 확인되는 대로 표시됩니다.':
+          '최근 점검('+fmtDT(c.checked_at)+') 기준 '+S.year+'년 공식 공고가 확인되지 않았습니다.')+'</p></div>';
 }
 function renderList(){
   var f=filtered(), n=f.length, pages=Math.max(1,Math.ceil(n/S.ps)); if (S.page>pages) S.page=pages;
@@ -203,7 +196,7 @@ function renderList(){
       '<td class="per">'+per+'<small>'+esc(sub)+'</small></td>'+
       '<td><span class="st '+s+'"'+(s==='chk'?' title="'+CHK_TIP+'"':'')+'><i class="dot d-'+s+'"></i>'+ST[s]+'</span>'+(s==='chk'?'<span class="why">'+why(e)+'</span>':'')+'</td>'+
       '<td class="hide-m"><span class="vf '+v[0]+'"><i></i>'+v[1]+'</span></td>'+
-      '<td>'+(e.url?'<a class="go" href="'+esc(e.url)+'" target="_blank" rel="noopener" data-stop="1">공고 보기 ↗</a>':'<span class="ls">링크 없음</span>')+'</td></tr>';
+      '<td>'+linkHTML(e)+'</td></tr>';
   }).join('');
   var card = S.sgg ? regionCard(S.sido+'|'+S.sgg) : '';
   if (!yItems().length){ var prev=(D.years||[]).filter(function(y){return y<S.year && yearStats(y).items}).pop(), st=yearStats(S.year);
@@ -282,7 +275,7 @@ function openDrawer(id){
   var s=status(e), a=amount(e), v=VF[e.verify], rid=e.sido+'|'+e.sigungu, lv=dlevel(rid);
   var per = e.start ? e.start.replace(/-/g,'.')+' ~ '+(e.end?e.end.replace(/-/g,'.'):'예산 소진 시') : '공고문 확인';
   var f=function(lbl,val){ return '<dt>'+lbl+'</dt><dd>'+(val?esc(val):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'; };
-  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i});
+  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i}).sort(function(a,b){return tier(a)-tier(b)}), bl=bestLink(e);
   $('#drawer').innerHTML =
     '<button class="x2" type="button" id="dx" aria-label="닫기">×</button>'+
     '<div class="dh"><div class="r">'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</div><h3>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</h3>'+
@@ -291,11 +284,10 @@ function openDrawer(id){
     '<dl>'+(e.note?f('비고',e.note):'')+f('지원 대상',e.target)+f('필요 서류',e.docs)+f('신청 방법',e.how)+
     '<dt>전화번호</dt><dd>'+(e.phone?esc(e.phone):'<span style="color:var(--faint)">공고문·시군구청 대표번호로 문의</span>')+'</dd>'+
     (e.notice?f('공고 번호',e.notice):'')+
-    '<dt>출처</dt><dd class="srcs">'+srcs.map(function(u){return '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u.replace(/^https?:\/\//,''))+'</a>'}).join('')+'</dd>'+
-    '<dt>직접 재확인 (더블체크)</dt><dd>'+qlinks(REG[rid]||{q:e.sigungu})+'</dd></dl>'+
-    (e.verify==='secondary'?'<div class="warn">공식 공고 본문을 직접 확인하지 못한 항목입니다. 신청 가능 여부와 잔여 예산은 반드시 담당 부서에 전화로 확인하세요.</div>':
+    '<dt>출처 (공고문 → 뉴스 → 블로그 순)</dt><dd class="srcs">'+srcs.map(function(u){return '<a href="'+esc(u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">['+(TIER[tier(u)]||'기타')+']</b> '+esc(u.replace(/^https?:\/\//,'').slice(0,70))+'</a>'}).join('')+'</dd></dl>'+
+    (e.verify==='secondary'?'<div class="warn">이 공고는 이미 마감된 것으로 확인된 2026년 사업입니다. 다음 모집은 해당 지자체 공고를 확인하세요.</div>':
       '<div class="ok">'+(e.verify==='official'?'지자체 공식 공고 본문과 대조했습니다.':'구청 보도자료 기반 언론 보도와 대조했습니다.')+' 예산 소진 시 조기 마감될 수 있습니다.</div>')+
-    '</div><div class="df">'+(e.url?'<a class="btn dark" href="'+esc(e.url)+'" target="_blank" rel="noopener">공식 공고 바로가기 ↗</a>':'')+(e.phone?'<a class="btn" href="tel:'+esc(e.phone.replace(/[^0-9-]/g,''))+'">전화 '+esc(e.phone.replace(/\(.*\)/,''))+'</a>':'')+'</div>';
+    '</div><div class="df"><a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">'+(bl.t<3?TIER[bl.t]+' 바로가기':'공고문 찾기')+' ↗</a>'+(e.phone?'<a class="btn" href="tel:'+esc(e.phone.replace(/[^0-9-]/g,''))+'">전화 '+esc(e.phone.replace(/\(.*\)/,''))+'</a>':'')+'</div>';
   $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false');
 }
 function closeDrawer(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
@@ -305,7 +297,7 @@ function renderCoverage(){
   var all=R.regions, cnt={}; RS_ORDER.forEach(function(k){cnt[k]=0}); var d2=0;
   all.forEach(function(r){ cnt[rstate(r.id)]++; if (dlevel(r.id)===2) d2++; });
   $('#covTotal').textContent=all.length; $('#covN').textContent=' '+all.length; $('#covYear').textContent=S.year; $('#covStHead').textContent=S.year+'년 운영 상태';
-  $('#yearCmp').innerHTML=(D.years||[]).map(function(y){ var st=yearStats(y); return '<button type="button" class="yc" data-year="'+y+'" aria-pressed="'+(S.year===y)+'"><b>'+y+'년</b><span>운영 확인 <em>'+st.regions+'</em>곳</span><span>공고 '+st.items+'건 · 접수 중 '+st.on+'</span><span>자동 감지 '+st.auto+'곳 · 점검 '+st.checked+'/'+all.length+'</span></button>'; }).join('');
+  $('#yearCmp').innerHTML=(D.years||[]).map(function(y){ var st=yearStats(y); return '<button type="button" class="yc" data-year="'+y+'" aria-pressed="'+(S.year===y)+'"><b>'+y+'년</b><span>운영 확인 <em>'+st.regions+'</em>곳</span><span>공고 '+st.items+'건 · 접수 중 '+st.on+'</span><span>자동 점검 '+st.checked+'/'+all.length+'곳 완료</span></button>'; }).join('');
   $('#covBar').innerHTML = RS_ORDER.map(function(k){ return cnt[k]?'<i title="'+rsl(k)+' '+cnt[k]+'" style="width:'+(cnt[k]/all.length*100)+'%;background:'+(k==='unk'?'repeating-linear-gradient(45deg,#fff 0 3px,#E2E8F0 3px 5px)':RS_COL[k])+'"></i>':''; }).join('');
   $('#covLg').innerHTML = RS_ORDER.filter(function(k){return k!=='auto'||cnt.auto}).map(function(k){ return '<span><i class="sw'+(k==='unk'?' unk':'')+'" style="'+(k!=='unk'?'background:'+RS_COL[k]:'')+'"></i>'+rsl(k)+' <b>'+cnt[k]+'</b></span>'; }).join('')+'<span>· 2중 확인 <b>'+d2+'</b>곳</span>';
   var yv=V&&V.years&&V.years[S.year];
@@ -316,15 +308,14 @@ function renderCoverage(){
   var rows=all.filter(function(r){ var st=rstate(r.id);
     return (S.cs==='all'||st===S.cs) && (!S.csido||r.sido===S.csido) && (S.cdbl===''||String(dlevel(r.id))===S.cdbl) && matchR(r.id); })
     .sort(function(a,b){ return (RS_ORDER.indexOf(rstate(a.id))-RS_ORDER.indexOf(rstate(b.id))) || 0; });
-  var ps=25, pages=Math.max(1,Math.ceil(rows.length/ps)); if (S.cpage>pages) S.cpage=pages;
+  var ps=10, pages=Math.max(1,Math.ceil(rows.length/ps)); if (S.cpage>pages) S.cpage=pages;
   $('#covRows').innerHTML = rows.slice((S.cpage-1)*ps,S.cpage*ps).map(function(r){
     var st=rstate(r.id), es=BYR[r.id].slice().sort(function(a,b){return RANK[status(a)]-RANK[status(b)]}), c=cov(r.id), lv=dlevel(r.id);
-    var e=es[0], summ = e ? (amount(e).b+' · '+(e.start?md(e.start)+'~'+(e.end?md(e.end):'소진 시'):'')+(es.length>1?' 외 '+(es.length-1)+'건':'')) :
-      (c&&c.hits&&c.hits[0] ? '<a class="go" href="'+esc(c.hits[0].link)+'" target="_blank" rel="noopener" data-stop="1">'+esc(c.hits[0].title.slice(0,34))+'… ↗</a>' : '<span class="ls">—</span>');
+    var e=es[0], summ = e ? (amount(e).b+' · '+(e.start?md(e.start)+'~'+(e.end?md(e.end):'소진 시'):'')+(es.length>1?' 외 '+(es.length-1)+'건':'')) : '<span class="ls">—</span>';
     var chk = [e?'<div>수동 '+esc(md(e.verified_at))+'</div>':'', c&&c.checked_at?'<div>자동 '+fmtDT(c.checked_at)+(c.engines?' · '+Object.keys(c.engines).filter(function(k){return c.engines[k].status==='ok'}).map(function(k){return k==='naver'?'N':'G'}).join('+'):'')+'</div>':''].join('') || '<span class="ls">대기</span>';
     return '<tr data-rid="'+esc(r.id)+'"><td class="rg"><b>'+esc(r.name)+'</b><small>'+esc(sidoName(r.sido))+(r.note?' · '+esc(r.note):'')+'</small></td>'+
       '<td><span class="rs '+st+'">'+rsl(st)+'</span></td><td style="font-size:13px">'+summ+'</td>'+
-      '<td class="hide-m"><span class="dbl d'+lv+'">'+DL[lv]+'</span></td><td class="hide-m ls" style="font-size:11.5px">'+chk+'</td><td>'+qlinks(r)+'</td></tr>';
+      '<td class="hide-m"><span class="dbl d'+lv+'">'+DL[lv]+'</span></td><td class="hide-m ls" style="font-size:11.5px">'+chk+'</td><td>'+(e?linkHTML(e):'<span class="ls">—</span>')+'</td></tr>';
   }).join('') || '<tr><td colspan="6" class="empty">조건에 맞는 지자체가 없습니다.</td></tr>';
   $('#covInfo').textContent = rows.length+'개 지자체 · '+S.cpage+'/'+pages+'페이지';
   $('#covPg').innerHTML = pager(S.cpage,pages,'cpg');
@@ -360,18 +351,31 @@ function yearChecklist(){
     (prev?'<p style="margin-top:10px"><button class="btn" type="button" data-year="'+prev+'">'+prev+'년 인증 제품 목록 참고하기</button></p>':'')+'</div></td></tr>';
 }
 
-/* ── 신규 감지 ── */
+/* ── 신규 감지: 공고문 → 뉴스 → 블로그 순, 10개씩 ── */
+function ctier(c){
+  if (/naver-blog/.test(c.via||'')) return 2;
+  var src=(c.source||'')+' '+(String(c.title).split(' - ').pop()||'');
+  if (c.source_url) { var t=tier(c.source_url); if (t===0||t===2) return t; }
+  if (/브런치|블로그|티스토리|tistory|brunch|네이버 포스트|카페/i.test(src)) return 2;
+  if (/(시청|구청|군청|도청|특별시|광역시)$/.test(src.trim()) || /\.go\.kr/.test(c.source_url||'')) return 0;
+  return tier(c.link);
+}
 function renderRadar(){
   var it=((C&&C.items)||[]).filter(function(c){ return (c.year||2026)===S.year; });
   $('#radarN').textContent = it.length? ' '+it.length : '';
-  $('#radarMeta').textContent = C&&C.updated_at ? '마지막 수집 '+fmtDT(C.updated_at)+' · 전국 '+R.regions.length+'개 지자체 × 연관검색어' : '';
+  $('#radarMeta').textContent = C&&C.updated_at ? '마지막 수집 '+fmtDT(C.updated_at)+' · 공고문 → 뉴스 → 블로그 순' : '';
   var q=regionTokens(S.q);
-  var list=it.filter(function(c){ var h=norm(c.title+' '+c.sido+' '+c.sigungu); return q.every(function(w){return h.indexOf(w)>=0}); });
-  $('#cand').innerHTML = list.length ? list.map(function(c){
+  var list=it.filter(function(c){ var h=norm(c.title+' '+c.sido+' '+c.sigungu); return q.every(function(w){return h.indexOf(w)>=0}); })
+    .map(function(c){ c._t = ctier(c); return c; })
+    .sort(function(a,b){ return (a._t-b._t) || ((b.published||'')>(a.published||'')?1:-1); });
+  var ps=10, pages=Math.max(1,Math.ceil(list.length/ps)); if (S.rpage>pages) S.rpage=pages;
+  $('#cand').innerHTML = list.length ? list.slice((S.rpage-1)*ps, S.rpage*ps).map(function(c){
     var nw = c.first_seen && days(c.first_seen.slice(0,10),today)<=3;
-    return '<div class="ci"><span class="st chk" style="flex:none">'+(c.gov?'지자체':'보도')+'</span><div><a href="'+esc(c.link)+'" target="_blank" rel="noopener">'+esc(c.title)+'</a>'+(nw?'<span class="new">신규</span>':'')+
-      '<div class="m">'+[c.sido,c.sigungu].filter(Boolean).join(' ')+(c.published?' · '+fmtDT(c.published):'')+' · 검색어 “'+esc(c.keyword)+'”</div>'+(c.desc?'<div class="d">'+esc(c.desc.slice(0,140))+'</div>':'')+'</div></div>';
-  }).join('') : '<div class="empty"><b style="color:var(--ink)">아직 자동 감지된 항목이 없습니다.</b><br><small>배포하면 2시간마다 전국 '+R.regions.length+'개 지자체를 연관검색어 '+((K.device||[]).length+(K.program||[]).length)+'개 조합으로 점검해 새 공고·보도를 이곳에 ‘검증 대기’로 표시합니다.</small></div>';
+    return '<div class="ci"><span class="tg t'+c._t+'">'+(TIER[c._t]||'기타')+'</span><div><a href="'+esc(c.link)+'" target="_blank" rel="noopener">'+esc(c.title)+'</a>'+(nw?'<span class="new">신규</span>':'')+
+      '<div class="m">'+[c.sido,c.sigungu].filter(Boolean).join(' ')+(c.published?' · '+fmtDT(c.published):'')+'</div>'+(c.desc?'<div class="d">'+esc(c.desc.slice(0,140))+'</div>':'')+'</div></div>';
+  }).join('') : '<div class="empty"><b style="color:var(--ink)">아직 자동 감지된 항목이 없습니다.</b><br><small>2시간마다 전국 '+R.regions.length+'개 지자체를 점검해 새 공고·보도를 이곳에 표시합니다.</small></div>';
+  $('#radarInfo').textContent = list.length ? list.length+'건 · '+S.rpage+'/'+pages+'페이지' : '';
+  $('#radarPg').innerHTML = list.length>ps ? pager(S.rpage,pages,'rpg') : '';
 }
 
 /* ── 자동완성 ── */
@@ -428,6 +432,7 @@ document.addEventListener('click', function(ev){
   if (t.matches('tbody tr[data-id]')){ openDrawer(t.dataset.id); return; }
   if (t.matches('tbody tr[data-rid]')){ var x=t.dataset.rid.split('|'); S.sido=x[0]; S.sgg=x[1]; S.status='all'; S.page=1; setView('subsidy'); focusSido(S.sido); window.scrollTo({top:0,behavior:'smooth'}); return; }
   if (t.dataset.pg){ var pp=+t.dataset.pg; if (pp>=1){ S.page=pp; renderList(); } return; }
+  if (t.dataset.rpg){ var rp=+t.dataset.rpg; if (rp>=1){ S.rpage=rp; renderRadar(); } return; }
   if (t.dataset.cpg){ var cp=+t.dataset.cpg; if (cp>=1){ S.cpage=cp; renderCoverage(); } return; }
   if (t.dataset.cs){ S.cs=t.dataset.cs; S.cpage=1; renderCoverage(); return; }
   if (t.dataset.view){ setView(t.dataset.view); return; }
@@ -445,7 +450,7 @@ $('#covSido').addEventListener('change', function(){ S.csido=this.value; S.cpage
 $('#covDbl').addEventListener('change', function(){ S.cdbl=this.value; S.cpage=1; renderCoverage(); });
 $('#scrim').addEventListener('click', closeDrawer);
 document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ closeDrawer(); $('#sugg').classList.remove('on'); } });
-var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; render(); suggest(); }, 120); });
+var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; render(); suggest(); }, 120); });
 $('#q').addEventListener('focus', suggest);
 $('#q').addEventListener('blur', function(){ setTimeout(function(){ $('#sugg').classList.remove('on'); }, 150); });
 $('#q').addEventListener('keydown', function(e){
