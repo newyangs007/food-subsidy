@@ -201,7 +201,7 @@ function renderList(){
   var card = S.sgg ? regionCard(S.sido+'|'+S.sgg) : '';
   if (!yItems().length){ var prev=(D.years||[]).filter(function(y){return y<S.year && yearStats(y).items}).pop(), st=yearStats(S.year);
     card = '<div class="rcard yempty"><h4>'+S.year+'년 음식물처리기 보조금 공고를 기다리는 중입니다</h4><p>'+esc(((D.year_meta||{})[S.year]||{}).note||'')+'</p>'+
-      '<p>전국 '+R.regions.length+'개 지자체를 2시간마다 자동 점검해, '+S.year+'년 공고가 감지되면 지도와 목록에 바로 표시합니다.'+(st.auto?' 현재 <b>'+st.auto+'곳</b>에서 새 공고 신호가 감지됐어요 — 전국 점검표에서 확인하세요.':'')+'</p>'+
+      '<p>전국 '+R.regions.length+'개 지자체를 2시간마다 자동 점검해, '+S.year+'년 공고가 감지되면 지도와 목록에 바로 표시합니다.'+(st.auto?' 현재 <b>'+st.auto+'곳</b>에서 새 공고 신호가 감지됐어요 — 보조금 뉴스 탭에서 확인하세요.':'')+'</p>'+
       (prev?'<p style="margin-top:10px"><button class="btn" type="button" data-year="'+prev+'">'+prev+'년 공고 '+yearStats(prev).items+'건 보기</button></p>':'')+'</div>'+card; }
   $('#rows').innerHTML = rows || (yItems().length ? '<tr><td colspan="6" class="empty">'+S.year+'년 조건에 맞는 공고가 없습니다.</td></tr>' : '');
   $('#rows').closest('table').hidden = !yItems().length;
@@ -292,35 +292,6 @@ function openDrawer(id){
 }
 function closeDrawer(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
 
-/* ── 전국 점검표 ── */
-function renderCoverage(){
-  var all=R.regions, cnt={}; RS_ORDER.forEach(function(k){cnt[k]=0}); var d2=0;
-  all.forEach(function(r){ cnt[rstate(r.id)]++; if (dlevel(r.id)===2) d2++; });
-  $('#covTotal').textContent=all.length; $('#covN').textContent=' '+all.length; $('#covYear').textContent=S.year; $('#covStHead').textContent=S.year+'년 운영 상태';
-  $('#yearCmp').innerHTML=(D.years||[]).map(function(y){ var st=yearStats(y); return '<button type="button" class="yc" data-year="'+y+'" aria-pressed="'+(S.year===y)+'"><b>'+y+'년</b><span>운영 확인 <em>'+st.regions+'</em>곳</span><span>공고 '+st.items+'건 · 접수 중 '+st.on+'</span><span>자동 점검 '+st.checked+'/'+all.length+'곳 완료</span></button>'; }).join('');
-  $('#covBar').innerHTML = RS_ORDER.map(function(k){ return cnt[k]?'<i title="'+rsl(k)+' '+cnt[k]+'" style="width:'+(cnt[k]/all.length*100)+'%;background:'+(k==='unk'?'repeating-linear-gradient(45deg,#fff 0 3px,#E2E8F0 3px 5px)':RS_COL[k])+'"></i>':''; }).join('');
-  $('#covLg').innerHTML = RS_ORDER.filter(function(k){return k!=='auto'||cnt.auto}).map(function(k){ return '<span><i class="sw'+(k==='unk'?' unk':'')+'" style="'+(k!=='unk'?'background:'+RS_COL[k]:'')+'"></i>'+rsl(k)+' <b>'+cnt[k]+'</b></span>'; }).join('')+'<span>· 2중 확인 <b>'+d2+'</b>곳</span>';
-  var yv=V&&V.years&&V.years[S.year];
-  $('#covUpd').innerHTML = '자동 점검 '+(yv&&yv.updated_at?fmtDT(yv.updated_at)+' (2시간마다)':'배포 후 첫 실행 대기 · 이후 2시간마다')+' · 공고 검증 '+fmtDT(D.updated_at);
-  var segs=[['all','전체']].concat(RS_ORDER.map(function(k){return [k,rsl(k)]})).filter(function(s){return s[0]==='all'||cnt[s[0]]});
-  $('#covSeg').innerHTML = segs.map(function(s){ return '<button type="button" data-cs="'+s[0]+'" aria-pressed="'+(S.cs===s[0])+'">'+s[1]+' '+(s[0]==='all'?all.length:cnt[s[0]])+'</button>'; }).join('');
-  if (!$('#covSido').options.length) $('#covSido').innerHTML='<option value="">시도 전체</option>'+D.sido.map(function(s){return '<option value="'+s[0]+'">'+s[1]+'</option>'}).join('');
-  var rows=all.filter(function(r){ var st=rstate(r.id);
-    return (S.cs==='all'||st===S.cs) && (!S.csido||r.sido===S.csido) && (S.cdbl===''||String(dlevel(r.id))===S.cdbl) && matchR(r.id); })
-    .sort(function(a,b){ return (RS_ORDER.indexOf(rstate(a.id))-RS_ORDER.indexOf(rstate(b.id))) || 0; });
-  var ps=10, pages=Math.max(1,Math.ceil(rows.length/ps)); if (S.cpage>pages) S.cpage=pages;
-  $('#covRows').innerHTML = rows.slice((S.cpage-1)*ps,S.cpage*ps).map(function(r){
-    var st=rstate(r.id), es=BYR[r.id].slice().sort(function(a,b){return RANK[status(a)]-RANK[status(b)]}), c=cov(r.id), lv=dlevel(r.id);
-    var e=es[0], summ = e ? (amount(e).b+' · '+(e.start?md(e.start)+'~'+(e.end?md(e.end):'소진 시'):'')+(es.length>1?' 외 '+(es.length-1)+'건':'')) : '<span class="ls">—</span>';
-    var chk = [e?'<div>수동 '+esc(md(e.verified_at))+'</div>':'', c&&c.checked_at?'<div>자동 '+fmtDT(c.checked_at)+(c.engines?' · '+Object.keys(c.engines).filter(function(k){return c.engines[k].status==='ok'}).map(function(k){return k==='naver'?'N':'G'}).join('+'):'')+'</div>':''].join('') || '<span class="ls">대기</span>';
-    return '<tr data-rid="'+esc(r.id)+'"><td class="rg"><b>'+esc(r.name)+'</b><small>'+esc(sidoName(r.sido))+(r.note?' · '+esc(r.note):'')+'</small></td>'+
-      '<td><span class="rs '+st+'">'+rsl(st)+'</span></td><td style="font-size:13px">'+summ+'</td>'+
-      '<td class="hide-m"><span class="dbl d'+lv+'">'+DL[lv]+'</span></td><td class="hide-m ls" style="font-size:11.5px">'+chk+'</td><td>'+(e?linkHTML(e):'<span class="ls">—</span>')+'</td></tr>';
-  }).join('') || '<tr><td colspan="6" class="empty">조건에 맞는 지자체가 없습니다.</td></tr>';
-  $('#covInfo').textContent = rows.length+'개 지자체 · '+S.cpage+'/'+pages+'페이지';
-  $('#covPg').innerHTML = pager(S.cpage,pages,'cpg');
-}
-
 /* ── 제품 ── */
 function pMethod(p){ return /미생물/.test(p.method)?'bio':'dry'; }
 function renderProducts(){
@@ -373,7 +344,7 @@ function renderRadar(){
     var nw = c.first_seen && days(c.first_seen.slice(0,10),today)<=3;
     return '<div class="ci"><span class="tg t'+c._t+'">'+(TIER[c._t]||'기타')+'</span><div><a href="'+esc(c.link)+'" target="_blank" rel="noopener">'+esc(c.title)+'</a>'+(nw?'<span class="new">신규</span>':'')+
       '<div class="m">'+[c.sido,c.sigungu].filter(Boolean).join(' ')+(c.published?' · '+fmtDT(c.published):'')+'</div>'+(c.desc?'<div class="d">'+esc(c.desc.slice(0,140))+'</div>':'')+'</div></div>';
-  }).join('') : '<div class="empty"><b style="color:var(--ink)">아직 자동 감지된 항목이 없습니다.</b><br><small>2시간마다 전국 '+R.regions.length+'개 지자체를 점검해 새 공고·보도를 이곳에 표시합니다.</small></div>';
+  }).join('') : '<div class="empty"><b style="color:var(--ink)">아직 모인 보조금 뉴스가 없습니다.</b><br><small>2시간마다 전국 '+R.regions.length+'개 지자체를 점검해 새 공고·뉴스를 이곳에 모아 보여줍니다.</small></div>';
   $('#radarInfo').textContent = list.length ? list.length+'건 · '+S.rpage+'/'+pages+'페이지' : '';
   $('#radarPg').innerHTML = list.length>ps ? pager(S.rpage,pages,'rpg') : '';
 }
@@ -398,12 +369,11 @@ function render(){
   if (!D || !R) return;
   renderYearBar(); $('#yearLbl').textContent='· '+S.year+'년 사업';
   if (S.view==='subsidy'){ renderKPI(); renderIndex(); renderList(); renderMap(); }
-  if (S.view==='coverage') renderCoverage(); else $('#covN').textContent=' '+R.regions.length;
   if (S.view==='products') renderProducts();
   renderRadar();
 }
 function setView(v){
-  S.view=v; ['subsidy','coverage','products','radar'].forEach(function(k){ $('#v-'+k).hidden = k!==v; });
+  S.view=v; ['subsidy','products','radar'].forEach(function(k){ $('#v-'+k).hidden = k!==v; });
   document.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-selected', t.dataset.view===v); });
   $('#q').placeholder = v==='products' ? '브랜드·모델명 검색 — 예: 린클, 스마트카라, MNFD, 미생물' : '지역 또는 연관검색어 — 예: 서초구, 부산 연제 감량기, 함평 음식물처리기 지원금';
   $('#hint').hidden = v==='products';
@@ -430,11 +400,9 @@ document.addEventListener('click', function(ev){
   if (t.matches('circle.mk')){ var q=t.dataset.k.split('|'); S.sido=q[0]; S.sgg=q[1]; S.page=1; render(); var f=filtered(); if (f.length===1) openDrawer(f[0].id); return; }
   if (t.id==='mapAll'){ S.sido=null; S.sgg=null; S.page=1; render(); focusSido(null); return; }
   if (t.matches('tbody tr[data-id]')){ openDrawer(t.dataset.id); return; }
-  if (t.matches('tbody tr[data-rid]')){ var x=t.dataset.rid.split('|'); S.sido=x[0]; S.sgg=x[1]; S.status='all'; S.page=1; setView('subsidy'); focusSido(S.sido); window.scrollTo({top:0,behavior:'smooth'}); return; }
+  if (false && t.matches('tbody tr[data-rid]')){ var x=t.dataset.rid.split('|'); S.sido=x[0]; S.sgg=x[1]; S.status='all'; S.page=1; setView('subsidy'); focusSido(S.sido); window.scrollTo({top:0,behavior:'smooth'}); return; }
   if (t.dataset.pg){ var pp=+t.dataset.pg; if (pp>=1){ S.page=pp; renderList(); } return; }
   if (t.dataset.rpg){ var rp=+t.dataset.rpg; if (rp>=1){ S.rpage=rp; renderRadar(); } return; }
-  if (t.dataset.cpg){ var cp=+t.dataset.cpg; if (cp>=1){ S.cpage=cp; renderCoverage(); } return; }
-  if (t.dataset.cs){ S.cs=t.dataset.cs; S.cpage=1; renderCoverage(); return; }
   if (t.dataset.view){ setView(t.dataset.view); return; }
   if (t.dataset.pm){ S.pm=t.dataset.pm; renderProducts(); return; }
   if (t.dataset.pc){ S.pc = S.pc===t.dataset.pc?'all':t.dataset.pc; renderProducts(); return; }
@@ -446,8 +414,6 @@ document.addEventListener('click', function(ev){
   if (t.id==='refresh'){ load(true); return; }
   if (t.id==='kwToggle'){ var l=$('#kwList'); l.hidden=!l.hidden; t.textContent=l.hidden?'연관검색어 사전 보기':'접기'; return; }
 });
-$('#covSido').addEventListener('change', function(){ S.csido=this.value; S.cpage=1; renderCoverage(); });
-$('#covDbl').addEventListener('change', function(){ S.cdbl=this.value; S.cpage=1; renderCoverage(); });
 $('#scrim').addEventListener('click', closeDrawer);
 document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ closeDrawer(); $('#sugg').classList.remove('on'); } });
 var qT; $('#q').addEventListener('input', function(){ clearTimeout(qT); qT=setTimeout(function(){ S.q=$('#q').value; S.page=1; S.cpage=1; S.rpage=1; render(); suggest(); }, 120); });
@@ -466,7 +432,7 @@ $('#map').addEventListener('mousemove', function(ev){
   var b=$('.mapbox').getBoundingClientRect(); tip.textContent=txt; tip.style.left=(ev.clientX-b.left)+'px'; tip.style.top=(ev.clientY-b.top)+'px'; tip.classList.add('on');
 });
 $('#map').addEventListener('mouseleave', function(){ tip.classList.remove('on'); });
-window.addEventListener('hashchange', function(){ var h=location.hash.slice(1); if (['subsidy','coverage','products','radar'].indexOf(h)>=0 && h!==S.view) setView(h); });
+window.addEventListener('hashchange', function(){ var h=location.hash.slice(1); if (['subsidy','products','radar'].indexOf(h)>=0 && h!==S.view) setView(h); });
 
 /* ── 로드: 접속할 때마다 최신 JSON을 캐시 없이 다시 받음 ── */
 function getJSON(name){
@@ -492,7 +458,7 @@ function load(isRefresh){
     buildSyn(); indexRegions(); renderKw(); stamp(); render(); if (isRefresh) focusSido(S.sido);
   }).finally(function(){ btn.disabled=false; btn.style.opacity=1; });
 }
-var h0=location.hash.slice(1); if (['coverage','products','radar'].indexOf(h0)>=0) S.view=h0;
+var h0=location.hash.slice(1); if (['products','radar'].indexOf(h0)>=0) S.view=h0;
 setView(S.view);
 load(false);
 setInterval(function(){ var d=ymd(kst()); if (d!==today && D){ var was=autoYear(); stamp(); if (S.year===was && autoYear()!==was){ S.year=autoYear(); indexRegions(); } render(); } }, 60000);

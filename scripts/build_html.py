@@ -15,7 +15,7 @@ col = ((emb['coverage'] or {}).get('updated_at') or '')[:16].replace('T', ' ') o
 t = open(os.path.join(R, 'src/index.template.html'), encoding='utf-8').read()
 app = open(os.path.join(R, 'src/app.js'), encoding='utf-8').read()
 js = json.dumps(emb, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
-comment = (f"<!--\n  전국 음식물처리기 보조금 지도\n  최종 업데이트(페이지 생성): {now} KST\n  공고 데이터 검증: {ver} KST\n"
+comment = (f"<!--\n  전국 음식물처리기 보조금 대동여지도\n  최종 업데이트(페이지 생성): {now} KST\n  공고 데이터 검증: {ver} KST\n"
            f"  자동 점검(2시간 주기): {col}\n  점검 대상: 전국 {(emb['regions'] or {}).get('count','')}개 기초지자체 × 연관검색어 사전(keywords.json)\n-->")
 t = t.replace('<!DOCTYPE html>\n', '<!DOCTYPE html>\n' + comment + '\n', 1)
 t = t.replace('<meta charset="utf-8">', f'<meta charset="utf-8">\n<meta name="last-updated" content="{now} KST">', 1)
