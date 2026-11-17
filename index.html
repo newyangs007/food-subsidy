@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   전국 음식물처리기 보조금 지도
-  최종 업데이트(페이지 생성): 2026-11-18 06:47 KST
+  최종 업데이트(페이지 생성): 2026-11-18 06:48 KST
   공고 데이터 검증: 2026-11-18 06:15 KST
   자동 점검(2시간 주기): 2026-11-18 06:39
   점검 대상: 전국 230개 기초지자체 × 연관검색어 사전(keywords.json)
@@ -9,7 +9,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="last-updated" content="2026-11-18 06:47 KST">
+<meta name="last-updated" content="2026-11-18 06:48 KST">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>전국 음식물처리기 보조금 지도</title>
 <meta name="description" content="전국 시·도·시군구 음식물처리기(가정용 소형감량기) 보조금 공고를 지도와 지역 검색으로 찾습니다. 신청기간·지원금액·대상·필요서류·전화번호·공식 공고 링크 제공.">
@@ -101,7 +101,7 @@ h1{font-size:22px;line-height:1.25;margin:0;font-weight:800;letter-spacing:-.03e
 .legend span{display:inline-flex;gap:5px;align-items:center}
 /* map */
 .mapbox{position:relative;padding:0 8px 4px}
-#map{width:100%;height:auto;display:block;touch-action:manipulation}
+#map{width:100%;height:auto;max-height:min(760px,78vh);display:block;margin:0 auto;touch-action:manipulation}
 #map path.pv{fill:#E9EDF2;stroke:#fff;stroke-width:1.2;vector-effect:non-scaling-stroke;transition:fill .2s;cursor:pointer}
 #map path.pv:hover{fill:#DCE3EC}
 #map path.pv.h1{fill:#D6E9E2}#map path.pv.h2{fill:#B8DDCF}#map path.pv.h3{fill:#93CDB7}
@@ -436,7 +436,7 @@ tr.mine{background:#F5F9FF}
     <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 2차 출처 공고는 ‘진행 중’으로 단정하지 않고 <b>확인 필요</b>로 표시합니다.<br>
     상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. 자동 감지 결과는 사람이 공고문을 확인하기 전까지 정식 목록에 넣지 않습니다.<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
-    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 06:47 (KST)</span>
+    <b>최종 업데이트</b> <span id="lastUpd">2026-11-18 06:48 (KST)</span>
   </footer>
 </div>
 
