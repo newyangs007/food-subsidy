@@ -1,0 +1,817 @@
+{
+ "lists": {
+  "L26": {
+   "name": "서울 금천구 2026년 공고 첨부 인증제품 현황",
+   "url": "https://www.geumcheon.go.kr/portal/contents.do?key=4622",
+   "basis": "2026년 공고"
+  },
+  "L25": {
+   "name": "서울 성동구 인증제품 현황('25.6.1. 기준)",
+   "url": "https://www.sd.go.kr/DATA/pub/info/20250623175440463273101D79FA698E2.pdf",
+   "basis": "2025.6.1. 기준 · 2026년 유효 여부 확인 필요"
+  },
+  "L27": {
+   "name": "2027년 지자체 공고 첨부 인증제품 현황",
+   "url": "",
+   "basis": "2027년 공고 공개 후 반영"
+  }
+ },
+ "year_meta": {
+  "2026": {
+   "note": "2026년 지자체 공고에 첨부된 인증제품 목록 기준"
+  },
+  "2027": {
+   "note": "2027년 공고의 인증제품 목록은 아직 공개 전입니다. 지자체 공고가 나오는 대로 추가됩니다.",
+   "checklist": [
+    "품질인증 1개 이상 보유: 단체표준 · 환경표지 · K마크 · Q마크 중 하나",
+    "KC 안전인증(전기용품) 보유",
+    "가정용 소형감량기(약 1~5kg/일) — 건조·분쇄 또는 미생물 발효 방식, 하수관 배출형(디스포저)은 제외",
+    "인증서 유효기간이 2027년 신청기간까지 남아 있는지 확인",
+    "지자체마다 공고에 첨부하는 '인증제품 현황'이 다르므로, 담당부서에 인증서를 보내 목록 반영 여부를 미리 문의",
+    "구매 영수증·설치사진·명판(S/N) 사진 등 소비자 제출 서류를 쉽게 받을 수 있도록 준비"
+   ]
+  }
+ },
+ "items": [
+  {
+   "brand": "린클",
+   "maker": "㈜한미프렉시블",
+   "model": "RC-02",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "1644-5075",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p001"
+  },
+  {
+   "brand": "린클",
+   "maker": "㈜한미프렉시블",
+   "model": "RC-Prime300",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "1644-5075",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p002"
+  },
+  {
+   "brand": "린클",
+   "maker": "㈜한미프렉시블",
+   "model": "RC-GT500",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "1644-5075",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p003"
+  },
+  {
+   "brand": "린클",
+   "maker": "㈜한미프렉시블",
+   "model": "RC-GT500(W)",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "1644-5075",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p004"
+  },
+  {
+   "brand": "코코린",
+   "maker": "㈜재인지엔에스",
+   "model": "COCOLIN",
+   "method": "미생물 발효(소멸)",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "070-4616-6055",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p005"
+  },
+  {
+   "brand": "미랜",
+   "maker": "㈜미랜",
+   "model": "FD-015M",
+   "method": "미생물 발효(소멸)",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "032-815-9167",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p006"
+  },
+  {
+   "brand": "미랜",
+   "maker": "㈜미랜",
+   "model": "FD-020K",
+   "method": "미생물 발효(소멸)",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "032-815-9167",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p007"
+  },
+  {
+   "brand": "바리미",
+   "maker": "㈜지엘플러스",
+   "model": "GL-020K",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "032-624-1290",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p008"
+  },
+  {
+   "brand": "바리미",
+   "maker": "㈜지엘플러스",
+   "model": "GL-015KP",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "032-624-1290",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p009"
+  },
+  {
+   "brand": "클럭",
+   "maker": "㈜데일리앤코",
+   "model": "EC-100(SG,WG)",
+   "method": "미생물 발효",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "070-4469-0005",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p010"
+  },
+  {
+   "brand": "이롭",
+   "maker": "㈜조이웍스앤코",
+   "model": "2E_ALE001",
+   "method": "미생물 발효(소멸)",
+   "cert": "K마크",
+   "body": "한국산업기술시험원(KTL)",
+   "phone": "1533-6415",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p011"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "400 PRO2 (SC-D0208)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p012"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "400 PROX (SC-D0209)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p013"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "블레이드X (SC-D0403)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p014"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "블레이드X AI (SC-D0404)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p015"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "400 SE (SC-D0210)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p016"
+  },
+  {
+   "brand": "루펜",
+   "maker": "㈜루펜",
+   "model": "SSW",
+   "method": "건조(일반건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1899-7352",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p017"
+  },
+  {
+   "brand": "루펜",
+   "maker": "㈜루펜",
+   "model": "SLW-01",
+   "method": "건조(일반건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1899-7352",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p018"
+  },
+  {
+   "brand": "루펜",
+   "maker": "㈜루펜",
+   "model": "SLW-03",
+   "method": "건조(일반건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1899-7352",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p019"
+  },
+  {
+   "brand": "루펜",
+   "maker": "㈜루펜",
+   "model": "SLW-05",
+   "method": "건조(일반건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1899-7352",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p020"
+  },
+  {
+   "brand": "루펜",
+   "maker": "㈜루펜",
+   "model": "SLW-07",
+   "method": "건조(일반건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1899-7352",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p021"
+  },
+  {
+   "brand": "에코체",
+   "maker": "㈜더케어",
+   "model": "ECC-888",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "031-595-6533",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p022"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-D",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p023"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-E",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p024"
+  },
+  {
+   "brand": "가호",
+   "maker": "㈜에코로이드",
+   "model": "EGO-650",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1566-9316",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p025"
+  },
+  {
+   "brand": "미닉스",
+   "maker": "㈜앳홈",
+   "model": "MNFD-120G",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-6307",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p026"
+  },
+  {
+   "brand": "미닉스",
+   "maker": "㈜앳홈",
+   "model": "MNFD-100G",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-6307",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p027"
+  },
+  {
+   "brand": "휴롬",
+   "maker": "㈜휴롬엘에스",
+   "model": "FD-B03FWH",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1544-7011",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p028"
+  },
+  {
+   "brand": "다토로",
+   "maker": "㈜다토로바이오텍",
+   "model": "DTR-ADV002",
+   "method": "미생물 발효",
+   "cert": "단체표준",
+   "body": "한국음식물처리기협동조합",
+   "phone": "031-986-4131",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p029"
+  },
+  {
+   "brand": "다토로",
+   "maker": "㈜다토로바이오텍",
+   "model": "DTR-ADV003",
+   "method": "미생물 발효",
+   "cert": "단체표준",
+   "body": "한국음식물처리기협동조합",
+   "phone": "031-986-4131",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p030"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "SC-S0201",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "1800-9113",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p031"
+  },
+  {
+   "brand": "린클",
+   "maker": "㈜한미프렉시블",
+   "model": "RC-EASY100",
+   "method": "미생물 발효",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "1644-5075",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p032"
+  },
+  {
+   "brand": "오린",
+   "maker": "㈜오린",
+   "model": "ORI-OHS(08,09)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "1522-1387",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p033"
+  },
+  {
+   "brand": "퓨리얼 클린어스",
+   "maker": "㈜피코그램",
+   "model": "PFC-100",
+   "method": "가열 건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "032-678-5114",
+   "list": "L26",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p034"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "PCS-400PRO (GB,PW)",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p035"
+  },
+  {
+   "brand": "스마트카라",
+   "maker": "㈜스마트카라",
+   "model": "PCS-500D",
+   "method": "건조·분쇄(복합건조)",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1800-9113",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p036"
+  },
+  {
+   "brand": "휴렉",
+   "maker": "㈜휴렉",
+   "model": "HD-9000SD",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p037"
+  },
+  {
+   "brand": "대경트라움",
+   "maker": "대경트라움(유)",
+   "model": "DK-W3000",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p038"
+  },
+  {
+   "brand": "포레",
+   "maker": "㈜포레",
+   "model": "ECP-900W",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p039"
+  },
+  {
+   "brand": "포레",
+   "maker": "㈜포레",
+   "model": "ECP-800",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p040"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-D301DCNW",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p041"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-D301DCNG",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p042"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-DDC305NW",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p043"
+  },
+  {
+   "brand": "에코웨일",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-DDC305NG",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p044"
+  },
+  {
+   "brand": "에코체",
+   "maker": "㈜더케어",
+   "model": "ECC-888WC",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "031-595-6533",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p045"
+  },
+  {
+   "brand": "에코체",
+   "maker": "㈜더케어",
+   "model": "ECC-888IC",
+   "method": "건조·분쇄",
+   "cert": "환경표지",
+   "body": "한국환경산업기술원(KEITI)",
+   "phone": "031-595-6533",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p046"
+  },
+  {
+   "brand": "이노뷰",
+   "maker": "㈜이노뷰",
+   "model": "REK-FW400",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p047"
+  },
+  {
+   "brand": "이노뷰",
+   "maker": "㈜이노뷰",
+   "model": "FC250",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p048"
+  },
+  {
+   "brand": "에코엠",
+   "maker": "㈜에코엠",
+   "model": "ECC-888",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p049"
+  },
+  {
+   "brand": "에코엠",
+   "maker": "㈜에코엠",
+   "model": "SUS-2L1A",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국기계전기전자시험연구원(KTC)",
+   "phone": "",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p050"
+  },
+  {
+   "brand": "쿠쿠",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-C151MONW",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국화학융합시험연구원(KTR)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p051"
+  },
+  {
+   "brand": "쿠쿠",
+   "maker": "쿠쿠전자㈜",
+   "model": "CFD-C151MODG",
+   "method": "건조·분쇄",
+   "cert": "Q마크",
+   "body": "한국화학융합시험연구원(KTR)",
+   "phone": "1588-8899",
+   "list": "L25",
+   "years": [
+    2026
+   ],
+   "mine": false,
+   "id": "p052"
+  }
+ ]
+}
