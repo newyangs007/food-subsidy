@@ -22,12 +22,19 @@ jobs:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python scripts/update.py
+      - name: 공고문 링크·담당 전화번호 더블체크
+        continue-on-error: true
+        run: python scripts/verify_links.py
+      - name: LG전자 베스트샵 매장 목록 갱신
+        continue-on-error: true
+        run: python scripts/fetch_bestshops.py
       - name: 페이지에 최신 데이터·최종 업데이트 시각 내장
         run: python scripts/build_html.py
       - name: 변경 사항 커밋
         run: |
           git config user.name  "subsidy-bot"
           git config user.email "subsidy-bot@users.noreply.github.com"
-          git add coverage.json candidates.json index.html
+          git add coverage.json candidates.json index.html link_check.json bestshops.json 2>/dev/null || git add coverage.json candidates.json index.html
           git diff --cached --quiet || git commit -m "자동 점검 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+          git pull --rebase -q || true
           git push

@@ -7,7 +7,7 @@ KST = timezone(timedelta(hours=9))
 def J(n):
     try: return json.load(open(os.path.join(R, n + '.json'), encoding='utf-8'))
     except Exception: return None
-emb = {k: J(k) for k in ['data', 'products', 'candidates', 'geo', 'regions', 'keywords', 'coverage']}
+emb = {k: J(k) for k in ['data', 'products', 'candidates', 'geo', 'regions', 'keywords', 'coverage', 'bestshops', 'link_check']}
 if emb['regions']: emb['regions'] = {k: v for k, v in emb['regions'].items() if k != 'poly'}
 now = datetime.now(KST).strftime('%Y-%m-%d %H:%M')
 ver = (emb['data'] or {}).get('updated_at', '')[:16].replace('T', ' ')

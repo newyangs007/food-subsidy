@@ -134,9 +134,12 @@ class GoogleNews(Engine):
         finally:
             time.sleep(1.0)
         out = []
-        for it in ET.fromstring(raw).iter("item"):
+        try: root = ET.fromstring(raw)
+        except ET.ParseError as ex:
+            self.errors += 1; print("google parse", q, ex, file=sys.stderr); return [], True
+        for it in root.iter("item"):
             src = it.find("source")
-        out.append(dict(title=clean(it.findtext("title")), link=(it.findtext("link") or "").strip(),
+            out.append(dict(title=clean(it.findtext("title")), link=(it.findtext("link") or "").strip(),
                             desc=clean(it.findtext("description")), published=to_iso(it.findtext("pubDate")), via="google-news",
                             source=(src.text or "").strip() if src is not None else "",
                             source_url=src.get("url", "") if src is not None else ""))
