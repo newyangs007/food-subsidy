@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-18T23:22:36+09:00",
+ "updated_at": "2026-11-19T06:56:00+09:00",
  "verified_at": "2026-11-18",
  "years": [
   2026,
@@ -112,6 +112,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.seocho.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e001"
@@ -144,6 +145,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.seocho.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e002"
@@ -176,6 +178,9 @@
    "phone_src": "",
    "dept": "",
    "home": "https://www.gangnam.go.kr/",
+   "search": {
+    "u": "https://search.gangnam.go.kr/search.jsp?kwd={q}"
+   },
    "rep_phone": "02-3423-5114",
    "url_ok": false,
    "id": "e003"
@@ -207,6 +212,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.gangdong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e004"
@@ -241,6 +247,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.mapo.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e005"
@@ -274,6 +281,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ep.go.kr/",
+   "search": {
+    "u": "https://www.ep.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "02-351-6114",
    "url_ok": false,
    "id": "e006"
@@ -306,6 +316,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.yangcheon.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e007"
@@ -335,6 +346,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.yangcheon.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e008"
@@ -366,6 +378,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gangseo.seoul.kr/",
+   "search": null,
    "rep_phone": "02-2600-6114",
    "url_ok": false,
    "id": "e009"
@@ -398,6 +411,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.gwanak.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e010"
@@ -428,6 +442,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.sb.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e011"
@@ -458,6 +473,7 @@
    "dept": "자원활용과",
    "url_kind": "공고문",
    "home": "https://www.songpa.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e012"
@@ -487,6 +503,7 @@
    "dept": "자원순환과",
    "url_kind": "공고문",
    "home": "https://www.dobong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e013"
@@ -516,6 +533,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.sd.go.kr/",
+   "search": null,
    "rep_phone": "02-2286-5114",
    "url_ok": true,
    "id": "e014"
@@ -545,6 +563,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.geumcheon.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e015"
@@ -576,6 +595,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.sdm.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e016"
@@ -608,6 +628,7 @@
    "phone_src": "rep",
    "dept": "",
    "home": "https://www.junggu.seoul.kr/",
+   "search": null,
    "rep_phone": "02-3396-4114",
    "url_ok": true,
    "id": "e017"
@@ -641,6 +662,7 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.ddm.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e018"
@@ -672,6 +694,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gangbuk.go.kr/",
+   "search": null,
    "rep_phone": "02-901-6114",
    "url_ok": false,
    "id": "e019"
@@ -704,6 +727,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ydp.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e020"
@@ -736,6 +760,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.guro.go.kr/",
+   "search": {
+    "u": "https://www.guro.go.kr/search/search.jsp?collection=ALL&query={q}"
+   },
    "rep_phone": "02-860-2114",
    "url_ok": false,
    "id": "e021"
@@ -768,6 +795,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gwangjin.go.kr/",
+   "search": {
+    "u": "https://www.gwangjin.go.kr/search.do?kwd={q}&category=&siteId=portal"
+   },
    "rep_phone": "02-450-1114",
    "url_ok": false,
    "id": "e022"
@@ -799,6 +829,7 @@
    "phone_src": "",
    "dept": "",
    "home": "https://www.dongjak.go.kr/",
+   "search": null,
    "rep_phone": "02-820-1114",
    "url_ok": false,
    "id": "e023"
@@ -830,6 +861,9 @@
    "phone_src": "dept",
    "dept": "청소행정과 음식물종량제팀",
    "home": "https://www.jungnang.go.kr/",
+   "search": {
+    "u": "https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm={q}&sorting=Date"
+   },
    "rep_phone": "",
    "url_ok": false,
    "id": "e024"
@@ -861,6 +895,15 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yongsan.go.kr/",
+   "search": {
+    "post": "https://www.yongsan.go.kr/portal/signl/search/search.do?menuNo=200000",
+    "p": {
+     "searchTerm": "{q}",
+     "currentPage": "1",
+     "rowsperPage": "4",
+     "sort": "date"
+    }
+   },
    "rep_phone": "02-2199-6114",
    "url_ok": false,
    "id": "e025"
@@ -891,6 +934,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yeonje.go.kr/",
+   "search": null,
    "rep_phone": "051-665-4000",
    "url_ok": true,
    "id": "e026"
@@ -923,6 +967,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gijang.go.kr/",
+   "search": {
+    "u": "https://www.gijang.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "051-709-4000",
    "url_ok": false,
    "id": "e027"
@@ -955,6 +1002,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.haeundae.go.kr/",
+   "search": {
+    "u": "https://www.haeundae.go.kr/search/search?type=all&sort=d&word={q}&kwd={q}"
+   },
    "rep_phone": "051-749-4000",
    "url_ok": false,
    "id": "e028"
@@ -986,6 +1036,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.haeundae.go.kr/",
+   "search": {
+    "u": "https://www.haeundae.go.kr/search/search?type=all&sort=d&word={q}&kwd={q}"
+   },
    "rep_phone": "051-749-4000",
    "url_ok": false,
    "id": "e029"
@@ -1018,6 +1071,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.bsgangseo.go.kr/",
+   "search": null,
    "rep_phone": "051-970-4000",
    "url_ok": false,
    "id": "e030"
@@ -1049,6 +1103,7 @@
    "phone_src": "rep",
    "dept": "",
    "home": "https://www.bsgangseo.go.kr/",
+   "search": null,
    "rep_phone": "051-970-4000",
    "url_ok": true,
    "id": "e031"
@@ -1080,6 +1135,9 @@
    "dept": "자원순환과",
    "url_kind": "공고문",
    "home": "https://www.suyeong.go.kr/",
+   "search": {
+    "u": "https://search.suyeong.go.kr/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "",
    "url_ok": false,
    "id": "e032"
@@ -1111,6 +1169,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.dongnae.go.kr/",
+   "search": {
+    "u": "https://www.dongnae.go.kr/KFramework/search?kwd={q}&srchFd=all&sort=r&date=all&category=TOTAL"
+   },
    "rep_phone": "051-550-4000",
    "url_ok": false,
    "id": "e033"
@@ -1142,6 +1203,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yeongdo.go.kr/",
+   "search": {
+    "u": "https://www.yeongdo.go.kr/search/searchResult.web?sstring={q}"
+   },
    "rep_phone": "051-419-4000",
    "url_ok": false,
    "id": "e034"
@@ -1173,6 +1237,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.bsjunggu.go.kr/",
+   "search": {
+    "u": "https://search.bsjunggu.go.kr/search.jsp?kwd={q}"
+   },
    "rep_phone": "051-600-4000",
    "url_ok": false,
    "id": "e035"
@@ -1204,6 +1271,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.bsseogu.go.kr/",
+   "search": null,
    "rep_phone": "051-240-4000",
    "url_ok": false,
    "id": "e036"
@@ -1236,6 +1304,9 @@
    "phone_src": "",
    "dept": "",
    "home": "https://www.bsdonggu.go.kr/",
+   "search": {
+    "u": "https://www.bsdonggu.go.kr/RSA/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "051-440-4000",
    "url_ok": false,
    "id": "e037"
@@ -1267,6 +1338,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gijang.go.kr/",
+   "search": {
+    "u": "https://www.gijang.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "051-709-4000",
    "url_ok": false,
    "id": "e038"
@@ -1298,6 +1372,9 @@
    "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.sasang.go.kr/",
+   "search": {
+    "u": "https://www.sasang.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "051-310-4000",
    "url_ok": false,
    "id": "e039"
@@ -1329,6 +1406,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.busanjin.go.kr/",
+   "search": {
+    "u": "https://www.busanjin.go.kr/index.busanjin?menuCd=DOM_000000112000000000&searchTerm={q}"
+   },
    "rep_phone": "051-605-4000",
    "url_ok": false,
    "id": "e040"
@@ -1360,6 +1440,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.geumjeong.go.kr/",
+   "search": {
+    "u": "https://search.geumjeong.go.kr/search.jsp?kwd={q}"
+   },
    "rep_phone": "051-519-4000",
    "url_ok": false,
    "id": "e041"
@@ -1390,6 +1473,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.jemulpo.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e042"
@@ -1423,6 +1507,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yeonsu.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e043"
@@ -1456,6 +1541,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ongjin.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e044"
@@ -1487,6 +1573,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.namdong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e045"
@@ -1518,6 +1605,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.icbp.go.kr/",
+   "search": null,
    "rep_phone": "032-504-2114",
    "url_ok": false,
    "id": "e046"
@@ -1549,6 +1637,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.seohae.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e047"
@@ -1580,6 +1669,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ganghwa.go.kr/",
+   "search": {
+    "u": "https://www.ganghwa.go.kr/search/search.do?query={q}"
+   },
    "rep_phone": "032-930-3114",
    "url_ok": false,
    "id": "e048"
@@ -1611,6 +1703,12 @@
    "dept": "자원순환과",
    "url_kind": "공고문",
    "home": "https://www.michuhol.go.kr/",
+   "search": {
+    "post": "https://www.michuhol.go.kr/RSA/front_new/Search.jsp",
+    "p": {
+     "qt": "{q}"
+    }
+   },
    "rep_phone": "",
    "url_ok": false,
    "id": "e049"
@@ -1643,6 +1741,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.donggu.go.kr/",
+   "search": null,
    "rep_phone": "042-251-4114",
    "url_ok": false,
    "id": "e050"
@@ -1675,6 +1774,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.djjunggu.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e051"
@@ -1707,6 +1807,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.daedeok.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e052"
@@ -1739,6 +1840,12 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.seogu.go.kr/",
+   "search": {
+    "post": "https://www.seogu.go.kr/search/front/Search.jsp",
+    "p": {
+     "qt": "{q}"
+    }
+   },
    "rep_phone": "042-288-2114",
    "url_ok": false,
    "id": "e053"
@@ -1771,6 +1878,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yuseong.go.kr/",
+   "search": {
+    "u": "https://www.yuseong.go.kr/search/front/Search.jsp?s_type=all&qt={q}"
+   },
    "rep_phone": "042-611-2114",
    "url_ok": false,
    "id": "e054"
@@ -1802,6 +1912,9 @@
    "dept": "청소자원과",
    "url_kind": "공고문",
    "home": "https://dong.daegu.kr/",
+   "search": {
+    "u": "https://dong.daegu.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "",
    "url_ok": false,
    "id": "e055"
@@ -1833,6 +1946,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.buk.daegu.kr/",
+   "search": {
+    "u": "https://www.buk.daegu.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "053-665-2000",
    "url_ok": false,
    "id": "e056"
@@ -1864,6 +1980,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.suseong.kr/",
+   "search": {
+    "u": "https://www.suseong.kr/search/index.do?query={q}"
+   },
    "rep_phone": "053-666-2000",
    "url_ok": false,
    "id": "e057"
@@ -1897,6 +2016,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.nyj.go.kr/",
+   "search": {
+    "u": "https://www.nyj.go.kr/search/search.jsp?query={q}"
+   },
    "rep_phone": "031-590-2114",
    "url_ok": false,
    "id": "e058"
@@ -1928,6 +2050,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.pocheon.go.kr/",
+   "search": {
+    "u": "https://www.pocheon.go.kr/search/search.jsp?query={q}"
+   },
    "rep_phone": "031-538-2114",
    "url_ok": false,
    "id": "e059"
@@ -1959,6 +2084,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ddc.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e060"
@@ -1993,6 +2119,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yw.go.kr/",
+   "search": {
+    "u": "https://www.yw.go.kr/search/search.jsp?categoryNm=&searchTerm={q}"
+   },
    "rep_phone": "1577-0545",
    "url_ok": false,
    "id": "e061"
@@ -2026,6 +2155,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yanggu.go.kr/",
+   "search": null,
    "rep_phone": "033-481-2191",
    "url_ok": false,
    "id": "e062"
@@ -2057,6 +2187,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cwg.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e063"
@@ -2089,6 +2220,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.dh.go.kr/",
+   "search": {
+    "u": "https://www.dh.go.kr/search/search.do?category=TOTAL&kwd={q}"
+   },
    "rep_phone": "033-530-2114",
    "url_ok": false,
    "id": "e064"
@@ -2121,6 +2255,7 @@
    "dept": "환경과",
    "url_kind": "공고문",
    "home": "https://www.samcheok.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e065"
@@ -2152,6 +2287,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.pc.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e066"
@@ -2184,6 +2320,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cheongju.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e067"
@@ -2215,6 +2352,12 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.jincheon.go.kr/",
+   "search": {
+    "post": "https://search.jincheon.go.kr/RSA/front_new/Search.jsp",
+    "p": {
+     "qt": "{q}"
+    }
+   },
    "rep_phone": "043-539-3114",
    "url_ok": false,
    "id": "e068"
@@ -2247,6 +2390,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gyeryong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e069"
@@ -2279,6 +2423,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.buyeo.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e070"
@@ -2310,6 +2455,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cheongyang.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e071"
@@ -2343,6 +2489,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.hampyeong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e072"
@@ -2376,6 +2523,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yeonggwang.go.kr/",
+   "search": {
+    "u": "https://www.yeonggwang.go.kr/total_search/search.php?category=total&kwd={q}"
+   },
    "rep_phone": "061-350-5114",
    "url_ok": false,
    "id": "e073"
@@ -2407,6 +2557,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.haenam.go.kr/",
+   "search": {
+    "u": "https://www.haenam.go.kr/index.9is?contentUid=18e3368f655bdbc60166c79c2abe160b&search_word={q}"
+   },
    "rep_phone": "061-530-5114",
    "url_ok": false,
    "id": "e074"
@@ -2437,6 +2590,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.andong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e075"
@@ -2466,6 +2620,7 @@
    "dept": "공고 담당자",
    "url_kind": "공고문",
    "home": "https://www.pohang.go.kr/",
+   "search": null,
    "rep_phone": "054-270-8282",
    "url_ok": true,
    "id": "e076"
@@ -2497,6 +2652,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gbgs.go.kr/",
+   "search": {
+    "u": "https://www.gbgs.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "053-811-2231",
    "url_ok": false,
    "id": "e077"
@@ -2528,6 +2686,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gbgs.go.kr/",
+   "search": {
+    "u": "https://www.gbgs.go.kr/search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "053-811-2231",
    "url_ok": false,
    "id": "e078"
@@ -2560,6 +2721,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gumi.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e079"
@@ -2592,6 +2754,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gyeongju.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e080"
@@ -2624,6 +2787,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.uljin.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e081"
@@ -2655,6 +2819,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ulleung.go.kr/",
+   "search": {
+    "u": "https://www.ulleung.go.kr/Search/front/Search.jsp?qt={q}"
+   },
    "rep_phone": "054-791-2191",
    "url_ok": false,
    "id": "e082"
@@ -2686,6 +2853,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.geochang.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e083"
@@ -2717,6 +2885,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.namhae.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e084"
@@ -2748,6 +2917,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cng.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e085"
@@ -2781,6 +2951,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.tongyeong.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": false,
    "id": "e086"
@@ -2812,6 +2983,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.goseong.go.kr/",
+   "search": {
+    "u": "https://www.goseong.go.kr/index.goseong?contentsSid=1554&collection=ALL&searchTerm={q}"
+   },
    "rep_phone": "055-670-2114",
    "url_ok": false,
    "id": "e087"
@@ -2843,6 +3017,7 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gimhae.go.kr/",
+   "search": null,
    "rep_phone": "",
    "url_ok": true,
    "id": "e088"
@@ -2874,6 +3049,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.sancheong.go.kr/",
+   "search": {
+    "u": "https://www.sancheong.go.kr/search/search.jsp?collection_top=ALL&query={q}"
+   },
    "rep_phone": "055-970-6000",
    "url_ok": false,
    "id": "e089"
@@ -2905,6 +3083,9 @@
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.uiryeong.go.kr/",
+   "search": {
+    "u": "https://www.uiryeong.go.kr/index.uiryeong?contentsSid=1496&searchTerm={q}"
+   },
    "rep_phone": "055-570-2114",
    "url_ok": false,
    "id": "e090"

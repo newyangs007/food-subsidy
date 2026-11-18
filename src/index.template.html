@@ -248,6 +248,42 @@ footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
 .shopgrp small{font-weight:600;color:var(--mute)}
 .shopnote{padding:0 16px 14px;font-size:12.5px;color:var(--mute)}
 span.btn.tel{cursor:default;background:#F8FAFC}
+/* ── 바로가기 · 전화 · 베스트샵 (액션 셀) ── */
+.act{display:flex;flex-direction:column;gap:6px;align-items:stretch;width:164px}
+td.ac{width:176px}
+.stc .vf{display:flex;margin-top:6px}
+.act.row{flex-direction:row;flex-wrap:wrap;max-width:none;align-items:center;gap:8px}
+.gobtn,.gobox{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:34px;border-radius:10px;font-size:12.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.gobtn{padding:0 14px;color:#fff;text-decoration:none;border:0;cursor:pointer;
+  background:linear-gradient(135deg,#1E293B 0%,#0F172A 55%,#020617 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 6px 14px -6px rgba(15,23,42,.55);transition:transform .15s,box-shadow .15s}
+.gobtn:hover{transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 10px 20px -8px rgba(15,23,42,.6)}
+.gobtn:active{transform:none}
+.gobtn svg{opacity:.85;transition:transform .15s}.gobtn:hover svg{transform:translate(1px,-1px)}
+.gobox{padding:0;gap:0;background:linear-gradient(135deg,#1E293B,#020617);box-shadow:0 6px 14px -6px rgba(15,23,42,.55)}
+.gobox .gobtn{flex:1;background:none;box-shadow:none;border-radius:10px 0 0 10px;height:34px}
+.gomore{height:34px;width:30px;display:inline-flex;align-items:center;justify-content:center;border:0;border-left:1px solid rgba(255,255,255,.14);
+  background:none;color:#CBD5E1;border-radius:0 10px 10px 0;cursor:pointer}
+.gomore:hover{color:#fff;background:rgba(255,255,255,.06)}
+.telc{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:30px;padding:0 10px;border-radius:9px;background:#F8FAFC;border:1px solid var(--line);
+  color:var(--ink);font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.01em;cursor:default;user-select:text;white-space:nowrap}
+.telc svg{color:var(--faint)}
+.lgbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 11px;border-radius:10px;border:1px solid #F3C6D3;background:#fff;
+  color:#A50034;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.lgbtn:hover{background:#A50034;border-color:#A50034;color:#fff}
+.lgbtn em{font-style:normal;font-size:10.5px;min-width:16px;height:16px;border-radius:8px;background:#A50034;color:#fff;display:inline-flex;align-items:center;justify-content:center;padding:0 4px}
+.lgbtn:hover em{background:#fff;color:#A50034}
+.lgbtn.ghost{border-style:dashed}
+.act .none{font-size:12px;color:var(--faint);text-align:center}
+#pop{position:fixed;z-index:120;min-width:220px;max-width:300px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;
+  box-shadow:0 18px 40px -12px rgba(15,23,42,.28),0 2px 6px rgba(15,23,42,.06)}
+#pop .ph{font-size:11.5px;color:var(--mute);font-weight:700;padding:8px 10px 6px}
+#pop .pi{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:9px;font-size:13px;color:var(--ink);cursor:pointer;text-decoration:none}
+#pop .pi:hover{background:#F1F5F9}
+#pop .pi svg{color:var(--mute)}
+#pop .shop1{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:10px}
+#pop .shop1 b{font-size:13px}#pop .shop1 small{grid-row:2;color:var(--mute);font-size:11.5px}
+#pop .shop1 i{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:11.5px;font-weight:700;color:#A50034;display:inline-flex;gap:3px;align-items:center}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0F172A;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;z-index:99;pointer-events:none;max-width:92vw;text-align:center}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 #refresh.spin svg{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
@@ -296,6 +332,13 @@ tr.mine{background:#F5F9FF}
   .hide-m{display:none}
   .howto{grid-template-columns:1fr 1fr}
   td,th{padding:9px 8px}
+  #rows tr{display:grid;grid-template-columns:1.1fr 1fr;gap:6px 12px;padding:14px 12px;border-bottom:1px solid var(--line2)}
+  #rows td{border:0;padding:0}
+  #rows td.ac{grid-column:1/-1;width:auto;padding-top:6px}
+  #rows .act{flex-direction:row;flex-wrap:wrap;width:auto}
+  #rows .act .gobtn,#rows .act .gobox{flex:1 1 100%}
+  #rows .act .telc,#rows .act .lgbtn{flex:1 1 calc(50% - 4px)}
+  #v-subsidy thead{display:none}
   .stamp{justify-content:flex-start}
 }
 </style>
@@ -367,7 +410,7 @@ tr.mine{background:#F5F9FF}
         </div>
         <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태</th><th class="hide-m">검증</th><th>바로가기 · 전화</th></tr></thead>
+          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태 · 검증</th><th class="acth">바로가기 · 전화 · 상담예약</th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
         </div>
@@ -446,6 +489,7 @@ tr.mine{background:#F5F9FF}
 
 <script id="embed" type="application/json">/*__EMBED__*/</script>
 /*__APP__*/
+<div id="pop" hidden role="menu"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

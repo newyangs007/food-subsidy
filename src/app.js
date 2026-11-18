@@ -46,10 +46,58 @@ function phoneOf(e){
   if (c && c.state==='ok' && c.dept_phone && localNo(e,c.dept_phone)) return c.dept_phone;
   return e.rep_phone || '';                                           // ③ 지자체 대표번호(누리집에서 확인)
 }
-function phoneHTML(e){ var p=phoneOf(e); return p ? '<span class="tel" data-stop="1">☎ '+esc(p)+'</span>' : ''; }
-function linkHTML(e, cls){ var b=bestLink(e);
-  var a = b ? '<a class="go '+(cls||'')+' t0" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">바로가기 ↗</a>' : '<span class="none">공고 확인 중</span>';
-  return '<div class="lk">'+a+phoneHTML(e)+'</div>'; }
+var ICO={
+  arrow:'<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  search:'<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="7" cy="7" r="4.3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.3 10.3L13.5 13.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+  phone:'<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.2 2.2l1.6-.4 1.3 3-1.2.9a7 7 0 0 0 3.4 3.4l.9-1.2 3 1.3-.4 1.6c-.2.7-.8 1.1-1.5 1C6.4 11.2 3.8 8.6 3.2 3.7c-.1-.7.3-1.3 1-1.5z" fill="currentColor"/></svg>',
+  caret:'<svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  cal:'<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><rect x="2.5" y="3.5" width="11" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 6.5h11M5.5 2v3M10.5 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>'
+};
+function phoneHTML(e){ var p=phoneOf(e); return p ? '<span class="telc" data-stop="1">'+ICO.phone+'<span>'+esc(p)+'</span></span>' : ''; }
+/* 종료 + 2차 출처 → 해당 지자체 누리집 통합검색 결과로 바로가기 (검색어: 감량기 기본, ▾로 바꿔 검색) */
+var SKW=['감량기','음식물처리기','음식물 보조금','음식물 지원금'];
+function useSearch(e){ return !!e.search && status(e)==='off' && vkey(e)==='secondary'; }
+function openSearch(rid, q){
+  var e=(D.items||[]).filter(function(x){return x.sido+'|'+x.sigungu===rid && x.search})[0]; if(!e) return;
+  var c=e.search;
+  if (c.u){ window.open(c.u.split('{q}').join(encodeURIComponent(q)), '_blank', 'noopener'); return; }
+  var f=document.createElement('form'); f.method='post'; f.action=c.post; f.target='_blank'; f.acceptCharset='UTF-8'; f.style.display='none';
+  Object.keys(c.p).forEach(function(k){ var i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=String(c.p[k]).split('{q}').join(q); f.appendChild(i); });
+  document.body.appendChild(f); f.submit(); setTimeout(function(){ f.remove(); }, 1000);
+}
+function goHTML(e){
+  var rid=e.sido+'|'+e.sigungu;
+  if (useSearch(e)) return '<span class="gobox"><button type="button" class="gobtn" data-srch="'+esc(rid)+'" data-q="감량기" title="'+esc(e.sigungu)+' 누리집에서 \'감량기\' 검색">'+ICO.search+'<span>바로가기</span></button>'+
+    '<button type="button" class="gomore" data-pop="srch" data-rid="'+esc(rid)+'" aria-label="다른 검색어로 찾기">'+ICO.caret+'</button></span>';
+  var b=bestLink(e);
+  return b ? '<a class="gobtn" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1"><span>바로가기</span>'+ICO.arrow+'</a>' : '<span class="none">공고 확인 중</span>';
+}
+/* LG전자 베스트샵 상담예약: 같은 시·군·구 매장 1곳이면 바로, 여러 곳이면 매장 선택, 없으면 매장 직접 선택 화면 */
+function lgHTML(e){
+  var rid=e.sido+'|'+e.sigungu, list=shopsIn(rid);
+  if (list.length===1) return '<a class="lgbtn" href="'+esc(list[0].reserve)+'" target="_blank" rel="noopener" data-stop="1" title="'+esc(list[0].name)+' 상담예약">'+ICO.cal+'<span>베스트샵 상담예약</span></a>';
+  if (list.length>1) return '<button type="button" class="lgbtn" data-pop="lg" data-rid="'+esc(rid)+'">'+ICO.cal+'<span>베스트샵 상담예약</span><em>'+list.length+'</em>'+ICO.caret+'</button>';
+  return '<a class="lgbtn ghost" href="'+esc((B&&B.reserve_any)||'https://bestshop.lge.co.kr/shop/findBestshop')+'" target="_blank" rel="noopener" data-stop="1" title="같은 지역 매장이 없어 상담예약 화면에서 매장을 직접 고릅니다">'+ICO.cal+'<span>베스트샵 상담예약</span></a>';
+}
+function linkHTML(e){ return '<div class="act">'+goHTML(e)+phoneHTML(e)+lgHTML(e)+'</div>'; }
+/* 작은 선택 메뉴(검색어 / 매장) */
+function popClose(){ var p=$('#pop'); if(p){ p.hidden=true; p.innerHTML=''; } }
+function popOpen(btn){
+  var p=$('#pop'), kind=btn.dataset.pop, rid=btn.dataset.rid, html='';
+  if (kind==='srch') html='<div class="ph">'+esc((REG[rid]||{name:rid.split('|')[1]}).name)+' 누리집에서 검색</div>'+SKW.map(function(q){return '<button type="button" class="pi" data-srch="'+esc(rid)+'" data-q="'+esc(q)+'">'+ICO.search+'<span>'+esc(q)+'</span></button>'}).join('');
+  else html='<div class="ph">'+esc((REG[rid]||{name:rid.split('|')[1]}).name)+' LG전자 베스트샵</div>'+shopsIn(rid).map(function(x){return '<a class="pi shop1" href="'+esc(x.reserve)+'" target="_blank" rel="noopener"><b>'+esc(x.name)+'</b><small>'+esc((x.dong?x.dong+' · ':'')+(x.tel||''))+'</small><i>상담예약 '+ICO.arrow+'</i></a>'}).join('');
+  p.innerHTML=html; p.hidden=false;
+  var r=btn.getBoundingClientRect(), w=p.offsetWidth, h=p.offsetHeight;
+  var left=Math.min(window.innerWidth-w-10, Math.max(10, r.right-w)), top=r.bottom+6; if (top+h>window.innerHeight-10) top=Math.max(10, r.top-h-6);
+  p.style.left=left+'px'; p.style.top=top+'px';
+}
+document.addEventListener('click', function(ev){
+  var sb=ev.target.closest('[data-srch]'); if (sb){ ev.preventDefault(); ev.stopPropagation(); popClose(); openSearch(sb.dataset.srch, sb.dataset.q); return; }
+  var pb=ev.target.closest('[data-pop]'); if (pb){ ev.preventDefault(); ev.stopPropagation(); var p=$('#pop'); if(!p.hidden && p._src===pb){ popClose(); return; } popOpen(pb); p._src=pb; return; }
+  if (!ev.target.closest('#pop')) popClose();
+}, true);
+window.addEventListener('scroll', popClose, {passive:true}); window.addEventListener('resize', popClose);
+document.addEventListener('keydown', function(ev){ if(ev.key==='Escape') popClose(); });
 /* 검증 표시: 공식 공고(직접 대조) 또는 자동 점검에서 공고 본문·신청 시작일까지 일치 → 공식 공고 */
 function vkey(e){ var c=e.url&&lcheck(e.url);
   if (e.verify==='official' || (c && c.state==='ok' && c.device && c.date_match)) return 'official';
@@ -218,9 +266,8 @@ function renderList(){
     return '<tr data-id="'+e.id+'"><td class="rg"><b>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</b><small>'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</small></td>'+
       '<td class="amt"><b>'+a.b+'</b><small>'+esc(a.s)+(e.note&&/최대/.test(e.note)?' · 우대 있음':'')+'</small></td>'+
       '<td class="per">'+per+'<small>'+esc(sub)+'</small></td>'+
-      '<td><span class="st '+s+'"'+(s==='chk'?' title="'+CHK_TIP+'"':'')+'><i class="dot d-'+s+'"></i>'+ST[s]+'</span>'+(s==='chk'?'<span class="why">'+why(e)+'</span>':'')+'</td>'+
-      '<td class="hide-m"><span class="vf '+v[0]+'"><i></i>'+v[1]+'</span></td>'+
-      '<td>'+linkHTML(e)+'</td></tr>';
+      '<td class="stc"><span class="st '+s+'"'+(s==='chk'?' title="'+CHK_TIP+'"':'')+'><i class="dot d-'+s+'"></i>'+ST[s]+'</span>'+(s==='chk'?'<span class="why">'+why(e)+'</span>':'')+'<span class="vf '+v[0]+'"><i></i>'+v[1]+'</span></td>'+
+      '<td class="ac">'+linkHTML(e)+'</td></tr>';
   }).join('');
   var card = S.sgg ? regionCard(S.sido+'|'+S.sgg) : '';
   if (!yItems().length){ var prev=(D.years||[]).filter(function(y){return y<S.year && yearStats(y).items}).pop(), st=yearStats(S.year);
@@ -335,7 +382,7 @@ function openDrawer(id){
     (s==='on'?shopsHTML(rid,true):'')+
     (e.verify==='secondary'?'<div class="warn">이 공고는 이미 마감된 것으로 확인된 2026년 사업입니다. 다음 모집은 해당 지자체 공고를 확인하세요.</div>':
       '<div class="ok">'+(e.verify==='official'?'지자체 공식 공고 본문과 대조했습니다.':'구청 보도자료 기반 언론 보도와 대조했습니다.')+' 예산 소진 시 조기 마감될 수 있습니다.</div>')+
-    '</div><div class="df">'+(bl?'<a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">바로가기 ↗</a>':'')+(ph?'<span class="btn tel">☎ '+esc(ph)+'</span>':'')+'</div>';
+    '</div><div class="df">'+'<div class="act row">'+goHTML(e)+phoneHTML(e)+lgHTML(e)+'</div>'+'</div>';
   $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false');
 }
 function closeDrawer(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
@@ -439,7 +486,7 @@ function renderKw(){
 
 /* ── 이벤트 ── */
 document.addEventListener('click', function(ev){
-  if (ev.target.closest('.tel')) return;                 // 전화번호는 눌러도 아무 동작 없음
+  if (ev.target.closest('.telc,.act')) return;           // 전화번호는 눌러도 아무 동작 없음 · 버튼 영역은 행 열기와 분리
   var t=ev.target.closest('button,tr,circle,path,a'); if(!t) return;
   if (t.matches('a')) return;
   if (t.dataset.year){ S.year=+t.dataset.year; S.page=1; S.cpage=1; S.status='all'; indexRegions(); render(); return; }

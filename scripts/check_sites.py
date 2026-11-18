@@ -67,6 +67,49 @@ REP_PHONE = {
  "경남|고성군": "055-670-2114", "경남|산청군": "055-970-6000", "경남|의령군": "055-570-2114",
 }
 
+# 지자체 누리집 통합검색 — 2026-11-19 브라우저로 각 누리집 검색창에 직접 검색해 주소 형식을 확인함.
+# {q} 자리에 검색어(감량기·음식물처리기·음식물 보조금·음식물 지원금)를 넣습니다.
+# post: 주소창(GET)으로 검색하면 한글이 깨지는 누리집 → 페이지에서 POST 양식으로 보냄(타 사이트에서 보내도 정상 검색 확인)
+SEARCH = {
+ "서울|강남구": {"u": "https://search.gangnam.go.kr/search.jsp?kwd={q}"},
+ "서울|광진구": {"u": "https://www.gwangjin.go.kr/search.do?kwd={q}&category=&siteId=portal"},
+ "서울|구로구": {"u": "https://www.guro.go.kr/search/search.jsp?collection=ALL&query={q}"},
+ "서울|용산구": {"post": "https://www.yongsan.go.kr/portal/signl/search/search.do?menuNo=200000",
+                "p": {"searchTerm": "{q}", "currentPage": "1", "rowsperPage": "4", "sort": "date"}},
+ "서울|은평구": {"u": "https://www.ep.go.kr/search/front/Search.jsp?qt={q}"},
+ "서울|중랑구": {"u": "https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm={q}&sorting=Date"},
+ "강원|동해시": {"u": "https://www.dh.go.kr/search/search.do?category=TOTAL&kwd={q}"},
+ "강원|영월군": {"u": "https://www.yw.go.kr/search/search.jsp?categoryNm=&searchTerm={q}"},
+ "경기|남양주시": {"u": "https://www.nyj.go.kr/search/search.jsp?query={q}"},
+ "경기|포천시": {"u": "https://www.pocheon.go.kr/search/search.jsp?query={q}"},
+ "경남|고성군": {"u": "https://www.goseong.go.kr/index.goseong?contentsSid=1554&collection=ALL&searchTerm={q}"},
+ "경남|산청군": {"u": "https://www.sancheong.go.kr/search/search.jsp?collection_top=ALL&query={q}"},
+ "경남|의령군": {"u": "https://www.uiryeong.go.kr/index.uiryeong?contentsSid=1496&searchTerm={q}"},
+ "경북|경산시": {"u": "https://www.gbgs.go.kr/search/front/Search.jsp?qt={q}"},
+ "경북|울릉군": {"u": "https://www.ulleung.go.kr/Search/front/Search.jsp?qt={q}"},
+ "대구|동구": {"u": "https://dong.daegu.kr/search/front/Search.jsp?qt={q}"},
+ "대구|북구": {"u": "https://www.buk.daegu.kr/search/front/Search.jsp?qt={q}"},
+ "대구|수성구": {"u": "https://www.suseong.kr/search/index.do?query={q}"},
+ "대전|서구": {"post": "https://www.seogu.go.kr/search/front/Search.jsp", "p": {"qt": "{q}"}},
+ "대전|유성구": {"u": "https://www.yuseong.go.kr/search/front/Search.jsp?s_type=all&qt={q}"},
+ "부산|금정구": {"u": "https://search.geumjeong.go.kr/search.jsp?kwd={q}"},
+ "부산|기장군": {"u": "https://www.gijang.go.kr/search/front/Search.jsp?qt={q}"},
+ "부산|동구": {"u": "https://www.bsdonggu.go.kr/RSA/front/Search.jsp?qt={q}"},
+ "부산|동래구": {"u": "https://www.dongnae.go.kr/KFramework/search?kwd={q}&srchFd=all&sort=r&date=all&category=TOTAL"},
+ "부산|부산진구": {"u": "https://www.busanjin.go.kr/index.busanjin?menuCd=DOM_000000112000000000&searchTerm={q}"},
+ "부산|사상구": {"u": "https://www.sasang.go.kr/search/front/Search.jsp?qt={q}"},
+ "부산|수영구": {"u": "https://search.suyeong.go.kr/front/Search.jsp?qt={q}"},
+ "부산|영도구": {"u": "https://www.yeongdo.go.kr/search/searchResult.web?sstring={q}"},
+ "부산|중구": {"u": "https://search.bsjunggu.go.kr/search.jsp?kwd={q}"},
+ "부산|해운대구": {"u": "https://www.haeundae.go.kr/search/search?type=all&sort=d&word={q}&kwd={q}"},
+ "인천|강화군": {"u": "https://www.ganghwa.go.kr/search/search.do?query={q}"},
+ "인천|미추홀구": {"post": "https://www.michuhol.go.kr/RSA/front_new/Search.jsp", "p": {"qt": "{q}"}},
+ "전남광주|영광군": {"u": "https://www.yeonggwang.go.kr/total_search/search.php?category=total&kwd={q}"},
+ "전남광주|해남군": {"u": "https://www.haenam.go.kr/index.9is?contentUid=18e3368f655bdbc60166c79c2abe160b&search_word={q}"},
+ "충북|진천군": {"post": "https://search.jincheon.go.kr/RSA/front_new/Search.jsp", "p": {"qt": "{q}"}},
+ # 부산 서구: 통합검색이 보안토큰(CSRF)을 요구해 외부에서 바로 검색 불가 → 공식 누리집으로 연결
+}
+
 PHONE = r"(0(?:2|[3-6][1-5]))\s*[-.)]?\s*(\d{3,4})\s*[-.]\s*(\d{4})"
 REP = re.compile(r"(대표\s*전화|대표\s*번호|대표\s*TEL|TEL|Tel|tel|전화|☎)\s*[:：.]?\s*(\(?\s*)" + PHONE)
 CTX = ssl.create_default_context()
