@@ -298,12 +298,15 @@ OFFICIAL_FIX = {
   # ── 2차 확인(2026-11-18 밤): 공공기관 누리집에서 공고·게시물·담당 번호를 찾아 연결 ──
   ("서울", "강남구", "2026-10-12"): dict(url="https://clean.gangnam.go.kr/", url_kind="자원순환 종합포털(공지)"),
   ("서울", "동작구", "2026-03-09"): dict(url="https://www.dongjak.go.kr/yeyak/progrm/master/yeyak/list.do?tmplatSeCd=95&menuNo=1600011", url_kind="동작예약(접수 내역)"),
-  ("서울", "중랑구", "2026-03-16"): dict(url="https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm=%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0&sorting=Date",
-        url_kind="구청 게시판(공고 목록)", phone="02-2094-1972", phone_src="dept", dept="청소행정과 음식물종량제팀"),
+  ("서울", "중랑구", "2026-03-16"): dict(url="https://www.jungnang.go.kr/portal/bbs/view/B0000117/164598?menuNo=200475",
+        url_kind="공고문", notice="2026년 가정용 음식물처리기(소형감량기) 구매비용 지원사업 시행공고",
+        phone="02-2094-1972", phone_src="dept", dept="청소행정과 음식물종량제팀"),
   ("부산", "강서구", "2026-02-20"): dict(url="https://www.bsgangseo.go.kr/portal/board/post/view.do?bcIdx=500&mid=0501010000&idx=407306", url_kind="선정 결과 알림",
         phone="051-970-4000", phone_src="rep"),
-  ("부산", "동구", "2026-08-06"): dict(url="https://www.bsdonggu.go.kr/board/list.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&contentsSid=276", url_kind="구청 안내사항(공고 목록)"),
-  ("부산", "수영구", "2026-10-06"): dict(phone="051-610-4452", phone_src="dept", dept="자원순환과"),
+  ("부산", "동구", "2026-08-06"): dict(url="https://www.bsdonggu.go.kr/board/view.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&dataSid=5097890",
+        url_kind="보조금 지급 신청 안내", phone="051-440-4458", phone_src="dept", dept="환경청소위생과"),
+  ("부산", "수영구", "2026-10-06"): dict(url="https://www.suyeong.go.kr/board/view.suyeong?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=375442",
+        notice="2026년 수영구 가정용 음식물쓰레기 처리기 지원사업 실시 알림", phone="051-610-4452", phone_src="dept", dept="자원순환과", verify="official"),
   ("부산", "사상구", "2026-08-24"): dict(phone="051-310-4452", phone_src="dept", dept="청소행정과"),
   ("인천", "미추홀구", "2026-03-04"): dict(phone="032-880-4368", phone_src="dept", dept="자원순환과"),
   ("대구", "동구", "2026-02-02"): dict(phone="053-662-2722", phone_src="dept", dept="청소자원과"),
@@ -311,6 +314,33 @@ OFFICIAL_FIX = {
         phone="033-570-3648", phone_src="dept", dept="환경과", verify="official"),
   ("경남", "김해시", "2026-01-14"): dict(url="https://www.gimhae.go.kr/00024.web?amode=view&idx=2576988", verify="official"),
   ("강원", "영월군", "2026-03-17"): dict(url=""),     # 자동 점검에서 내용 불일치 → 공식 누리집으로 대체
+  # ── 2026-11-19: 각 지자체 누리집 게시판·통합검색에서 찾아 직접 열어 확인한 실제 게시글 ──
+  ("부산", "해운대구", "2026-10-01"): dict(url="https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000101005020002&dataSid=3175012",
+        notice="「2026년 가정용 음식물쓰레기 처리기 보조금 지원사업」 시행 안내", phone="051-749-4454", phone_src="dept", dept="자원순환과", verify="official"),
+  ("부산", "동래구", "2026-10-19"): dict(url="https://www.dongnae.go.kr/board/view.dongnae?boardId=BBS_0000177&menuCd=DOM_000001109003001000&dataSid=893484",
+        url_kind="동 행정복지센터 게시(공고문 첨부)", notice="2026 가정용 음식물류폐기물 감량기(음식물 처리기) 설치 지원 안내"),
+  ("부산", "중구", "2026-09-07"): dict(url="https://www.bsjunggu.go.kr/board/view.junggu?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=260552",
+        url_kind="선정 대상자 안내", phone="051-600-4304", phone_src="dept", dept="자원순환과"),
+  ("부산", "서구", "2026-09-03"): dict(url="https://www.bsseogu.go.kr/board/view.do?boardId=BBS_0000039&menuCd=DOM_000000103001012000&dataSid=275380",
+        notice="2026년 가정용 음식물쓰레기 처리기 보조금 지원 사업", phone="051-240-4452", phone_src="dept", dept="청소행정과", verify="official"),
+  ("부산", "금정구", "2026-08-18"): dict(url="https://www.geumjeong.go.kr/board/view.geumj?boardId=BBS_0000004&menuCd=DOM_000001016004001000&dataSid=983292",
+        url_kind="선정자 제출서류 안내", dept="자원순환과"),
+  ("서울", "강서구", "2026-05-18"): dict(url="https://www.gangseo.seoul.kr/gs040101/321792", url_kind="선정자 안내(공고문 첨부)",
+        phone="02-2600-4077", phone_src="dept", dept="자원순환과", verify="secondary"),
+  ("서울", "강북구", "2026-03-16"): dict(url="https://www.gangbuk.go.kr/portal/bbs/B0000145/view.do?menuNo=200081&nttId=180127",
+        notice="2026년 가정용 소형감량기 구매 지원사업 안내", phone="02-901-6795", phone_src="dept", verify="official"),
+  ("서울", "용산구", "2026-03-09"): dict(url="https://www.yongsan.go.kr/portal/bbs/B0000095/view.do?nttId=743322&menuNo=200233",
+        notice="2026년 가정용 음식물류폐기물 감량기기 설치 보조금 지원 사업 시행 공고", phone="02-2199-7313", phone_src="dept", verify="official"),
+  ("대전", "서구", "2026-03-09"): dict(url="https://www.seogu.go.kr/prog/saeolGosi/GOSI/kor/sub04_02_01/view.do?notAncmtMgtNo=49563",
+        notice="2026년 가정용 음식물류 폐기물 감량기 설치 사업 공고"),
+  ("경기", "포천시", "2026-03-03"): dict(url="https://www.pocheon.go.kr/www/selectEminwonView.do?key=3717&notAncmtMgtNo=65159&notAncmtSeCode=01",
+        notice="포천시 공고 제2026-657호", dept="기후환경과"),
+  ("경북", "경산시", "2026-01-19"): dict(url="https://www.gbgs.go.kr/open_content/ko/page.do?mnu_uid=2160&parm_bod_uid=250228&step=258",
+        notice="2026년 음식물류 폐기물 가정용 감량기 구매 지원사업 공고", phone="053-810-6061", phone_src="dept", dept="자원순환과 재활용팀", verify="official"),
+  ("경북", "경산시", "2026-07-06"): dict(url="https://www.gbgs.go.kr/open_content/ko/page.do?mnu_uid=2160&parm_bod_uid=255136&step=258",
+        notice="2026년 음식물류 폐기물 가정용 감량기 구매 지원사업(2차) 공고", phone="053-810-6061", phone_src="dept", dept="자원순환과 재활용팀"),
+  ("경남", "산청군", "2026-01-12"): dict(url="https://www.sancheong.go.kr/www/selectBbsNttView.do?key=157&bbsNo=1&nttNo=154692",
+        notice="2026년 음식물류 폐기물 감량기기 설치 지원사업 공고"),
 }
 # 지자체 공식 누리집(공고문이 없는 종료 사업 등의 바로가기) — scripts/check_sites.py 가 2시간마다 접속·이름·대표번호를 더블체크
 sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
@@ -333,7 +363,7 @@ for e in E:
     e["home"] = HOME.get(f'{e["sido"]}|{e["sigungu"]}', "")
     e["search"] = SEARCH.get(f'{e["sido"]}|{e["sigungu"]}')
     e["rep_phone"] = REP_PHONE.get(f'{e["sido"]}|{e["sigungu"]}', "")
-    e["url_ok"] = bool(e.get("url") and e["verify"] == "official")   # 사람이 공고 본문을 직접 열어 대조한 링크
+    e["url_ok"] = bool(e.get("url") and (e["verify"] == "official" or (fx and fx.get("url") == e["url"])))   # 사람이 공고 본문을 직접 열어 대조한 링크
 
 REG = {r["id"] for r in json.load(open(sys.argv[2], encoding="utf-8"))["regions"]}
 for e in E:

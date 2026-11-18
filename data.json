@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19T06:56:00+09:00",
+ "updated_at": "2026-11-19T07:37:43+09:00",
  "verified_at": "2026-11-18",
  "years": [
   2026,
@@ -182,7 +182,7 @@
     "u": "https://search.gangnam.go.kr/search.jsp?kwd={q}"
    },
    "rep_phone": "02-3423-5114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e003"
   },
   {
@@ -359,13 +359,13 @@
    "end": "2026-05-22",
    "rate": 30,
    "max": 21,
-   "verify": "news",
+   "verify": "secondary",
    "target": "공고일 기준 6개월 이상 거주 · 추첨(4인 이상·RFID 미설치 주택 30% 우선) · 1~5kg/일 건조·분쇄·미생물 방식, 품질인증+KC",
    "how": "방문 또는 이메일",
-   "url": "",
+   "url": "https://www.gangseo.seoul.kr/gs040101/321792",
    "closed": false,
    "docs": "",
-   "phone": "02-2600-6114",
+   "phone": "02-2600-4077",
    "sources": [
     "https://biz.heraldcorp.com/article/10737456"
    ],
@@ -374,13 +374,13 @@
    "posted": "2026-05-18",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "rep",
-   "dept": "",
-   "url_kind": "공고문",
+   "url_kind": "선정자 안내(공고문 첨부)",
+   "phone_src": "dept",
+   "dept": "자원순환과",
    "home": "https://www.gangseo.seoul.kr/",
    "search": null,
    "rep_phone": "02-2600-6114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e009"
   },
   {
@@ -675,13 +675,13 @@
    "end": "2026-04-30",
    "rate": 30,
    "max": 21,
-   "verify": "news",
+   "verify": "official",
    "target": "공고일 기준 강북구 주민등록 세대(아파트 포함) · 250세대 선착순 · '22~'25 수혜 세대 제외",
    "how": "강북구청 청소행정과 방문 또는 이메일",
-   "url": "",
+   "url": "https://www.gangbuk.go.kr/portal/bbs/B0000145/view.do?menuNo=200081&nttId=180127",
    "closed": false,
    "docs": "",
-   "phone": "02-901-6114",
+   "phone": "02-901-6795",
    "sources": [
     "https://m.news.nate.com/view/20260316n31043"
    ],
@@ -690,13 +690,14 @@
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "rep",
+   "notice": "2026년 가정용 소형감량기 구매 지원사업 안내",
+   "phone_src": "dept",
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gangbuk.go.kr/",
    "search": null,
    "rep_phone": "02-901-6114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e019"
   },
   {
@@ -831,7 +832,7 @@
    "home": "https://www.dongjak.go.kr/",
    "search": null,
    "rep_phone": "02-820-1114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e023"
   },
   {
@@ -851,13 +852,14 @@
    "docs": "",
    "how": "",
    "phone": "02-2094-1972",
-   "url": "https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm=%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0&sorting=Date",
+   "url": "https://www.jungnang.go.kr/portal/bbs/view/B0000117/164598?menuNo=200475",
    "note": "",
    "round": "",
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
-   "url_kind": "구청 게시판(공고 목록)",
+   "url_kind": "공고문",
+   "notice": "2026년 가정용 음식물처리기(소형감량기) 구매비용 지원사업 시행공고",
    "phone_src": "dept",
    "dept": "청소행정과 음식물종량제팀",
    "home": "https://www.jungnang.go.kr/",
@@ -865,7 +867,7 @@
     "u": "https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm={q}&sorting=Date"
    },
    "rep_phone": "",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e024"
   },
   {
@@ -881,17 +883,18 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "02-2199-7313",
+   "url": "https://www.yongsan.go.kr/portal/bbs/B0000095/view.do?nttId=743322&menuNo=200233",
    "round": "",
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
+   "notice": "2026년 가정용 음식물류폐기물 감량기기 설치 보조금 지원 사업 시행 공고",
+   "phone_src": "dept",
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.yongsan.go.kr/",
@@ -905,7 +908,7 @@
     }
    },
    "rep_phone": "02-2199-6114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e025"
   },
   {
@@ -1021,26 +1024,27 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "051-749-4454",
+   "url": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000101005020002&dataSid=3175012",
    "note": "",
    "posted": "2026-10-01",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
+   "notice": "「2026년 가정용 음식물쓰레기 처리기 보조금 지원사업」 시행 안내",
+   "phone_src": "dept",
+   "dept": "자원순환과",
    "url_kind": "공고문",
    "home": "https://www.haeundae.go.kr/",
    "search": {
     "u": "https://www.haeundae.go.kr/search/search?type=all&sort=d&word={q}&kwd={q}"
    },
    "rep_phone": "051-749-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e029"
   },
   {
@@ -1119,18 +1123,19 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "051-610-4452",
-   "url": "",
+   "url": "https://www.suyeong.go.kr/board/view.suyeong?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=375442",
    "note": "",
    "round": "",
    "posted": "2026-10-06",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 수영구 가정용 음식물쓰레기 처리기 지원사업 실시 알림",
    "phone_src": "dept",
    "dept": "자원순환과",
    "url_kind": "공고문",
@@ -1139,7 +1144,7 @@
     "u": "https://search.suyeong.go.kr/front/Search.jsp?qt={q}"
    },
    "rep_phone": "",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e032"
   },
   {
@@ -1159,21 +1164,22 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.dongnae.go.kr/board/view.dongnae?boardId=BBS_0000177&menuCd=DOM_000001109003001000&dataSid=893484",
    "note": "",
    "round": "",
    "posted": "2026-10-19",
    "force": "",
    "verified_at": "2026-11-18",
+   "url_kind": "동 행정복지센터 게시(공고문 첨부)",
+   "notice": "2026 가정용 음식물류폐기물 감량기(음식물 처리기) 설치 지원 안내",
    "phone_src": "",
    "dept": "",
-   "url_kind": "공고문",
    "home": "https://www.dongnae.go.kr/",
    "search": {
     "u": "https://www.dongnae.go.kr/KFramework/search?kwd={q}&srchFd=all&sort=r&date=all&category=TOTAL"
    },
    "rep_phone": "051-550-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e033"
   },
   {
@@ -1226,22 +1232,22 @@
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "051-600-4304",
+   "url": "https://www.bsjunggu.go.kr/board/view.junggu?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=260552",
    "note": "",
    "round": "",
    "posted": "2026-09-07",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
+   "url_kind": "선정 대상자 안내",
+   "phone_src": "dept",
+   "dept": "자원순환과",
    "home": "https://www.bsjunggu.go.kr/",
    "search": {
     "u": "https://search.bsjunggu.go.kr/search.jsp?kwd={q}"
    },
    "rep_phone": "051-600-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e035"
   },
   {
@@ -1255,25 +1261,26 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "051-240-4452",
+   "url": "https://www.bsseogu.go.kr/board/view.do?boardId=BBS_0000039&menuCd=DOM_000000103001012000&dataSid=275380",
    "note": "",
    "round": "",
    "posted": "2026-09-03",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
+   "notice": "2026년 가정용 음식물쓰레기 처리기 보조금 지원 사업",
+   "phone_src": "dept",
+   "dept": "청소행정과",
    "url_kind": "공고문",
    "home": "https://www.bsseogu.go.kr/",
    "search": null,
    "rep_phone": "051-240-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e036"
   },
   {
@@ -1294,21 +1301,21 @@
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "https://www.bsdonggu.go.kr/board/list.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&contentsSid=276",
+   "phone": "051-440-4458",
+   "url": "https://www.bsdonggu.go.kr/board/view.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&dataSid=5097890",
    "round": "",
    "posted": "2026-08-06",
    "force": "",
    "verified_at": "2026-11-18",
-   "url_kind": "구청 안내사항(공고 목록)",
-   "phone_src": "",
-   "dept": "",
+   "url_kind": "보조금 지급 신청 안내",
+   "phone_src": "dept",
+   "dept": "환경청소위생과",
    "home": "https://www.bsdonggu.go.kr/",
    "search": {
     "u": "https://www.bsdonggu.go.kr/RSA/front/Search.jsp?qt={q}"
    },
    "rep_phone": "051-440-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e037"
   },
   {
@@ -1430,21 +1437,21 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.geumjeong.go.kr/board/view.geumj?boardId=BBS_0000004&menuCd=DOM_000001016004001000&dataSid=983292",
    "note": "",
    "round": "",
    "posted": "2026-08-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "url_kind": "선정자 제출서류 안내",
+   "dept": "자원순환과",
    "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
    "home": "https://www.geumjeong.go.kr/",
    "search": {
     "u": "https://search.geumjeong.go.kr/search.jsp?kwd={q}"
    },
    "rep_phone": "051-519-4000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e041"
   },
   {
@@ -1820,7 +1827,7 @@
    "end": "2026-03-13",
    "rate": 70,
    "max": 70,
-   "url": "",
+   "url": "https://www.seogu.go.kr/prog/saeolGosi/GOSI/kor/sub04_02_01/view.do?notAncmtMgtNo=49563",
    "note": "선정 후 구매",
    "sources": [
     "https://jab-guyver.co.kr/7817",
@@ -1836,6 +1843,7 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 가정용 음식물류 폐기물 감량기 설치 사업 공고",
    "phone_src": "",
    "dept": "",
    "url_kind": "공고문",
@@ -1847,7 +1855,7 @@
     }
    },
    "rep_phone": "042-288-2114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e053"
   },
   {
@@ -2040,21 +2048,22 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.pocheon.go.kr/www/selectEminwonView.do?key=3717&notAncmtMgtNo=65159&notAncmtSeCode=01",
    "note": "",
    "round": "",
    "posted": "2026-03-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "포천시 공고 제2026-657호",
+   "dept": "기후환경과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.pocheon.go.kr/",
    "search": {
     "u": "https://www.pocheon.go.kr/search/search.jsp?query={q}"
    },
    "rep_phone": "031-538-2114",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e059"
   },
   {
@@ -2633,13 +2642,13 @@
    "end": "2026-01-30",
    "rate": 50,
    "max": 40,
-   "verify": "news",
+   "verify": "official",
    "target": "공고일 기준 경산시 주민등록 세대 · 200대 · 선정 이전 구매·렌탈·중고·디스포저 제외",
    "how": "자원순환과 방문",
-   "url": "",
+   "url": "https://www.gbgs.go.kr/open_content/ko/page.do?mnu_uid=2160&parm_bod_uid=250228&step=258",
    "closed": false,
    "docs": "",
-   "phone": "053-811-2231",
+   "phone": "053-810-6061",
    "sources": [
     "https://news.nate.com/view/20260117n05583"
    ],
@@ -2648,15 +2657,16 @@
    "posted": "2026-01-19",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "rep",
-   "dept": "",
+   "notice": "2026년 음식물류 폐기물 가정용 감량기 구매 지원사업 공고",
+   "phone_src": "dept",
+   "dept": "자원순환과 재활용팀",
    "url_kind": "공고문",
    "home": "https://www.gbgs.go.kr/",
    "search": {
     "u": "https://www.gbgs.go.kr/search/front/Search.jsp?qt={q}"
    },
    "rep_phone": "053-811-2231",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e077"
   },
   {
@@ -2676,21 +2686,22 @@
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "053-810-6061",
+   "url": "https://www.gbgs.go.kr/open_content/ko/page.do?mnu_uid=2160&parm_bod_uid=255136&step=258",
    "note": "",
    "posted": "2026-07-06",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
+   "notice": "2026년 음식물류 폐기물 가정용 감량기 구매 지원사업(2차) 공고",
+   "phone_src": "dept",
+   "dept": "자원순환과 재활용팀",
    "url_kind": "공고문",
    "home": "https://www.gbgs.go.kr/",
    "search": {
     "u": "https://www.gbgs.go.kr/search/front/Search.jsp?qt={q}"
    },
    "rep_phone": "053-811-2231",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e078"
   },
   {
@@ -3039,12 +3050,13 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.sancheong.go.kr/www/selectBbsNttView.do?key=157&bbsNo=1&nttNo=154692",
    "note": "",
    "round": "",
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 음식물류 폐기물 감량기기 설치 지원사업 공고",
    "phone_src": "",
    "dept": "",
    "url_kind": "공고문",
@@ -3053,7 +3065,7 @@
     "u": "https://www.sancheong.go.kr/search/search.jsp?collection_top=ALL&query={q}"
    },
    "rep_phone": "055-970-6000",
-   "url_ok": false,
+   "url_ok": true,
    "id": "e089"
   },
   {

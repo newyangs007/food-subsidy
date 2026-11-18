@@ -56,7 +56,9 @@ var ICO={
 function phoneHTML(e){ var p=phoneOf(e); return p ? '<span class="telc" data-stop="1">'+ICO.phone+'<span>'+esc(p)+'</span></span>' : ''; }
 /* 종료 + 2차 출처 → 해당 지자체 누리집 통합검색 결과로 바로가기 (검색어: 감량기 기본, ▾로 바꿔 검색) */
 var SKW=['감량기','음식물처리기','음식물 보조금','음식물 지원금'];
-function useSearch(e){ return !!e.search && status(e)==='off' && vkey(e)==='secondary'; }
+/* 지자체 누리집에서 찾은 실제 게시글이 있으면 그 글로 바로 가고, 게시글을 못 찾은 곳만 누리집 통합검색으로 보낸다 */
+function hasPost(e){ var b=bestLink(e); return !!(b && b.t===0); }
+function useSearch(e){ return !!e.search && status(e)==='off' && vkey(e)==='secondary' && !hasPost(e); }
 function openSearch(rid, q){
   var e=(D.items||[]).filter(function(x){return x.sido+'|'+x.sigungu===rid && x.search})[0]; if(!e) return;
   var c=e.search;
