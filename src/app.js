@@ -24,21 +24,27 @@ function gov(u){ var h=host(u); return /(\.go\.kr|\.seoul\.kr|\.daegu\.kr|(^|\.)
 function tier(u){ var h=host(u); if(!h) return 9; if (gov(u)) return 0; if (BLOGS.test(h)) return 2; return 1; }
 var TIER=['공고문','뉴스','블로그'];
 function lcheck(u){ return (L && L.links && L.links[u]) || null; }
-function linkOK(u){ var c=lcheck(u); return !c || (c.state!=='gone' && c.state!=='mismatch'); }   // 더블체크에서 삭제·내용 불일치로 판정되면 숨김
+function linkOK(u, e){ var c=lcheck(u); if (!c) return true; if (c.state==='gone') return false;
+  if (c.state==='mismatch') return !!(e && e.url_ok && e.url===u);   // 직접 대조한 공고는 자동 판독 실패(스크립트 화면 등)로 숨기지 않음
+  return true; }   // 더블체크에서 삭제·내용 불일치로 판정되면 숨김
 /* 바로가기: ① 공공기관 공고문(더블체크 통과) → ② 지자체 공식 누리집(더블체크 통과) — 뉴스·블로그는 쓰지 않음 */
 function site(e){ return (W && W.sites && W.sites[e.sido+'|'+e.sigungu]) || null; }
 function bestLink(e){
-  var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i && gov(u) && linkOK(u);});
+  var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i && gov(u) && linkOK(u,e);});
   if (c.length) return {u:c[0], t:0};
   var w=site(e), h=(w&&w.home)||e.home;
-  if (h && !(w && w.state==='mismatch')) return {u:h, t:4};
+  if (h) return {u:h, t:4};                                             // 누리집 주소는 직접 확인한 목록(check_sites.HOME)
   return null;
 }
 /* 전화번호: ① 확인된 담당부서 번호 → ② 공고문 본문의 담당·문의 번호(자동 추출) → ③ 지자체 대표번호(누리집 하단, 자동 확인) */
+var AREA={'서울':['02'],'부산':['051'],'대구':['053'],'인천':['032'],'대전':['042'],'울산':['052'],'세종':['044'],'경기':['031'],'강원':['033'],
+  '충북':['043'],'충남':['041','042'],'전북':['063'],'전남광주':['061','062'],'경북':['054','053'],'경남':['055'],'제주':['064']};
+function localNo(e,p){ var a=AREA[e.sido]||[]; return a.some(function(x){ return p.indexOf(x+'-')===0; }); }
 function phoneOf(e){
-  if (e.phone) return e.phone;
-  var c=e.url&&lcheck(e.url); if (c && c.state==='ok' && c.dept_phone) return c.dept_phone;
-  var w=site(e); return (w && w.rep_phone) || '';
+  if (e.phone) return e.phone;                                         // ① 직접 확인한 담당부서 번호
+  var c=e.url&&lcheck(e.url);                                          // ② 공고 본문 '담당·문의' 번호(자동, 지역번호 일치할 때만)
+  if (c && c.state==='ok' && c.dept_phone && localNo(e,c.dept_phone)) return c.dept_phone;
+  return e.rep_phone || '';                                           // ③ 지자체 대표번호(누리집에서 확인)
 }
 function phoneHTML(e){ var p=phoneOf(e); return p ? '<span class="tel" data-stop="1">☎ '+esc(p)+'</span>' : ''; }
 function linkHTML(e, cls){ var b=bestLink(e);
@@ -316,7 +322,7 @@ function openDrawer(id){
   var s=status(e), a=amount(e), v=VF[vkey(e)], rid=e.sido+'|'+e.sigungu, lv=dlevel(rid), ph=phoneOf(e);
   var per = e.start ? e.start.replace(/-/g,'.')+' ~ '+(e.end?e.end.replace(/-/g,'.'):'예산 소진 시') : '공고문 확인';
   var f=function(lbl,val){ return '<dt>'+lbl+'</dt><dd>'+(val?esc(val):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'; };
-  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i && gov(u) && linkOK(u)}), bl=bestLink(e), lc=e.url?lcheck(e.url):null;
+  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i && gov(u) && linkOK(u,e)}), bl=bestLink(e), lc=e.url?lcheck(e.url):null;
   $('#drawer').innerHTML =
     '<button class="x2" type="button" id="dx" aria-label="닫기">×</button>'+
     '<div class="dh"><div class="r">'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</div><h3>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</h3>'+

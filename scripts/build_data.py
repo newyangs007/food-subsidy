@@ -314,7 +314,7 @@ OFFICIAL_FIX = {
 }
 # 지자체 공식 누리집(공고문이 없는 종료 사업 등의 바로가기) — scripts/check_sites.py 가 2시간마다 접속·이름·대표번호를 더블체크
 sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
-from check_sites import HOME
+from check_sites import HOME, REP_PHONE
 import re as _re
 GOV = _re.compile(r"^https?://[^/]*(\.go\.kr|\.seoul\.kr|\.daegu\.kr|suseong\.kr)(/|$)")
 for e in E:
@@ -331,6 +331,8 @@ for e in E:
     e.setdefault("dept", "")
     e.setdefault("url_kind", "공고문")
     e["home"] = HOME.get(f'{e["sido"]}|{e["sigungu"]}', "")
+    e["rep_phone"] = REP_PHONE.get(f'{e["sido"]}|{e["sigungu"]}', "")
+    e["url_ok"] = bool(e.get("url") and e["verify"] == "official")   # 사람이 공고 본문을 직접 열어 대조한 링크
 
 REG = {r["id"] for r in json.load(open(sys.argv[2], encoding="utf-8"))["regions"]}
 for e in E:

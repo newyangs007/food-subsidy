@@ -47,6 +47,26 @@ HOME = {
  "경남|창녕군": "https://www.cng.go.kr/", "경남|통영시": "https://www.tongyeong.go.kr/",
 }
 
+# 지자체 대표번호 — 각 지자체 공식 누리집 하단/전화번호 안내 페이지에서 직접 확인(2026-11-18).
+# 자동 추출값과 다르면 이 값을 우선합니다(자동 추출은 페이지 구조에 따라 다른 번호를 잡을 수 있음).
+REP_PHONE = {
+ "서울|강남구": "02-3423-5114", "서울|구로구": "02-860-2114", "서울|광진구": "02-450-1114", "서울|동작구": "02-820-1114",
+ "서울|용산구": "02-2199-6114", "서울|은평구": "02-351-6114", "서울|강서구": "02-2600-6114", "서울|강북구": "02-901-6114",
+ "서울|중구": "02-3396-4114", "서울|성동구": "02-2286-5114",
+ "부산|강서구": "051-970-4000", "부산|금정구": "051-519-4000", "부산|기장군": "051-709-4000", "부산|동구": "051-440-4000",
+ "부산|동래구": "051-550-4000", "부산|부산진구": "051-605-4000", "부산|서구": "051-240-4000", "부산|영도구": "051-419-4000",
+ "부산|중구": "051-600-4000", "부산|해운대구": "051-749-4000", "부산|연제구": "051-665-4000", "부산|사상구": "051-310-4000",
+ "인천|강화군": "032-930-3114", "인천|부평구": "032-504-2114",
+ "대전|동구": "042-251-4114", "대전|서구": "042-288-2114", "대전|유성구": "042-611-2114",
+ "대구|북구": "053-665-2000", "대구|수성구": "053-666-2000",
+ "경기|남양주시": "031-590-2114", "경기|포천시": "031-538-2114",
+ "강원|동해시": "033-530-2114", "강원|양구군": "033-481-2191", "강원|영월군": "1577-0545",
+ "충북|진천군": "043-539-3114",
+ "전남광주|영광군": "061-350-5114", "전남광주|해남군": "061-530-5114",
+ "경북|경산시": "053-811-2231", "경북|울릉군": "054-791-2191", "경북|포항시": "054-270-8282",
+ "경남|고성군": "055-670-2114", "경남|산청군": "055-970-6000", "경남|의령군": "055-570-2114",
+}
+
 PHONE = r"(0(?:2|[3-6][1-5]))\s*[-.)]?\s*(\d{3,4})\s*[-.]\s*(\d{4})"
 REP = re.compile(r"(대표\s*전화|대표\s*번호|대표\s*TEL|TEL|Tel|tel|전화|☎)\s*[:：.]?\s*(\(?\s*)" + PHONE)
 CTX = ssl.create_default_context()
@@ -95,11 +115,11 @@ def main():
                 if n not in reps: reps.append((m.group(1), n))
             rep = next((n for k, n in reps if "대표" in k), None) or (reps[0][1] if reps else None)
             r.update(state="ok" if (st == 200 and match) else "mismatch", http=st, title=title, name_match=match,
-                     rep_phone=rep or (old.get(rid, {}).get("rep_phone")), phones=[n for _, n in reps][:4], checked_at=now)
+                     rep_phone=REP_PHONE.get(rid), auto_phone=rep, phones=[n for _, n in reps][:4], checked_at=now)
         except Exception as ex:
             prev = old.get(rid)
-            r = dict(prev, stale=True, last_error=str(ex)[:100]) if prev and prev.get("state") == "ok" else \
-                dict(r, state="unreach", error=str(ex)[:100], checked_at=now, rep_phone=(prev or {}).get("rep_phone"))
+            r = dict(prev, stale=True, last_error=str(ex)[:100], rep_phone=REP_PHONE.get(rid)) if prev and prev.get("state") == "ok" else \
+                dict(r, state="unreach", error=str(ex)[:100], checked_at=now, rep_phone=REP_PHONE.get(rid))
         out[rid] = r; summ[r["state"]] = summ.get(r["state"], 0) + 1
         print(f"{r['state']:8} {rid:14} {r.get('rep_phone')}  {r.get('title','')[:40]}")
     json.dump({"updated_at": now, "summary": summ, "sites": out}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
