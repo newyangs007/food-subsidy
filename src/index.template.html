@@ -231,9 +231,7 @@ footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
 .cvf{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .cvf select{height:32px;border:1px solid var(--line);border-radius:8px;padding:0 8px;background:#fff;font:inherit;font-size:13px}
 .lk{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
-.lk .tel{font-size:12px;color:var(--ink2);text-decoration:none;white-space:nowrap;display:flex;flex-direction:column;line-height:1.3}
-.lk .tel b{font-weight:700;color:var(--ink)}
-.lk .tel small{color:var(--faint);font-size:11px}
+.lk .tel{font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;cursor:default;user-select:text}
 .lk .none{font-size:12px;color:var(--faint);white-space:nowrap}
 .go.home{color:#0F766E}
 .shopcard .ch small{color:var(--mute)}
@@ -249,6 +247,7 @@ footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
 .shopgrp{padding:2px 16px 4px;font-size:13.5px;font-weight:800;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .shopgrp small{font-weight:600;color:var(--mute)}
 .shopnote{padding:0 16px 14px;font-size:12.5px;color:var(--mute)}
+span.btn.tel{cursor:default;background:#F8FAFC}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0F172A;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;z-index:99;pointer-events:none;max-width:92vw;text-align:center}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 #refresh.spin svg{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
@@ -368,7 +367,7 @@ tr.mine{background:#F5F9FF}
         </div>
         <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태</th><th class="hide-m">검증</th><th>공고문 · 담당 전화</th></tr></thead>
+          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태</th><th class="hide-m">검증</th><th>바로가기 · 전화</th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
         </div>

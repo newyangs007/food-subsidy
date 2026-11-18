@@ -295,19 +295,32 @@ OFFICIAL_FIX = {
   ("경북", "안동시", "2026-09-10"): dict(phone_src="dept"),
   ("경북", "포항시", "2026-01-12"): dict(phone="054-270-3193", phone_src="dept", dept="공고 담당자"),
   ("경북", "경산시", "2026-01-19"): dict(phone="053-811-2231", phone_src="rep"),
+  # ── 2차 확인(2026-11-18 밤): 공공기관 누리집에서 공고·게시물·담당 번호를 찾아 연결 ──
+  ("서울", "강남구", "2026-10-12"): dict(url="https://clean.gangnam.go.kr/", url_kind="자원순환 종합포털(공지)"),
+  ("서울", "동작구", "2026-03-09"): dict(url="https://www.dongjak.go.kr/yeyak/progrm/master/yeyak/list.do?tmplatSeCd=95&menuNo=1600011", url_kind="동작예약(접수 내역)"),
+  ("서울", "중랑구", "2026-03-16"): dict(url="https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm=%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0&sorting=Date",
+        url_kind="구청 게시판(공고 목록)", phone="02-2094-1972", phone_src="dept", dept="청소행정과 음식물종량제팀"),
+  ("부산", "강서구", "2026-02-20"): dict(url="https://www.bsgangseo.go.kr/portal/board/post/view.do?bcIdx=500&mid=0501010000&idx=407306", url_kind="선정 결과 알림",
+        phone="051-970-4000", phone_src="rep"),
+  ("부산", "동구", "2026-08-06"): dict(url="https://www.bsdonggu.go.kr/board/list.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&contentsSid=276", url_kind="구청 안내사항(공고 목록)"),
+  ("부산", "수영구", "2026-10-06"): dict(phone="051-610-4452", phone_src="dept", dept="자원순환과"),
+  ("부산", "사상구", "2026-08-24"): dict(phone="051-310-4452", phone_src="dept", dept="청소행정과"),
+  ("인천", "미추홀구", "2026-03-04"): dict(phone="032-880-4368", phone_src="dept", dept="자원순환과"),
+  ("대구", "동구", "2026-02-02"): dict(phone="053-662-2722", phone_src="dept", dept="청소자원과"),
+  ("강원", "삼척시", "2026-01-12"): dict(url="https://www.samcheok.go.kr/00095.web?amode=view&mgtNo=36143", notice="삼척시 공고 제2026-49호",
+        phone="033-570-3648", phone_src="dept", dept="환경과", verify="official"),
+  ("경남", "김해시", "2026-01-14"): dict(url="https://www.gimhae.go.kr/00024.web?amode=view&idx=2576988", verify="official"),
+  ("강원", "영월군", "2026-03-17"): dict(url=""),     # 자동 점검에서 내용 불일치 → 공식 누리집으로 대체
 }
-# 지자체 공식 누리집(공고문을 찾지 못한 경우의 바로가기) — 하단 대표번호와 함께 직접 열어 확인
-HOME = {
-  "서울|강서구": "https://www.gangseo.seoul.kr/", "서울|강북구": "https://www.gangbuk.go.kr/",
-  "서울|중구": "https://www.junggu.seoul.kr/", "서울|성동구": "https://www.sd.go.kr/",
-  "부산|강서구": "https://www.bsgangseo.go.kr/", "경북|경산시": "https://www.gbgs.go.kr/",
-}
+# 지자체 공식 누리집(공고문이 없는 종료 사업 등의 바로가기) — scripts/check_sites.py 가 2시간마다 접속·이름·대표번호를 더블체크
+sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
+from check_sites import HOME
 import re as _re
-GOV = _re.compile(r"^https?://[^/]*(\.go\.kr|\.seoul\.kr)(/|$)")
+GOV = _re.compile(r"^https?://[^/]*(\.go\.kr|\.seoul\.kr|\.daegu\.kr|suseong\.kr)(/|$)")
 for e in E:
     fx = OFFICIAL_FIX.get((e["sido"], e["sigungu"], e["start"]))
     if fx:
-        if fx.get("url") and e.get("url") and e["url"] != fx["url"]:
+        if "url" in fx and e.get("url") and e["url"] != fx["url"]:
             e["sources"] = [e["url"]] + [u for u in e["sources"] if u != e["url"]]
         e.update(fx)
         if fx.get("url") and e["verify"] == "news": e["verify"] = "official"

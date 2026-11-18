@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEVICE = re.compile(r"음식물.{0,12}(처리기|감량기|소멸기|처리 기기|감량 기기)|감량기")
 PHONE = re.compile(r"(?<!\d)(0(?:2|[3-6][1-5]|70))[-.)\s]?(\d{3,4})[-.\s](\d{4})(?!\d)")
 NEAR = re.compile(r"(문의|담당|연락처|전화|☎|TEL|Tel|tel)")
-OFFICIAL = re.compile(r"(\.go\.kr|\.seoul\.kr)(/|$|:)")
+OFFICIAL = re.compile(r"(\.go\.kr|\.seoul\.kr|\.daegu\.kr|suseong\.kr)(/|$|:)")
 
 CTX = ssl.create_default_context()
 CTX_LAX = ssl.create_default_context(); CTX_LAX.check_hostname = False; CTX_LAX.verify_mode = ssl.CERT_NONE  # 일부 지자체 인증서 체인 불완전
@@ -66,6 +66,22 @@ def phones(t):
 
 def digits(s): return re.sub(r"\D", "", s or "")
 
+DEPT = re.compile(r"(담당자?\s*/?\s*연락처|담당자|연락처|문의처?|문\s*의|전화번호)[^0-9]{0,25}?" +
+                  r"(0(?:2|[3-6][1-5]))\s*[-.)]?\s*(\d{3,4})\s*[-.]\s*(\d{4})")
+def dept_phone(t):
+    """공고 본문에서 '담당·문의·연락처' 바로 뒤에 적힌 번호(대표전화·팩스 제외)"""
+    for m in DEPT.finditer(t):
+        before = t[max(0, m.start() - 12):m.start()]
+        if re.search(r"(대표|FAX|팩스|Fax)", before + m.group(0)[:len(m.group(1)) + 8]): continue
+        return f"{m.group(2)}-{m.group(3)}-{m.group(4)}"
+    return None
+
+def date_marks(d):
+    """'2026-03-16' → 본문에서 찾을 날짜 표기들"""
+    if not d: return None
+    y, mo, da = d.split("-"); mo, da = int(mo), int(da)
+    return re.compile(rf"(?<!\d)0?{mo}\s*[.월/-]\s*0?{da}(?!\d)")
+
 def main():
     data = json.load(open(os.path.join(ROOT, "data.json"), encoding="utf-8"))
     path = os.path.join(ROOT, "link_check.json")
@@ -73,10 +89,11 @@ def main():
     except Exception: old = {}
     now = datetime.now(KST).isoformat(timespec="seconds")
     res, summary = {}, {"ok": 0, "mismatch": 0, "gone": 0, "unreach": 0, "not_official": 0}
+    targets = []
     for e in data["items"]:
-        u = e.get("url")
-        if not u: continue
-        if u in res: continue
+        for u in [e.get("url")] + list(e.get("sources", [])):
+            if u and OFFICIAL.search(u) and u not in [x[0] for x in targets]: targets.append((u, e))
+    for u, e in targets:
         r = {"region": f"{e['sido']}|{e['sigungu']}", "year": e.get("year"), "official": bool(OFFICIAL.search(u))}
         if not r["official"]:
             r.update(state="not_official", checked_at=now); res[u] = r; summary["not_official"] += 1; continue
@@ -90,6 +107,8 @@ def main():
                 yr = str(e.get("year", "")) in t or str(e.get("year", 0) - 1)[2:] + "년" in t
                 ph = phones(t)
                 listed = digits(e.get("phone", "").split("(")[0])
+                dm = date_marks(e.get("start"))
+                r.update(dept_phone=dept_phone(t), date_match=bool(dm and dm.search(t)))
                 r.update(state="ok" if dev else "mismatch", http=st, device=dev, year_mark=yr, phones=ph,
                          phone_listed=e.get("phone") or "", phone_in_page=bool(listed and any(digits(p) == listed for p in ph)))
             r["checked_at"] = now

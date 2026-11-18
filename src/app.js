@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
-var D, P, C, G, R, K, V, B, L;      // data, products, candidates, geo, regions, keywords, coverage, bestshops, link_check
+var D, P, C, G, R, K, V, B, L, W;      // data, products, candidates, geo, regions, keywords, coverage, bestshops, link_check
 var S = {year:null, rpage:1, ppage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
@@ -20,24 +20,34 @@ function fmtDT(iso){ if(!iso) return null; var m=String(iso).match(/(\d{4})-(\d{
 function md(s){ if(!s) return ''; var p=s.split('-'); return +p[1]+'.'+ +p[2]; }
 function days(a,b){ return Math.round((new Date(b)-new Date(a))/864e5); }
 var BLOGS=/(^|\.)(blog\.naver\.com|tistory\.com|brunch\.co\.kr|velog\.io|wikidocs\.net|tilnote\.io|make2t\.kr|jab-guyver\.co\.kr|foodwastesubsidy\.kr|yellowit\.co\.kr|studygov\.kr|glasswallet\.com|dikr\.co\.kr|icems2021\.com|naturelove40\.com|ajd\.co\.kr|gusle\.kr|thecheck\.co\.kr|wooyupost\.com|braindetox\.kr|post\.naver\.com|cafe\.naver\.com|medium\.com)$|blog/i;
-function gov(u){ var h=host(u); return /(\.go\.kr|\.seoul\.kr)$/.test(h); }      // 공공기관(시·도청, 구·군청) 누리집만
+function gov(u){ var h=host(u); return /(\.go\.kr|\.seoul\.kr|\.daegu\.kr|(^|\.)suseong\.kr)$/.test(h); }      // 공공기관(시·도청, 구·군청) 누리집만
 function tier(u){ var h=host(u); if(!h) return 9; if (gov(u)) return 0; if (BLOGS.test(h)) return 2; return 1; }
 var TIER=['공고문','뉴스','블로그'];
 function lcheck(u){ return (L && L.links && L.links[u]) || null; }
 function linkOK(u){ var c=lcheck(u); return !c || (c.state!=='gone' && c.state!=='mismatch'); }   // 더블체크에서 삭제·내용 불일치로 판정되면 숨김
-/* 바로가기: ① 공공기관 공고문(더블체크 통과) → ② 지자체 공식 누리집 → 없으면 링크 없음 (뉴스·블로그는 쓰지 않음) */
+/* 바로가기: ① 공공기관 공고문(더블체크 통과) → ② 지자체 공식 누리집(더블체크 통과) — 뉴스·블로그는 쓰지 않음 */
+function site(e){ return (W && W.sites && W.sites[e.sido+'|'+e.sigungu]) || null; }
 function bestLink(e){
   var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i && gov(u) && linkOK(u);});
-  if (c.length) return {u:c[0], t:0, lbl:(e.url===c[0] && e.url_kind) || '공고문'};
-  if (e.home) return {u:e.home, t:4, lbl:'구청 누리집'};
+  if (c.length) return {u:c[0], t:0};
+  var w=site(e), h=(w&&w.home)||e.home;
+  if (h && !(w && w.state==='mismatch')) return {u:h, t:4};
   return null;
 }
-function phoneHTML(e){ if(!e.phone) return '';
-  var tag = e.phone_src==='rep' ? '대표' : (e.dept||'담당');
-  return '<a class="tel" href="tel:'+esc(e.phone.replace(/[^0-9]/g,''))+'" data-stop="1">☎ <b>'+esc(e.phone)+'</b><small>'+esc(tag)+'</small></a>'; }
+/* 전화번호: ① 확인된 담당부서 번호 → ② 공고문 본문의 담당·문의 번호(자동 추출) → ③ 지자체 대표번호(누리집 하단, 자동 확인) */
+function phoneOf(e){
+  if (e.phone) return e.phone;
+  var c=e.url&&lcheck(e.url); if (c && c.state==='ok' && c.dept_phone) return c.dept_phone;
+  var w=site(e); return (w && w.rep_phone) || '';
+}
+function phoneHTML(e){ var p=phoneOf(e); return p ? '<span class="tel" data-stop="1">☎ '+esc(p)+'</span>' : ''; }
 function linkHTML(e, cls){ var b=bestLink(e);
-  var a = b ? '<a class="go '+(cls||'')+(b.t===4?' home':' t0')+'" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">'+esc(b.lbl)+' 바로가기 ↗</a>' : '<span class="none">공고문 확인 중</span>';
+  var a = b ? '<a class="go '+(cls||'')+' t0" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">바로가기 ↗</a>' : '<span class="none">공고 확인 중</span>';
   return '<div class="lk">'+a+phoneHTML(e)+'</div>'; }
+/* 검증 표시: 공식 공고(직접 대조) 또는 자동 점검에서 공고 본문·신청 시작일까지 일치 → 공식 공고 */
+function vkey(e){ var c=e.url&&lcheck(e.url);
+  if (e.verify==='official' || (c && c.state==='ok' && c.device && c.date_match)) return 'official';
+  return e.verify; }
 function host(u){ try{ return new URL(u).hostname.replace(/^www\.|^m\./,''); }catch(e){ return ''; } }
 
 /* ── 공고 단위 상태 ── */
@@ -196,7 +206,7 @@ function renderList(){
   var title = S.sgg ? sidoName(S.sido)+' '+S.sgg : S.sido ? sidoName(S.sido) : '전국';
   $('#listTitle').innerHTML = esc(title)+' '+S.year+'년 공고 <span>'+n+'건</span>';
   var rows = f.slice((S.page-1)*S.ps, S.page*S.ps).map(function(e){
-    var s=status(e), a=amount(e), v=VF[e.verify];
+    var s=status(e), a=amount(e), v=VF[vkey(e)];
     var per = e.start ? md(e.start)+' ~ '+(e.end?md(e.end):'예산 소진 시') : '공고문 확인';
     var sub = s==='on' && e.end ? 'D-'+Math.max(0,days(today,e.end)) : s==='soon' ? days(today,e.start)+'일 후 시작' : (e.round||'');
     return '<tr data-id="'+e.id+'"><td class="rg"><b>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</b><small>'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</small></td>'+
@@ -283,7 +293,7 @@ function shopsIn(rid){ return (B && B.items || []).filter(function(x){ return x.
 function shopHTML(x){
   return '<div class="shop"><div class="nm">'+esc(x.name)+'<span class="'+(x.type==='베스트샵'?'lg':'')+'">'+esc(x.type)+'</span>'+(x.dong?'<span>'+esc(x.dong)+'</span>':'')+'</div>'+
     '<div class="ad">'+esc(x.addr)+'</div>'+
-    '<div class="acts">'+(x.tel?'<a class="btn" href="tel:'+esc(x.tel.replace(/[^0-9]/g,''))+'">☎ '+esc(x.tel)+'</a>':'')+
+    '<div class="acts">'+(x.tel?'<span class="btn tel">☎ '+esc(x.tel)+'</span>':'')+
     '<a class="btn rsv" href="'+esc(x.reserve)+'" target="_blank" rel="noopener">상담예약 ↗</a>'+
     '<a class="btn" href="'+esc(x.page)+'" target="_blank" rel="noopener">매장 정보</a></div></div>';
 }
@@ -303,7 +313,7 @@ function renderShops(){
 }
 function openDrawer(id){
   var e=D.items.filter(function(x){return x.id===id})[0]; if(!e) return;
-  var s=status(e), a=amount(e), v=VF[e.verify], rid=e.sido+'|'+e.sigungu, lv=dlevel(rid);
+  var s=status(e), a=amount(e), v=VF[vkey(e)], rid=e.sido+'|'+e.sigungu, lv=dlevel(rid), ph=phoneOf(e);
   var per = e.start ? e.start.replace(/-/g,'.')+' ~ '+(e.end?e.end.replace(/-/g,'.'):'예산 소진 시') : '공고문 확인';
   var f=function(lbl,val){ return '<dt>'+lbl+'</dt><dd>'+(val?esc(val):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'; };
   var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i && gov(u) && linkOK(u)}), bl=bestLink(e), lc=e.url?lcheck(e.url):null;
@@ -313,13 +323,13 @@ function openDrawer(id){
     '<span class="st '+s+'"><i class="dot d-'+s+'"></i>'+ST[s]+'</span> <span class="vf '+v[0]+'" style="margin-left:6px"><i></i>'+v[1]+' · '+esc(e.verified_at)+' 확인</span> <span class="dbl d'+lv+'" style="margin-left:4px">'+DL[lv]+'</span></div>'+
     '<div class="db"><div class="big"><div><small>지원금</small><b>'+a.b+'</b><small>'+esc(a.s)+'</small></div><div><small>신청기간</small><b style="font-size:15px">'+per+'</b><small>'+(s==='on'&&e.end?'마감까지 '+Math.max(0,days(today,e.end))+'일':'')+'</small></div></div>'+
     '<dl>'+(e.note?f('비고',e.note):'')+f('지원 대상',e.target)+f('필요 서류',e.docs)+f('신청 방법',e.how)+
-    '<dt>전화번호</dt><dd>'+(e.phone?esc(e.phone)+' <span style="color:var(--mute);font-size:12px">('+(e.phone_src==='rep'?'지자체 대표번호 — 담당부서 번호 미확인':esc(e.dept||'담당부서')+' · 공고문 기재')+')</span>':'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'+
+    '<dt>전화번호</dt><dd>'+(ph?'☎ '+esc(ph):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'+
     (e.notice?f('공고 번호',e.notice):'')+
-    '<dt>공공기관 공고 (더블체크)</dt><dd class="srcs">'+(srcs.length?srcs.map(function(u){var c=lcheck(u);return '<a href="'+esc(u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">[공공기관]</b> '+esc(u.replace(/^https?:\/\//,'').slice(0,70))+'</a>'+(c&&c.state==='ok'?'<small style="color:#059669;display:block">✓ 자동 점검 '+esc(fmtDT(c.checked_at))+' — 링크 열림 · 음식물처리기 내용 일치</small>':'')}).join(''):'<span style="color:var(--faint)">공고문 원문 링크 확인 중'+(e.home?' — 지자체 공식 누리집에서 확인하세요':'')+'</span>')+'</dd></dl>'+
+    '<dt>공공기관 공고 (더블체크)</dt><dd class="srcs">'+(srcs.length?srcs.map(function(u){var c=lcheck(u);return '<a href="'+esc(u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">[공공기관]</b> '+esc(u.replace(/^https?:\/\//,'').slice(0,70))+'</a>'+(c&&c.state==='ok'?'<small style="color:#059669;display:block">✓ 자동 점검 '+esc(fmtDT(c.checked_at))+' — 링크 열림 · 음식물처리기 내용 일치</small>':'')}).join(''):(bl?'<a href="'+esc(bl.u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">[지자체 누리집]</b> '+esc(bl.u.replace(/^https?:\/\//,''))+'</a>':'<span style="color:var(--faint)">확인 중</span>'))+'</dd></dl>'+
     (s==='on'?shopsHTML(rid,true):'')+
     (e.verify==='secondary'?'<div class="warn">이 공고는 이미 마감된 것으로 확인된 2026년 사업입니다. 다음 모집은 해당 지자체 공고를 확인하세요.</div>':
       '<div class="ok">'+(e.verify==='official'?'지자체 공식 공고 본문과 대조했습니다.':'구청 보도자료 기반 언론 보도와 대조했습니다.')+' 예산 소진 시 조기 마감될 수 있습니다.</div>')+
-    '</div><div class="df">'+(bl?'<a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">'+esc(bl.lbl)+' 바로가기 ↗</a>':'')+(e.phone?'<a class="btn" href="tel:'+esc(e.phone.replace(/[^0-9]/g,''))+'">☎ '+esc(e.phone)+(e.phone_src==='rep'?' (대표)':'')+'</a>':'')+'</div>';
+    '</div><div class="df">'+(bl?'<a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">바로가기 ↗</a>':'')+(ph?'<span class="btn tel">☎ '+esc(ph)+'</span>':'')+'</div>';
   $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false');
 }
 function closeDrawer(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
@@ -376,8 +386,8 @@ function renderRadar(){
     .sort(function(a,b){ return (a._t-b._t) || ((b.published||'')>(a.published||'')?1:-1); });
   var ps=10, pages=Math.max(1,Math.ceil(list.length/ps)); if (S.rpage>pages) S.rpage=pages;
   $('#cand').innerHTML = list.length ? list.slice((S.rpage-1)*ps, S.rpage*ps).map(function(c){
-    var nw = c.first_seen && days(c.first_seen.slice(0,10),today)<=3;
-    return '<div class="ci"><span class="tg t'+c._t+'">'+(TIER[c._t]||'기타')+'</span><div><a href="'+esc(c.link)+'" target="_blank" rel="noopener">'+esc(c.title)+'</a>'+(nw?'<span class="new">신규</span>':'')+
+    var nw = (c.published||'').slice(0,7)===today.slice(0,7);   // 이번 달(11월) 기사만 New
+    return '<div class="ci"><span class="tg t'+c._t+'">'+(TIER[c._t]||'기타')+'</span><div><a href="'+esc(c.link)+'" target="_blank" rel="noopener">'+esc(c.title)+'</a>'+(nw?'<span class="new">New</span>':'')+
       '<div class="m">'+[c.sido,c.sigungu].filter(Boolean).join(' ')+(c.published?' · '+fmtDT(c.published):'')+'</div>'+(c.desc?'<div class="d">'+esc(c.desc.slice(0,140))+'</div>':'')+'</div></div>';
   }).join('') : '<div class="empty"><b style="color:var(--ink)">아직 모인 보조금 뉴스가 없습니다.</b><br><small>2시간마다 전국 '+R.regions.length+'개 지자체를 점검해 새 공고·뉴스를 이곳에 모아 보여줍니다.</small></div>';
   $('#radarInfo').textContent = list.length ? list.length+'건 · '+S.rpage+'/'+pages+'페이지' : '';
@@ -423,6 +433,7 @@ function renderKw(){
 
 /* ── 이벤트 ── */
 document.addEventListener('click', function(ev){
+  if (ev.target.closest('.tel')) return;                 // 전화번호는 눌러도 아무 동작 없음
   var t=ev.target.closest('button,tr,circle,path,a'); if(!t) return;
   if (t.matches('a')) return;
   if (t.dataset.year){ S.year=+t.dataset.year; S.page=1; S.cpage=1; S.status='all'; indexRegions(); render(); return; }
@@ -492,9 +503,9 @@ function stamp(){
 }
 function load(isRefresh){
   var btn=$('#refresh'); btn.disabled=true; btn.classList.add('spin');
-  var names=['data.json','products.json','candidates.json',G?null:'geo.json','regions.json','keywords.json','coverage.json','bestshops.json','link_check.json'];
+  var names=['data.json','products.json','candidates.json',G?null:'geo.json','regions.json','keywords.json','coverage.json','bestshops.json','link_check.json','site_check.json'];
   return Promise.all(names.map(function(n){ return n?getJSON(n):Promise.resolve(null); })).then(function(r){
-    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}}; B=r[7]||{items:[]}; L=r[8]||{links:{}};
+    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}}; B=r[7]||{items:[]}; L=r[8]||{links:{}}; W=r[9]||{sites:{}};
     if (!G) { G=r[3]; buildMap(); }
     nowD=kst(); today=ymd(nowD);
     if (!S.year || (D.years||[]).indexOf(S.year)<0) S.year=autoYear();
