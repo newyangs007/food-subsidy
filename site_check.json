@@ -1,9 +1,9 @@
 {
- "updated_at": "2026-11-18T23:11:12+09:00",
+ "updated_at": "2026-11-18T23:32:57+09:00",
  "summary": {
   "ok": 58,
-  "unreach": 15,
-  "mismatch": 11
+  "unreach": 16,
+  "mismatch": 10
  },
  "sites": {
   "서울|강남구": {
@@ -12,19 +12,17 @@
    "http": 200,
    "title": "강남구청",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "02-3423-5114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|강동구": {
    "home": "https://www.gangdong.go.kr/",
-   "state": "mismatch",
-   "http": 200,
-   "title": "",
-   "name_match": false,
-   "rep_phone": null,
-   "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "state": "unreach",
+   "error": "<urlopen error timed out>",
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": null
   },
   "서울|강북구": {
    "home": "https://www.gangbuk.go.kr/",
@@ -32,9 +30,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "02-901-6114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|강서구": {
    "home": "https://www.gangseo.seoul.kr/",
@@ -46,7 +45,9 @@
    "phones": [
     "02-2600-6114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:11:12+09:00",
+   "stale": true,
+   "last_error": "<urlopen error timed out>"
   },
   "서울|관악구": {
    "home": "https://www.gwanak.go.kr/",
@@ -54,11 +55,12 @@
    "http": 200,
    "title": "관악구청",
    "name_match": true,
-   "rep_phone": "02-879-5000",
+   "rep_phone": null,
+   "auto_phone": "02-879-5000",
    "phones": [
     "02-879-5000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|광진구": {
    "home": "https://www.gwangjin.go.kr/",
@@ -70,7 +72,9 @@
    "phones": [
     "02-450-1114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:11:12+09:00",
+   "stale": true,
+   "last_error": "The read operation timed out"
   },
   "서울|구로구": {
    "home": "https://www.guro.go.kr/",
@@ -78,9 +82,10 @@
    "http": 200,
    "title": "구로구청 홈페이지에 오신것을 환영합니다.",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "02-860-2114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|금천구": {
    "home": "https://www.geumcheon.go.kr/",
@@ -88,12 +93,13 @@
    "http": 200,
    "title": "금천구청",
    "name_match": true,
-   "rep_phone": "02-2627-2114",
+   "rep_phone": null,
+   "auto_phone": "02-2627-2114",
    "phones": [
     "02-2627-1004",
     "02-2627-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|도봉구": {
    "home": "https://www.dobong.go.kr/",
@@ -101,11 +107,12 @@
    "http": 200,
    "title": "도봉구청 대표 사이트",
    "name_match": true,
-   "rep_phone": "02-2091-2120",
+   "rep_phone": null,
+   "auto_phone": "02-2091-2120",
    "phones": [
     "02-2091-2120"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|동대문구": {
    "home": "https://www.ddm.go.kr/",
@@ -114,8 +121,9 @@
    "title": "",
    "name_match": false,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|동작구": {
    "home": "https://www.dongjak.go.kr/",
@@ -124,10 +132,11 @@
    "title": "동작구청 포털사이트",
    "name_match": true,
    "rep_phone": "02-820-1114",
+   "auto_phone": "02-820-1114",
    "phones": [
     "02-820-1114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|마포구": {
    "home": "https://www.mapo.go.kr/",
@@ -135,12 +144,13 @@
    "http": 200,
    "title": "마포구청 | 대표사이트",
    "name_match": true,
-   "rep_phone": "02-3153-8114",
+   "rep_phone": null,
+   "auto_phone": "02-3153-8114",
    "phones": [
     "02-3153-8114",
     "02-3153-8100"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|서대문구": {
    "home": "https://www.sdm.go.kr/",
@@ -148,12 +158,13 @@
    "http": 200,
    "title": "빮",
    "name_match": true,
-   "rep_phone": "02-330-1114",
+   "rep_phone": null,
+   "auto_phone": "02-330-1114",
    "phones": [
     "02-330-1114",
     "02-330-1599"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|서초구": {
    "home": "https://www.seocho.go.kr/",
@@ -162,15 +173,16 @@
    "title": "서초구청",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|성동구": {
    "home": "https://www.sd.go.kr/",
    "state": "unreach",
    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "02-2286-5114"
   },
   "서울|성북구": {
    "home": "https://www.sb.go.kr/",
@@ -179,8 +191,9 @@
    "title": "",
    "name_match": false,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|송파구": {
    "home": "https://www.songpa.go.kr/",
@@ -189,8 +202,9 @@
    "title": "송파구청에 오신것을 환영합니다.",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|양천구": {
    "home": "https://www.yangcheon.go.kr/",
@@ -198,11 +212,12 @@
    "http": 200,
    "title": "양천구청 대표홈페이지",
    "name_match": true,
-   "rep_phone": "02-2620-3114",
+   "rep_phone": null,
+   "auto_phone": "02-2620-3114",
    "phones": [
     "02-2620-3114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|영등포구": {
    "home": "https://www.ydp.go.kr/",
@@ -210,35 +225,36 @@
    "http": 200,
    "title": "영등포구청",
    "name_match": true,
-   "rep_phone": "02-2670-3114",
+   "rep_phone": null,
+   "auto_phone": "02-2670-3114",
    "phones": [
     "02-2670-4289",
     "02-2670-4289",
     "02-2670-4289",
     "02-2670-4289"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "서울|용산구": {
    "home": "https://www.yongsan.go.kr/",
    "state": "unreach",
    "error": "Remote end closed connection without response",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "02-2199-6114"
   },
   "서울|은평구": {
    "home": "https://www.ep.go.kr/",
    "state": "unreach",
    "error": "HTTP Error 417: Expectation Failed",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "02-351-6114"
   },
   "서울|중구": {
    "home": "https://www.junggu.seoul.kr/",
    "state": "unreach",
    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "02-3396-4114"
   },
   "서울|중랑구": {
    "home": "https://www.jungnang.go.kr/",
@@ -246,14 +262,15 @@
    "http": 200,
    "title": "중랑구청",
    "name_match": true,
-   "rep_phone": "02-2094-1637",
+   "rep_phone": null,
+   "auto_phone": "02-2094-1637",
    "phones": [
     "02-2094-1637",
     "02-2094-1072",
     "02-2094-1947",
     "02-2094-1947"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|강서구": {
    "home": "https://www.bsgangseo.go.kr/",
@@ -261,12 +278,13 @@
    "http": 200,
    "title": "부산광역시 강서구청에 오신 것을 환영합니다.",
    "name_match": true,
-   "rep_phone": "051-315-7942",
+   "rep_phone": "051-970-4000",
+   "auto_phone": "051-315-7942",
    "phones": [
     "051-315-7942",
     "051-970-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|금정구": {
    "home": "https://www.geumjeong.go.kr/",
@@ -275,10 +293,11 @@
    "title": "부산광역시 금정구청",
    "name_match": true,
    "rep_phone": "051-519-4000",
+   "auto_phone": "051-519-4000",
    "phones": [
     "051-519-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|기장군": {
    "home": "https://www.gijang.go.kr/",
@@ -286,9 +305,10 @@
    "http": 200,
    "title": "기장군청",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "051-709-4000",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|동구": {
    "home": "https://www.bsdonggu.go.kr/",
@@ -297,11 +317,12 @@
    "title": "부산광역시 동구청",
    "name_match": true,
    "rep_phone": "051-440-4000",
+   "auto_phone": "051-440-4000",
    "phones": [
     "051-440-4000",
     "051-440-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|동래구": {
    "home": "https://www.dongnae.go.kr/",
@@ -309,16 +330,17 @@
    "http": 200,
    "title": "동래구청 홈페이지에 오신것을 환영합니다.",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "051-550-4000",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|부산진구": {
    "home": "https://www.busanjin.go.kr/",
    "state": "unreach",
    "error": "The read operation timed out",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "051-605-4000"
   },
   "부산|사상구": {
    "home": "https://www.sasang.go.kr/",
@@ -327,10 +349,11 @@
    "title": "사상구청",
    "name_match": true,
    "rep_phone": "051-310-4000",
+   "auto_phone": "051-310-4000",
    "phones": [
     "051-310-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|서구": {
    "home": "https://www.bsseogu.go.kr/",
@@ -339,16 +362,17 @@
    "title": "부산광역시 서구청 홈페이지에 오신 것을 환영합니다.",
    "name_match": true,
    "rep_phone": "051-240-4000",
+   "auto_phone": "051-240-4000",
    "phones": [
     "051-240-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|수영구": {
    "home": "https://www.suyeong.go.kr/",
    "state": "unreach",
    "error": "Remote end closed connection without response",
-   "checked_at": "2026-11-18T23:11:12+09:00",
+   "checked_at": "2026-11-18T23:32:57+09:00",
    "rep_phone": null
   },
   "부산|연제구": {
@@ -358,10 +382,11 @@
    "title": "부산연제구청",
    "name_match": true,
    "rep_phone": "051-665-4000",
+   "auto_phone": "051-665-4000",
    "phones": [
     "051-665-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|영도구": {
    "home": "https://www.yeongdo.go.kr/",
@@ -370,11 +395,12 @@
    "title": "영도구청",
    "name_match": true,
    "rep_phone": "051-419-4000",
+   "auto_phone": "051-419-4000",
    "phones": [
     "051-419-4614",
     "051-419-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|중구": {
    "home": "https://www.bsjunggu.go.kr/",
@@ -383,10 +409,11 @@
    "title": "부산광역시 중구청",
    "name_match": true,
    "rep_phone": "051-600-4000",
+   "auto_phone": "051-600-4000",
    "phones": [
     "051-600-4000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "부산|해운대구": {
    "home": "https://www.haeundae.go.kr/",
@@ -394,9 +421,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "051-749-4000",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|강화군": {
    "home": "https://www.ganghwa.go.kr/",
@@ -404,9 +432,10 @@
    "http": 200,
    "title": "인천광역시 강화군",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "032-930-3114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|남동구": {
    "home": "https://www.namdong.go.kr/",
@@ -414,11 +443,12 @@
    "http": 200,
    "title": "남동구청",
    "name_match": true,
-   "rep_phone": "032-466-3811",
+   "rep_phone": null,
+   "auto_phone": "032-466-3811",
    "phones": [
     "032-466-3811"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|미추홀구": {
    "home": "https://www.michuhol.go.kr/",
@@ -426,14 +456,15 @@
    "http": 200,
    "title": "인천광역시 미추홀구",
    "name_match": true,
-   "rep_phone": "032-866-3970",
+   "rep_phone": null,
+   "auto_phone": "032-866-3970",
    "phones": [
     "032-866-3970",
     "032-880-4235",
     "032-880-5452",
     "032-887-1011"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|부평구": {
    "home": "https://www.icbp.go.kr/",
@@ -442,11 +473,12 @@
    "title": "인천광역시 부평구청",
    "name_match": true,
    "rep_phone": "032-504-2114",
+   "auto_phone": "032-504-2114",
    "phones": [
     "032-504-2114",
     "032-509-6222"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|서해구": {
    "home": "https://www.seohae.go.kr/",
@@ -454,13 +486,14 @@
    "http": 200,
    "title": "인천광역시 서해구청",
    "name_match": true,
-   "rep_phone": "032-562-5301",
+   "rep_phone": null,
+   "auto_phone": "032-562-5301",
    "phones": [
     "032-560-4134",
     "032-560-4230",
     "032-562-5301"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|연수구": {
    "home": "https://www.yeonsu.go.kr/",
@@ -468,11 +501,12 @@
    "http": 200,
    "title": "인천광역시 연수구",
    "name_match": true,
-   "rep_phone": "032-749-7114",
+   "rep_phone": null,
+   "auto_phone": "032-749-7114",
    "phones": [
     "032-749-7114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|옹진군": {
    "home": "https://www.ongjin.go.kr/",
@@ -480,11 +514,12 @@
    "http": 200,
    "title": "옹진군청",
    "name_match": true,
-   "rep_phone": "032-899-2114",
+   "rep_phone": null,
+   "auto_phone": "032-899-2114",
    "phones": [
     "032-899-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "인천|제물포구": {
    "home": "https://www.jemulpo.go.kr/",
@@ -492,11 +527,12 @@
    "http": 200,
    "title": "인천광역시 제물포구청",
    "name_match": true,
-   "rep_phone": "032-770-4214",
+   "rep_phone": null,
+   "auto_phone": "032-770-4214",
    "phones": [
     "032-770-4214"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대전|대덕구": {
    "home": "https://www.daedeok.go.kr/",
@@ -504,11 +540,12 @@
    "http": 200,
    "title": "대전광역시 대덕구청 홈페이지",
    "name_match": true,
-   "rep_phone": "042-608-6114",
+   "rep_phone": null,
+   "auto_phone": "042-608-6114",
    "phones": [
     "042-608-6114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대전|동구": {
    "home": "https://www.donggu.go.kr/",
@@ -516,9 +553,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "042-251-4114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대전|서구": {
    "home": "https://www.seogu.go.kr/",
@@ -527,10 +565,11 @@
    "title": "대전광역시 서구청",
    "name_match": true,
    "rep_phone": "042-288-2114",
+   "auto_phone": "042-288-2114",
    "phones": [
     "042-288-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대전|유성구": {
    "home": "https://www.yuseong.go.kr/",
@@ -538,9 +577,11 @@
    "http": 200,
    "title": "대전 유성구청",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "042-611-2114",
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:11:12+09:00",
+   "stale": true,
+   "last_error": "<urlopen error timed out>"
   },
   "대전|중구": {
    "home": "https://www.djjunggu.go.kr/",
@@ -548,11 +589,12 @@
    "http": 200,
    "title": "대전광역시 중구청",
    "name_match": true,
-   "rep_phone": "042-606-6114",
+   "rep_phone": null,
+   "auto_phone": "042-606-6114",
    "phones": [
     "042-606-6114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대구|동구": {
    "home": "https://dong.daegu.kr/",
@@ -561,8 +603,9 @@
    "title": "대구광역시 동구청 홈페이지에 오신 것을 환영합니다.",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대구|북구": {
    "home": "https://www.buk.daegu.kr/",
@@ -570,9 +613,10 @@
    "http": 200,
    "title": "대구광역시 북구",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "053-665-2000",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "대구|수성구": {
    "home": "https://www.suseong.kr/",
@@ -581,10 +625,11 @@
    "title": "수성구청 - 품격있는 사람 배려하는 도시 행복수성",
    "name_match": true,
    "rep_phone": "053-666-2000",
+   "auto_phone": "053-666-2000",
    "phones": [
     "053-666-2000"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경기|남양주시": {
    "home": "https://www.nyj.go.kr/",
@@ -592,9 +637,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "031-590-2114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경기|동두천시": {
    "home": "https://www.ddc.go.kr/",
@@ -602,11 +648,12 @@
    "http": 200,
    "title": "동두천시 대표홈페이지",
    "name_match": true,
-   "rep_phone": "031-860-2114",
+   "rep_phone": null,
+   "auto_phone": "031-860-2114",
    "phones": [
     "031-860-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경기|포천시": {
    "home": "https://www.pocheon.go.kr/",
@@ -614,16 +661,17 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "031-538-2114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "강원|동해시": {
    "home": "https://www.dh.go.kr/",
    "state": "unreach",
    "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1011)>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "033-530-2114"
   },
   "강원|삼척시": {
    "home": "https://www.samcheok.go.kr/",
@@ -631,11 +679,12 @@
    "http": 200,
    "title": "",
    "name_match": true,
-   "rep_phone": "033-570-3466",
+   "rep_phone": null,
+   "auto_phone": "033-570-3466",
    "phones": [
     "033-570-3466"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "강원|양구군": {
    "home": "https://www.yanggu.go.kr/",
@@ -644,10 +693,11 @@
    "title": "국토의 정중앙 양구에 오신걸 환영합니다.",
    "name_match": true,
    "rep_phone": "033-481-2191",
+   "auto_phone": "033-481-2191",
    "phones": [
     "033-481-2191"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "강원|영월군": {
    "home": "https://www.yw.go.kr/",
@@ -655,15 +705,16 @@
    "http": 200,
    "title": "영월군",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "1577-0545",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "강원|철원군": {
    "home": "https://www.cwg.go.kr/",
    "state": "unreach",
    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issue",
-   "checked_at": "2026-11-18T23:11:12+09:00",
+   "checked_at": "2026-11-18T23:32:57+09:00",
    "rep_phone": null
   },
   "강원|평창군": {
@@ -673,8 +724,9 @@
    "title": "평창군입니다. 평창행정",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "충북|진천군": {
    "home": "https://www.jincheon.go.kr/",
@@ -682,9 +734,10 @@
    "http": 200,
    "title": "진천군청",
    "name_match": true,
-   "rep_phone": null,
+   "rep_phone": "043-539-3114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "충북|청주시": {
    "home": "https://www.cheongju.go.kr/",
@@ -693,8 +746,9 @@
    "title": "청주시청 인트로",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "충남|계룡시": {
    "home": "https://www.gyeryong.go.kr/",
@@ -702,11 +756,12 @@
    "http": 200,
    "title": "계룡시청",
    "name_match": true,
-   "rep_phone": "042-840-2114",
+   "rep_phone": null,
+   "auto_phone": "042-840-2114",
    "phones": [
     "042-840-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "충남|부여군": {
    "home": "https://www.buyeo.go.kr/",
@@ -714,11 +769,12 @@
    "http": 200,
    "title": "부여군청",
    "name_match": true,
-   "rep_phone": "041-830-2114",
+   "rep_phone": null,
+   "auto_phone": "041-830-2114",
    "phones": [
     "041-830-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "충남|청양군": {
    "home": "https://www.cheongyang.go.kr/",
@@ -726,18 +782,19 @@
    "http": 200,
    "title": "청양군청",
    "name_match": true,
-   "rep_phone": "041-940-2114",
+   "rep_phone": null,
+   "auto_phone": "041-940-2114",
    "phones": [
     "041-940-2114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "전남광주|영광군": {
    "home": "https://www.yeonggwang.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "061-350-5114"
   },
   "전남광주|함평군": {
    "home": "https://www.hampyeong.go.kr/",
@@ -745,11 +802,12 @@
    "http": 200,
    "title": "함평군 대표 홈페이지",
    "name_match": true,
-   "rep_phone": "061-320-3114",
+   "rep_phone": null,
+   "auto_phone": "061-320-3114",
    "phones": [
     "061-320-3114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "전남광주|해남군": {
    "home": "https://www.haenam.go.kr/",
@@ -757,9 +815,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "061-530-5114",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|경산시": {
    "home": "https://www.gbgs.go.kr/",
@@ -767,9 +826,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "053-811-2231",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|경주시": {
    "home": "https://www.gyeongju.go.kr/",
@@ -778,8 +838,9 @@
    "title": "경주시청",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|구미시": {
    "home": "https://www.gumi.go.kr/",
@@ -787,11 +848,12 @@
    "http": 200,
    "title": "구미시청",
    "name_match": true,
-   "rep_phone": "054-480-6114",
+   "rep_phone": null,
+   "auto_phone": "054-480-6114",
    "phones": [
     "054-480-6114"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|안동시": {
    "home": "https://www.andong.go.kr/",
@@ -800,8 +862,9 @@
    "title": "안동시청",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|울릉군": {
    "home": "https://www.ulleung.go.kr/",
@@ -809,9 +872,10 @@
    "http": 200,
    "title": "",
    "name_match": false,
-   "rep_phone": null,
+   "rep_phone": "054-791-2191",
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|울진군": {
    "home": "https://www.uljin.go.kr/",
@@ -820,8 +884,9 @@
    "title": "울진군청",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경북|포항시": {
    "home": "https://www.pohang.go.kr/",
@@ -830,24 +895,25 @@
    "title": "포항시 대표 포털에 오신 것을 환영합니다.",
    "name_match": true,
    "rep_phone": "054-270-8282",
+   "auto_phone": "054-270-8282",
    "phones": [
     "054-270-8282"
    ],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경남|거창군": {
    "home": "https://www.geochang.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
+   "checked_at": "2026-11-18T23:32:57+09:00",
    "rep_phone": null
   },
   "경남|고성군": {
    "home": "https://www.goseong.go.kr/",
    "state": "unreach",
    "error": "HTTP Error 400: Bad Request",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "055-670-2114"
   },
   "경남|김해시": {
    "home": "https://www.gimhae.go.kr/",
@@ -856,35 +922,36 @@
    "title": "김해시",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   },
   "경남|남해군": {
    "home": "https://www.namhae.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
+   "checked_at": "2026-11-18T23:32:57+09:00",
    "rep_phone": null
   },
   "경남|산청군": {
    "home": "https://www.sancheong.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "055-970-6000"
   },
   "경남|의령군": {
    "home": "https://www.uiryeong.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
-   "rep_phone": null
+   "checked_at": "2026-11-18T23:32:57+09:00",
+   "rep_phone": "055-570-2114"
   },
   "경남|창녕군": {
    "home": "https://www.cng.go.kr/",
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:11:12+09:00",
+   "checked_at": "2026-11-18T23:32:57+09:00",
    "rep_phone": null
   },
   "경남|통영시": {
@@ -894,8 +961,9 @@
    "title": "통영시 | 통영시",
    "name_match": true,
    "rep_phone": null,
+   "auto_phone": null,
    "phones": [],
-   "checked_at": "2026-11-18T23:11:12+09:00"
+   "checked_at": "2026-11-18T23:32:57+09:00"
   }
  }
 }

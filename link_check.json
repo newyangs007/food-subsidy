@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-18T23:09:03+09:00",
+ "updated_at": "2026-11-18T23:29:30+09:00",
  "summary": {
   "ok": 46,
   "mismatch": 4,
@@ -21,7 +21,7 @@
    "phones": [],
    "phone_listed": "02-2155-6746",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.seocho.go.kr/site/seocho/ex/bbs/View.do?bcIdx=409216&cbIdx=57": {
    "region": "서울|서초구",
@@ -40,7 +40,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://clean.gangnam.go.kr/": {
    "region": "서울|강남구",
@@ -55,7 +55,7 @@
    "phones": [],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gangdong.go.kr/web/newportal/bbs/b_068/157730": {
    "region": "서울|강동구",
@@ -73,7 +73,9 @@
    ],
    "phone_listed": "02-3425-5860",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:09:03+09:00",
+   "stale": true,
+   "last_error": "<urlopen error timed out>"
   },
   "https://www.gangdong.go.kr/web/newportal/press/15506": {
    "region": "서울|강동구",
@@ -93,7 +95,7 @@
    ],
    "phone_listed": "02-3425-5860",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.mapo.go.kr/site/main/nPortal/detail?bcId=21496": {
    "region": "서울|마포구",
@@ -113,7 +115,7 @@
    ],
    "phone_listed": "02-3153-9224",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.ep.go.kr/www/selectEminwonView.do?pageUnit=10&pageIndex=1&searchCnd=notAncmtSj&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=754&notAncmtMgtNo=50503&notAncmtSeCode=01": {
    "region": "서울|은평구",
@@ -121,7 +123,7 @@
    "official": true,
    "state": "unreach",
    "error": "http 417",
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationEtc/reservationView.do?riIdx=RI002058": {
    "region": "서울|양천구",
@@ -141,7 +143,7 @@
    ],
    "phone_listed": "02-2620-3441",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationEtc/reservationView.do?riIdx=RI001960": {
    "region": "서울|양천구",
@@ -161,7 +163,7 @@
    ],
    "phone_listed": "02-2620-3441",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gwanak.go.kr/site/gwanak/ex/bbsNew/View.do?not_ancmt_mgt_no=40515&typeCode=1": {
    "region": "서울|관악구",
@@ -181,7 +183,7 @@
    ],
    "phone_listed": "02-879-6222",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.sb.go.kr/www/selectBbsNttView.do?key=6350&bbsNo=41&nttNo=9579819": {
    "region": "서울|성북구",
@@ -200,7 +202,7 @@
    ],
    "phone_listed": "02-2241-4414",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&key=2776": {
    "region": "서울|송파구",
@@ -219,7 +221,7 @@
    ],
    "phone_listed": "02-2147-6382",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://m.dobong.go.kr/majorWork/MajorView.asp?rmode=M&rcode=742&lidx=652": {
    "region": "서울|도봉구",
@@ -236,7 +238,7 @@
    ],
    "phone_listed": "02-2091-3295",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.sd.go.kr/booking/contents.do?key=5364": {
    "region": "서울|성동구",
@@ -244,7 +246,7 @@
    "official": true,
    "state": "unreach",
    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.",
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.geumcheon.go.kr/portal/contents.do?key=4622": {
    "region": "서울|금천구",
@@ -266,7 +268,7 @@
    ],
    "phone_listed": "02-2627-1493",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.sdm.go.kr/news/news/notice.do?mode=view&sdmBoardSeq=309636": {
    "region": "서울|서대문구",
@@ -286,7 +288,7 @@
    ],
    "phone_listed": "02-330-1528",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.junggu.seoul.kr/content.do?cmsid=14390&mode=view&cid=1433344271": {
    "region": "서울|중구",
@@ -294,7 +296,7 @@
    "official": true,
    "state": "unreach",
    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.",
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.ddm.go.kr/www/selectEminwonWebView.do?key=3291&searchNotAncmtSeCode=01%2C02%2C04%2C05%2C06%2C07&notAncmtMgtNo=21285": {
    "region": "서울|동대문구",
@@ -315,7 +317,7 @@
    ],
    "phone_listed": "02-2127-4731",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.ydp.go.kr/www/selectBbsNttView.do?bbsNo=40&nttNo=414009&&pageUnit=10&key=2848&pageIndex=1": {
    "region": "서울|영등포구",
@@ -335,7 +337,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.guro.go.kr/www/selectBbsNttGosiView.do?bbsNo=663&nttNo=49602&rowNum=147&&pageUnit=10&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=1791&pageIndex=1": {
    "region": "서울|구로구",
@@ -354,7 +356,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gwangjin.go.kr/portal/bbs/B0000378/view.do?notAncmtMgtNo=15924&menuNo=200192&menuNo=200192&noticeType=&searchCnd=&searchWrd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1": {
    "region": "서울|광진구",
@@ -373,7 +375,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.dongjak.go.kr/yeyak/progrm/master/yeyak/list.do?tmplatSeCd=95&menuNo=1600011": {
    "region": "서울|동작구",
@@ -388,7 +390,7 @@
    "phones": [],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://jungnang.go.kr/portal/main/search.do?colTarget=total&pageNum=1&rowsperPage=5&searchTerm=%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0&sorting=Date": {
    "region": "서울|중랑구",
@@ -407,7 +409,7 @@
    ],
    "phone_listed": "02-2094-1972",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yeonje.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=43822&isLinkage=Y&mId=0206030000": {
    "region": "부산|연제구",
@@ -425,7 +427,7 @@
    ],
    "phone_listed": "051-665-4000",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://eminwon.gijang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=53035&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject": {
    "region": "부산|기장군",
@@ -440,7 +442,7 @@
    "phones": [],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://eminwon.haeundae.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=54136&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject": {
    "region": "부산|해운대구",
@@ -457,7 +459,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.bsgangseo.go.kr/portal/board/post/view.do?bcIdx=500&mid=0501010000&idx=409746": {
    "region": "부산|강서구",
@@ -475,7 +477,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.bsgangseo.go.kr/portal/board/post/view.do?bcIdx=500&mid=0501010000&idx=407306": {
    "region": "부산|강서구",
@@ -493,7 +495,7 @@
    ],
    "phone_listed": "051-970-4000",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.bsdonggu.go.kr/board/list.donggu?boardId=BBS_0000023&menuCd=DOM_000000103001001000&contentsSid=276": {
    "region": "부산|동구",
@@ -511,7 +513,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.jemulpo.go.kr/main/bbs/bbsMsgDetail.do?bcd=announce&keyfield=title&msg_seq=13984&pgno=7": {
    "region": "인천|제물포구",
@@ -530,7 +532,7 @@
    ],
    "phone_listed": "032-770-6493",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.ongjin.go.kr/open_content/main/eminwon/eminwonAnnounceDetail.do?mgt_no=36267&keyfield=title&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC": {
    "region": "인천|옹진군",
@@ -550,7 +552,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.icbp.go.kr/bbs/bbsMsgDetail.do?bcd=notice&keyfield=title&msg_seq=37369&pgno=19": {
    "region": "인천|부평구",
@@ -569,7 +571,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.seohae.go.kr/open_content/main/community/reserve/foodwaste.jsp": {
    "region": "인천|서해구",
@@ -588,7 +590,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.donggu.go.kr/dg/download/viewer/1773986565783/index.html": {
    "region": "대전|동구",
@@ -607,7 +609,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.djjunggu.go.kr/prog/saeolGosi/GOSI/sub03_06/view.do?notAncmtMgtNo=46738": {
    "region": "대전|중구",
@@ -627,7 +629,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://daedeok.go.kr/dpt/dpt04/DPT040204_cmmBoardView.do?boardId=DPT_000087&pageIndex=1&ntatcSeq=1103699006": {
    "region": "대전|대덕구",
@@ -646,7 +648,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.nyj.go.kr/www/selectEminwonWebView.do?sc1=SJ&sa1Join=01;02;04;05&sc2=%EC%9D%8C%EC%8B%9D%EB%AC%BC&key=2492&pk=84814": {
    "region": "경기|남양주시",
@@ -663,7 +665,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269&searchCtgry=&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&integrDeptCode=&pageUnit=10": {
    "region": "강원|영월군",
@@ -681,7 +683,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yanggu.go.kr/user_sub?gfnc=www&pg=1&bk=DVCYN260316095654705&mu_idx=226&bt=rd&pgsize=10&bcd=announcement": {
    "region": "강원|양구군",
@@ -699,7 +701,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.dh.go.kr/www/selectBbsNttView.do?key=478&bbsNo=87&nttNo=198804&searchCtgry=&searchCnd=SJ&searchKrwd=%ec%9d%8c%ec%8b%9d%eb%ac%bc&integrDeptCode=&pageIndex=1": {
    "region": "강원|동해시",
@@ -707,7 +709,7 @@
    "official": true,
    "state": "unreach",
    "error": "<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1011)>",
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.samcheok.go.kr/00095.web?amode=view&mgtNo=36143": {
    "region": "강원|삼척시",
@@ -724,7 +726,7 @@
    ],
    "phone_listed": "033-570-3648",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.pc.go.kr/portal/government/government-notification?noticeMgrNo=40679": {
    "region": "강원|평창군",
@@ -743,7 +745,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.cheongju.go.kr/www/selectEminwonNoticeView.do?key=281&nowDongGn=&notAncmtSeCd=&notAncmtMgtNo=151645": {
    "region": "충북|청주시",
@@ -760,7 +762,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://gyeryong.go.kr/kr/html/sub03/030102.html?mode=V&mng_no=51ca4857f6802df765919bcd84c4e0ee": {
    "region": "충남|계룡시",
@@ -778,7 +780,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.buyeo.go.kr/html/kr/news/news_040202.html?mode=V&mng_no=1746454&page_size=10&skey=not_ancmt_sj&sval=%EC%9D%8C%EC%8B%9D%EB%AC%BC": {
    "region": "충남|부여군",
@@ -797,7 +799,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.hampyeong.go.kr/pg/GosiDetail.do?SEQ=32876&pageId=www273&listGubun=&notAncmtSeCode=01,02,03,04&search_Type=&search_Text=&pageIndex=1": {
    "region": "전남광주|함평군",
@@ -816,7 +818,7 @@
    ],
    "phone_listed": "061-320-1833",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.hampyeong.go.kr/upload/file/work/2026/11.pdf": {
    "region": "전남광주|함평군",
@@ -831,7 +833,7 @@
    "phones": [],
    "phone_listed": "061-320-1833",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.yeonggwang.go.kr/bbs/?b_id=gosigonggo&site=headquarter_new&mn=9059&type=view&sc_cate=&per_page=10&start_date=&end_date=&sc_key=subject&sc_word=%EC%9D%8C%EC%8B%9D%EB%AC%BC&bs_idx=27981": {
    "region": "전남광주|영광군",
@@ -839,7 +841,7 @@
    "official": true,
    "state": "unreach",
    "error": "<urlopen error timed out>",
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.andong.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=64586&isLinkage=Y&mId=0401020100": {
    "region": "경북|안동시",
@@ -858,7 +860,7 @@
    ],
    "phone_listed": "054-840-5288",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.pohang.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=69633&mid=0202010000": {
    "region": "경북|포항시",
@@ -876,7 +878,7 @@
    ],
    "phone_listed": "054-270-3193",
    "phone_in_page": true,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gumi.go.kr/portal/saeol/gosi/view.do?mid=0401040000&notAncmtMgtNo=71980": {
    "region": "경북|구미시",
@@ -895,7 +897,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gyeongju.go.kr/open_content/ko/page.do?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&step=258&parm_bod_uid=315110&srchVoteType=-1&parm_mnu_uid=0&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=1960-01-01&srchColumn=&srchEDate=9999-12-31&mnu_uid=423&": {
    "region": "경북|경주시",
@@ -912,7 +914,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.uljin.go.kr/index.uljin?menuCd=DOM_000000103002007002&type=view&ancmtMgtNo=33702&searchType=NOT_ANCMT_SJ&keyword=%EC%9D%8C%EC%8B%9D%EB%AC%BC&startPage=1": {
    "region": "경북|울진군",
@@ -929,7 +931,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.tongyeong.go.kr/00852/00853/00858.web?amode=view&not_ancmt_mgt_no=49162&sstring=%EC%9D%8C%EC%8B%9D%EB%AC%BC&stype=all&cpage=1": {
    "region": "경남|통영시",
@@ -947,7 +949,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   },
   "https://www.gimhae.go.kr/00024.web?amode=view&idx=2576988": {
    "region": "경남|김해시",
@@ -967,7 +969,7 @@
    ],
    "phone_listed": "",
    "phone_in_page": false,
-   "checked_at": "2026-11-18T23:09:03+09:00"
+   "checked_at": "2026-11-18T23:29:30+09:00"
   }
  }
 }
