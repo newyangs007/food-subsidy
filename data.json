@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-18T07:15:21+09:00",
+ "updated_at": "2026-11-18T22:37:23+09:00",
  "verified_at": "2026-11-18",
  "years": [
   2026,
@@ -108,6 +108,10 @@
    "note": "",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e001"
   },
   {
@@ -134,6 +138,10 @@
    "posted": "2026-06-01",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e002"
   },
   {
@@ -160,6 +168,10 @@
    "posted": "2026-10-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e003"
   },
   {
@@ -185,6 +197,10 @@
    "round": "",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e004"
   },
   {
@@ -195,22 +211,28 @@
    "end": "2026-10-30",
    "rate": 30,
    "max": 17.5,
-   "verify": "news",
+   "verify": "official",
    "target": "공고일 기준 2년 이상 연속 거주, 2026.1.1 이후 구매·구매예정 · 100세대 전자추첨(4인 이상 30세대 우선) · 디스포저 제외",
    "docs": "(선정 후 2주 내) 구매영수증, 제품 인증자료, 설치 사진, 본인 명의 통장 사본",
    "how": "마포구청 청소행정과 방문 또는 전자우편",
-   "url": "https://biz.heraldcorp.com/article/10915096",
+   "url": "https://www.mapo.go.kr/site/main/nPortal/detail?bcId=21496",
    "sources": [
+    "https://biz.heraldcorp.com/article/10915096",
     "https://www.dailian.co.kr/news/view/1706054/%EC%84%9C%EC%9A%B8-%EB%A7%88%ED%8F%AC%EA%B5%AC-%EC%9D%8C%EC%8B%9D%EB%AC%BC-%EC%86%8C%ED%98%95%EA%B0%90%EB%9F%89%EA%B8%B0-%EA%B5%AC%EB%A7%A4%EB%B9%84-2026",
     "https://www.sijung.co.kr/news/articleView.html?idxno=439817"
    ],
    "closed": false,
-   "phone": "",
+   "phone": "02-3153-9224",
    "note": "",
    "round": "",
    "posted": "2026-10-26",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "마포구 공고 제2026-1856호(선정결과)",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e005"
   },
   {
@@ -238,6 +260,10 @@
    "posted": "2026-09-29",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e006"
   },
   {
@@ -249,20 +275,25 @@
    "rate": 30,
    "max": 21,
    "round": "하반기",
-   "verify": "news",
-   "url": "https://mbiz.heraldcorp.com/article/10832359",
+   "verify": "official",
+   "url": "https://www.yangcheon.go.kr/reservation/reservation/ex/reservationEtc/reservationView.do?riIdx=RI002058",
    "sources": [
+    "https://mbiz.heraldcorp.com/article/10832359",
     "https://foodwastesubsidy.kr/"
    ],
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
+   "phone": "02-2620-3441",
    "note": "",
    "posted": "2026-08-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e007"
   },
   {
@@ -286,6 +317,10 @@
    "posted": "2026-03-30",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e008"
   },
   {
@@ -299,16 +334,22 @@
    "verify": "news",
    "target": "공고일 기준 6개월 이상 거주 · 추첨(4인 이상·RFID 미설치 주택 30% 우선) · 1~5kg/일 건조·분쇄·미생물 방식, 품질인증+KC",
    "how": "방문 또는 이메일",
-   "url": "https://biz.heraldcorp.com/article/10737456",
+   "url": "",
    "closed": false,
    "docs": "",
-   "phone": "",
-   "sources": [],
+   "phone": "02-2600-6114",
+   "sources": [
+    "https://biz.heraldcorp.com/article/10737456"
+   ],
    "note": "",
    "round": "",
    "posted": "2026-05-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.gangseo.seoul.kr/",
    "id": "e009"
   },
   {
@@ -329,12 +370,16 @@
     "https://www.heraldk.com/article/2026031900301635792"
    ],
    "closed": false,
-   "phone": "",
+   "phone": "02-879-6222",
    "note": "",
    "round": "",
    "posted": "2026-03-24",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e010"
   },
   {
@@ -352,13 +397,17 @@
    "how": "성북통합예약포털 온라인 또는 청소행정과·주민센터 방문",
    "url": "https://www.sb.go.kr/www/selectBbsNttView.do?key=6350&bbsNo=41&nttNo=9579819",
    "closed": false,
-   "phone": "",
+   "phone": "02-2241-4414",
    "sources": [],
    "note": "",
    "round": "",
    "posted": "2026-04-13",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e011"
   },
   {
@@ -376,13 +425,17 @@
    "url": "https://www.songpa.go.kr/www/selectGosiData.do?not_ancmt_mgt_no=32146&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&key=2776",
    "closed": false,
    "how": "",
-   "phone": "",
+   "phone": "02-2147-6382",
    "sources": [],
    "note": "",
    "round": "",
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "자원활용과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e012"
   },
   {
@@ -399,13 +452,17 @@
    "how": "동 주민센터 방문 또는 자원순환센터 등기우편",
    "url": "https://m.dobong.go.kr/majorWork/MajorView.asp?rmode=M&rcode=742&lidx=652",
    "closed": false,
-   "phone": "",
+   "phone": "02-2091-3295",
    "sources": [],
    "note": "",
    "round": "",
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "자원순환과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e013"
   },
   {
@@ -422,13 +479,17 @@
    "url": "https://www.sd.go.kr/booking/contents.do?key=5364",
    "closed": false,
    "docs": "",
-   "phone": "",
+   "phone": "02-2286-5114",
    "sources": [],
    "note": "",
    "round": "",
    "posted": "2026-03-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.sd.go.kr/",
    "id": "e014"
   },
   {
@@ -452,6 +513,10 @@
    "posted": "2026-04-13",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e015"
   },
   {
@@ -462,19 +527,25 @@
    "end": null,
    "rate": 30,
    "max": 21,
-   "verify": "news",
+   "verify": "official",
    "closed": true,
    "target": "공고일 기준 서대문구 주민등록, 2026.1.1 이후 구매·구매예정 · 530세대 접수순 · 디스포저 제외",
    "note": "예산 소진으로 접수 마감",
-   "url": "https://m.news.nate.com/view/20260306n19473",
+   "url": "https://www.sdm.go.kr/news/news/notice.do?mode=view&sdmBoardSeq=309636",
    "docs": "",
    "how": "",
-   "phone": "",
-   "sources": [],
+   "phone": "02-330-1528",
+   "sources": [
+    "https://m.news.nate.com/view/20260306n19473"
+   ],
    "round": "",
    "posted": "2026-03-10",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e016"
   },
   {
@@ -485,21 +556,26 @@
    "end": "2026-03-31",
    "rate": 30,
    "max": 21,
-   "verify": "news",
+   "verify": "official",
    "target": "2026.1.1 이후 구매·구매예정 중구민 · 약 100세대(거주기간·가구원 수 우선) · 1~5kg 가열·건조·미생물 방식",
    "how": "관할 동 주민센터 방문 또는 이메일·팩스",
-   "url": "https://www.heraldk.com/article/2026031221203832670",
+   "url": "https://www.junggu.seoul.kr/content.do?cmsid=14390&mode=view&cid=1433344271",
    "sources": [
+    "https://www.heraldk.com/article/2026031221203832670",
     "https://foodwastesubsidy.kr/"
    ],
    "closed": false,
    "docs": "",
-   "phone": "",
+   "phone": "02-3396-4114",
    "note": "",
    "round": "",
    "posted": "2026-03-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "url_kind": "보도자료",
+   "phone_src": "rep",
+   "dept": "",
+   "home": "https://www.junggu.seoul.kr/",
    "id": "e017"
   },
   {
@@ -510,21 +586,27 @@
    "end": "2026-03-27",
    "rate": 30,
    "max": 21,
-   "verify": "news",
+   "verify": "official",
    "target": "175대 · 4인 이상 가구 우선 후 접수순",
    "docs": "공고일 이후 발급 주민등록등본(PDF)",
    "how": "동대문구 온라인 접수",
-   "url": "https://www.heraldk.com/article/2026030322583927937",
+   "url": "https://www.ddm.go.kr/www/selectEminwonWebView.do?key=3291&searchNotAncmtSeCode=01%2C02%2C04%2C05%2C06%2C07&notAncmtMgtNo=21285",
    "sources": [
+    "https://www.heraldk.com/article/2026030322583927937",
     "https://foodwastesubsidy.kr/"
    ],
    "closed": false,
-   "phone": "",
+   "phone": "02-2127-4731",
    "note": "",
    "round": "",
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "동대문구 공고 제2026-310호",
+   "phone_src": "dept",
+   "dept": "청소행정과",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e018"
   },
   {
@@ -538,16 +620,22 @@
    "verify": "news",
    "target": "공고일 기준 강북구 주민등록 세대(아파트 포함) · 250세대 선착순 · '22~'25 수혜 세대 제외",
    "how": "강북구청 청소행정과 방문 또는 이메일",
-   "url": "https://m.news.nate.com/view/20260316n31043",
+   "url": "",
    "closed": false,
    "docs": "",
-   "phone": "",
-   "sources": [],
+   "phone": "02-901-6114",
+   "sources": [
+    "https://m.news.nate.com/view/20260316n31043"
+   ],
    "note": "",
    "round": "",
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.gangbuk.go.kr/",
    "id": "e019"
   },
   {
@@ -574,6 +662,10 @@
    "posted": "2026-05-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e020"
   },
   {
@@ -600,6 +692,10 @@
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e021"
   },
   {
@@ -626,6 +722,10 @@
    "posted": "2026-04-06",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e022"
   },
   {
@@ -651,6 +751,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e023"
   },
   {
@@ -676,6 +780,10 @@
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e024"
   },
   {
@@ -701,6 +809,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e025"
   },
   {
@@ -718,13 +830,17 @@
    "target": "단독주택·150세대 미만 소규모 공동주택 거주 구민(와이파이 가능 세대) · 일반세대 4대",
    "docs": "공고문 첨부 서식 참조",
    "how": "자원순환과 방문 또는 등기우편(11.23. 소인분까지), 평일 10–17시",
-   "phone": "051-665-4000(구 대표)",
+   "phone": "051-665-4000",
    "url": "https://www.yeonje.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=43822&isLinkage=Y&mId=0206030000",
    "closed": false,
    "sources": [],
    "note": "",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e026"
   },
   {
@@ -751,6 +867,10 @@
    "posted": "2026-11-04",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e027"
   },
   {
@@ -777,6 +897,10 @@
    "posted": "2026-10-27",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e028"
   },
   {
@@ -802,6 +926,10 @@
    "posted": "2026-10-01",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e029"
   },
   {
@@ -828,6 +956,10 @@
    "posted": "2026-09-28",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.bsgangseo.go.kr/",
    "id": "e030"
   },
   {
@@ -842,15 +974,21 @@
    "verify": "news",
    "closed": true,
    "target": "일반가정 1차 100여 세대(총사업비 4,000만원)",
-   "url": "https://www.kukinews.com/article/view/kuk202602200242",
+   "url": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "sources": [],
+   "phone": "051-970-4000",
+   "sources": [
+    "https://www.kukinews.com/article/view/kuk202602200242"
+   ],
    "note": "",
    "posted": "2026-02-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.bsgangseo.go.kr/",
    "id": "e031"
   },
   {
@@ -876,6 +1014,10 @@
    "posted": "2026-10-06",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e032"
   },
   {
@@ -901,6 +1043,10 @@
    "posted": "2026-10-19",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e033"
   },
   {
@@ -926,6 +1072,10 @@
    "posted": "2026-09-01",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e034"
   },
   {
@@ -951,6 +1101,10 @@
    "posted": "2026-09-07",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e035"
   },
   {
@@ -976,6 +1130,10 @@
    "posted": "2026-09-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e036"
   },
   {
@@ -1002,6 +1160,10 @@
    "posted": "2026-08-06",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e037"
   },
   {
@@ -1027,6 +1189,10 @@
    "posted": "2026-08-24",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e038"
   },
   {
@@ -1052,6 +1218,10 @@
    "posted": "2026-08-24",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e039"
   },
   {
@@ -1077,6 +1247,10 @@
    "posted": "2026-08-10",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e040"
   },
   {
@@ -1102,6 +1276,10 @@
    "posted": "2026-08-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e041"
   },
   {
@@ -1126,6 +1304,10 @@
    "sources": [],
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e042"
   },
   {
@@ -1153,6 +1335,10 @@
    "posted": "2026-02-11",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e043"
   },
   {
@@ -1180,6 +1366,10 @@
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e044"
   },
   {
@@ -1205,6 +1395,10 @@
    "posted": "2026-01-26",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e045"
   },
   {
@@ -1230,6 +1424,10 @@
    "posted": "2026-06-10",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e046"
   },
   {
@@ -1255,6 +1453,10 @@
    "posted": "2026-02-26",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e047"
   },
   {
@@ -1280,6 +1482,10 @@
    "posted": "2026-01-23",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e048"
   },
   {
@@ -1305,6 +1511,10 @@
    "posted": "2026-03-04",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e049"
   },
   {
@@ -1331,6 +1541,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e050"
   },
   {
@@ -1357,6 +1571,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e051"
   },
   {
@@ -1383,6 +1601,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e052"
   },
   {
@@ -1409,6 +1631,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e053"
   },
   {
@@ -1435,6 +1661,10 @@
    "posted": "2026-03-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e054"
   },
   {
@@ -1460,6 +1690,10 @@
    "posted": "2026-02-02",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e055"
   },
   {
@@ -1485,6 +1719,10 @@
    "posted": "2026-05-26",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e056"
   },
   {
@@ -1510,6 +1748,10 @@
    "posted": "2026-04-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e057"
   },
   {
@@ -1537,6 +1779,10 @@
    "posted": "2026-03-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e058"
   },
   {
@@ -1562,6 +1808,10 @@
    "posted": "2026-03-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e059"
   },
   {
@@ -1587,6 +1837,10 @@
    "posted": "2026-04-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e060"
   },
   {
@@ -1614,6 +1868,10 @@
    "posted": "2026-03-17",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e061"
   },
   {
@@ -1641,6 +1899,10 @@
    "posted": "2026-03-16",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e062"
   },
   {
@@ -1666,6 +1928,10 @@
    "posted": "2026-04-29",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e063"
   },
   {
@@ -1692,6 +1958,10 @@
    "posted": "2026-03-03",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e064"
   },
   {
@@ -1717,6 +1987,10 @@
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e065"
   },
   {
@@ -1742,6 +2016,10 @@
    "posted": "2026-02-02",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e066"
   },
   {
@@ -1768,6 +2046,10 @@
    "posted": "2026-02-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e067"
   },
   {
@@ -1793,6 +2075,10 @@
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e068"
   },
   {
@@ -1819,6 +2105,10 @@
    "posted": "2026-03-18",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e069"
   },
   {
@@ -1845,6 +2135,10 @@
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e070"
   },
   {
@@ -1870,6 +2164,10 @@
    "posted": "2026-01-19",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e071"
   },
   {
@@ -1897,6 +2195,10 @@
    "round": "",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e072"
   },
   {
@@ -1924,6 +2226,10 @@
    "posted": "2026-01-22",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e073"
   },
   {
@@ -1949,6 +2255,10 @@
    "posted": "2026-01-08",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e074"
   },
   {
@@ -1973,6 +2283,10 @@
    "posted": "2026-09-10",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e075"
   },
   {
@@ -1989,13 +2303,17 @@
    "url": "https://www.pohang.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=69633&mid=0202010000",
    "closed": false,
    "docs": "",
-   "phone": "",
+   "phone": "054-270-3193",
    "sources": [],
    "note": "",
    "round": "",
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "dept",
+   "dept": "공고 담당자",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e076"
   },
   {
@@ -2009,16 +2327,22 @@
    "verify": "news",
    "target": "공고일 기준 경산시 주민등록 세대 · 200대 · 선정 이전 구매·렌탈·중고·디스포저 제외",
    "how": "자원순환과 방문",
-   "url": "https://news.nate.com/view/20260117n05583",
+   "url": "",
    "closed": false,
    "docs": "",
-   "phone": "",
-   "sources": [],
+   "phone": "053-811-2231",
+   "sources": [
+    "https://news.nate.com/view/20260117n05583"
+   ],
    "note": "",
    "round": "",
    "posted": "2026-01-19",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "rep",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.gbgs.go.kr/",
    "id": "e077"
   },
   {
@@ -2044,6 +2368,10 @@
    "posted": "2026-07-06",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "https://www.gbgs.go.kr/",
    "id": "e078"
   },
   {
@@ -2070,6 +2398,10 @@
    "posted": "2026-05-21",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e079"
   },
   {
@@ -2096,6 +2428,10 @@
    "posted": "2026-03-04",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e080"
   },
   {
@@ -2122,6 +2458,10 @@
    "posted": "2026-01-08",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e081"
   },
   {
@@ -2147,6 +2487,10 @@
    "posted": "2026-05-13",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e082"
   },
   {
@@ -2160,16 +2504,22 @@
    "verify": "news",
    "force": "chk",
    "note": "2026년 가정용 음식물 감량기 설치 지원사업 시행 보도(1.21.) — 기간·금액은 군청 공고 확인",
-   "url": "https://view.asiae.co.kr/en/article/2026012107493257159",
+   "url": "",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "sources": [],
+   "sources": [
+    "https://view.asiae.co.kr/en/article/2026012107493257159"
+   ],
    "round": "",
    "posted": "2026-01-21",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e083"
   },
   {
@@ -2195,6 +2545,10 @@
    "posted": "2026-02-09",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e084"
   },
   {
@@ -2220,6 +2574,10 @@
    "posted": "2026-01-07",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e085"
   },
   {
@@ -2247,6 +2605,10 @@
    "posted": "2026-01-13",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e086"
   },
   {
@@ -2272,6 +2634,10 @@
    "posted": "2026-02-25",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e087"
   },
   {
@@ -2297,6 +2663,10 @@
    "posted": "2026-01-14",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e088"
   },
   {
@@ -2322,6 +2692,10 @@
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e089"
   },
   {
@@ -2347,6 +2721,10 @@
    "posted": "2026-04-01",
    "force": "",
    "verified_at": "2026-11-18",
+   "phone_src": "",
+   "dept": "",
+   "url_kind": "공고문",
+   "home": "",
    "id": "e090"
   }
  ]

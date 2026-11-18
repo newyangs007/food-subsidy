@@ -230,6 +230,28 @@ footer .disc2{display:block;margin-top:6px;color:var(--ink2)}
 .ql a.n{color:#03A94D}.ql a.g{color:#2563EB}
 .cvf{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .cvf select{height:32px;border:1px solid var(--line);border-radius:8px;padding:0 8px;background:#fff;font:inherit;font-size:13px}
+.lk{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+.lk .tel{font-size:12px;color:var(--ink2);text-decoration:none;white-space:nowrap;display:flex;flex-direction:column;line-height:1.3}
+.lk .tel b{font-weight:700;color:var(--ink)}
+.lk .tel small{color:var(--faint);font-size:11px}
+.lk .none{font-size:12px;color:var(--faint);white-space:nowrap}
+.go.home{color:#0F766E}
+.shopcard .ch small{color:var(--mute)}
+.shops{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;padding:0 16px 16px}
+.shop{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;display:flex;flex-direction:column;gap:5px}
+.shop .nm{font-weight:800;font-size:14.5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.shop .nm span{font-size:11px;font-weight:700;border-radius:999px;padding:1px 7px;background:#F1F5F9;color:var(--ink2)}
+.shop .nm span.lg{background:#A50034;color:#fff}
+.shop .ad{font-size:12.5px;color:var(--ink2);line-height:1.45}
+.shop .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.shop .acts a{font-size:12.5px;padding:6px 10px;text-decoration:none}
+.shop .acts a.rsv{background:#A50034;border-color:#A50034;color:#fff}
+.shopgrp{padding:2px 16px 4px;font-size:13.5px;font-weight:800;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.shopgrp small{font-weight:600;color:var(--mute)}
+.shopnote{padding:0 16px 14px;font-size:12.5px;color:var(--mute)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0F172A;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;z-index:99;pointer-events:none;max-width:92vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+#refresh.spin svg{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 .rcard{margin:12px 16px;border:1px solid var(--line);border-radius:12px;padding:14px;background:#FCFCFD}
 .rcard h4{margin:0 0 6px;font-size:15px}
 .rcard p{margin:4px 0;color:var(--ink2);font-size:13px}
@@ -346,13 +368,14 @@ tr.mine{background:#F5F9FF}
         </div>
         <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태</th><th class="hide-m">검증</th><th>바로가기</th></tr></thead>
+          <thead><tr><th>지역</th><th>지원금</th><th>신청기간</th><th>상태</th><th class="hide-m">검증</th><th>공고문 · 담당 전화</th></tr></thead>
           <tbody id="rows"></tbody>
         </table>
         </div>
         <div class="pager"><span id="pinfo"></span><div class="pg" id="pg"></div></div>
       </div>
     </div>
+    <div class="card shopcard" id="shopCard" style="margin-top:14px"></div>
     <div class="card" style="margin-top:14px">
       <div class="ch"><h2>신청 전 4단계 체크</h2><small>대부분의 지자체 공고 공통 사항</small></div>
       <div class="howto">
@@ -424,5 +447,6 @@ tr.mine{background:#F5F9FF}
 
 <script id="embed" type="application/json">/*__EMBED__*/</script>
 /*__APP__*/
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
-var D, P, C, G, R, K, V;            // data, products, candidates, geo, regions, keywords, coverage
+var D, P, C, G, R, K, V, B, L;      // data, products, candidates, geo, regions, keywords, coverage, bestshops, link_check
 var S = {year:null, rpage:1, ppage:1, view:'subsidy', status:'all', sido:null, sgg:null, q:'', page:1, ps:12, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
@@ -20,16 +20,24 @@ function fmtDT(iso){ if(!iso) return null; var m=String(iso).match(/(\d{4})-(\d{
 function md(s){ if(!s) return ''; var p=s.split('-'); return +p[1]+'.'+ +p[2]; }
 function days(a,b){ return Math.round((new Date(b)-new Date(a))/864e5); }
 var BLOGS=/(^|\.)(blog\.naver\.com|tistory\.com|brunch\.co\.kr|velog\.io|wikidocs\.net|tilnote\.io|make2t\.kr|jab-guyver\.co\.kr|foodwastesubsidy\.kr|yellowit\.co\.kr|studygov\.kr|glasswallet\.com|dikr\.co\.kr|icems2021\.com|naturelove40\.com|ajd\.co\.kr|gusle\.kr|thecheck\.co\.kr|wooyupost\.com|braindetox\.kr|post\.naver\.com|cafe\.naver\.com|medium\.com)$|blog/i;
-function tier(u){ var h=host(u); if(!h) return 9; if (/\.go\.kr$/.test(h)) return 0; if (BLOGS.test(h)) return 2; return 1; }
+function gov(u){ var h=host(u); return /(\.go\.kr|\.seoul\.kr)$/.test(h); }      // 공공기관(시·도청, 구·군청) 누리집만
+function tier(u){ var h=host(u); if(!h) return 9; if (gov(u)) return 0; if (BLOGS.test(h)) return 2; return 1; }
 var TIER=['공고문','뉴스','블로그'];
+function lcheck(u){ return (L && L.links && L.links[u]) || null; }
+function linkOK(u){ var c=lcheck(u); return !c || (c.state!=='gone' && c.state!=='mismatch'); }   // 더블체크에서 삭제·내용 불일치로 판정되면 숨김
+/* 바로가기: ① 공공기관 공고문(더블체크 통과) → ② 지자체 공식 누리집 → 없으면 링크 없음 (뉴스·블로그는 쓰지 않음) */
 function bestLink(e){
-  var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i}).sort(function(a,b){return tier(a)-tier(b)});
-  if (c.length) return {u:c[0], t:tier(c[0])};
-  var r=REG[e.sido+'|'+e.sigungu]||{q:e.sigungu};
-  return {u:'https://www.google.com/search?q='+encodeURIComponent('"'+r.q+'" 음식물처리기 감량기 보조금 '+(e.year||S.year)+' 공고 site:go.kr'), t:3};
+  var c=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,a){return a.indexOf(u)===i && gov(u) && linkOK(u);});
+  if (c.length) return {u:c[0], t:0, lbl:(e.url===c[0] && e.url_kind) || '공고문'};
+  if (e.home) return {u:e.home, t:4, lbl:'구청 누리집'};
+  return null;
 }
-function linkHTML(e, cls){ var b=bestLink(e); var lbl=b.t<3?TIER[b.t]+' 보기':'공고 찾기';
-  return '<a class="go '+(cls||'')+' t'+b.t+'" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">'+lbl+' ↗</a>'; }
+function phoneHTML(e){ if(!e.phone) return '';
+  var tag = e.phone_src==='rep' ? '대표' : (e.dept||'담당');
+  return '<a class="tel" href="tel:'+esc(e.phone.replace(/[^0-9]/g,''))+'" data-stop="1">☎ <b>'+esc(e.phone)+'</b><small>'+esc(tag)+'</small></a>'; }
+function linkHTML(e, cls){ var b=bestLink(e);
+  var a = b ? '<a class="go '+(cls||'')+(b.t===4?' home':' t0')+'" href="'+esc(b.u)+'" target="_blank" rel="noopener" data-stop="1">'+esc(b.lbl)+' 바로가기 ↗</a>' : '<span class="none">공고문 확인 중</span>';
+  return '<div class="lk">'+a+phoneHTML(e)+'</div>'; }
 function host(u){ try{ return new URL(u).hostname.replace(/^www\.|^m\./,''); }catch(e){ return ''; } }
 
 /* ── 공고 단위 상태 ── */
@@ -270,24 +278,48 @@ function focusSido(s){
 function zoom(f){ var cx=VB.x+VB.w/2, cy=VB.y+VB.h/2, w=Math.min(FULL.w,Math.max(30,VB.w*f)), h=w*FULL.h/FULL.w; animateVB({x:cx-w/2,y:cy-h/2,w:w,h:h}); }
 
 /* ── 상세 패널 ── */
+/* ── LG전자 베스트샵: 접수 중인 지역과 같은 시·군·구(동) 매장만 ── */
+function shopsIn(rid){ return (B && B.items || []).filter(function(x){ return x.region===rid; }); }
+function shopHTML(x){
+  return '<div class="shop"><div class="nm">'+esc(x.name)+'<span class="'+(x.type==='베스트샵'?'lg':'')+'">'+esc(x.type)+'</span>'+(x.dong?'<span>'+esc(x.dong)+'</span>':'')+'</div>'+
+    '<div class="ad">'+esc(x.addr)+'</div>'+
+    '<div class="acts">'+(x.tel?'<a class="btn" href="tel:'+esc(x.tel.replace(/[^0-9]/g,''))+'">☎ '+esc(x.tel)+'</a>':'')+
+    '<a class="btn rsv" href="'+esc(x.reserve)+'" target="_blank" rel="noopener">상담예약 ↗</a>'+
+    '<a class="btn" href="'+esc(x.page)+'" target="_blank" rel="noopener">매장 정보</a></div></div>';
+}
+function shopsHTML(rid, inDrawer){
+  var r=REG[rid]||{name:rid.split('|')[1]}, list=shopsIn(rid);
+  var head='<div class="shopgrp">'+esc(sidoName(rid.split('|')[0]))+' '+esc(r.name)+' LG전자 베스트샵 <small>'+(list.length?list.length+'곳 · 같은 지역 매장만':'같은 지역 매장 없음')+'</small></div>';
+  if (inDrawer) return '<dt>같은 지역 LG전자 베스트샵</dt><dd>'+(list.length?'<div class="shops" style="padding:6px 0 0;grid-template-columns:1fr">'+list.map(shopHTML).join('')+'</div>':'<span style="color:var(--faint)">'+esc(r.name)+' 안에 있는 베스트샵이 없습니다.</span>')+'</dd>';
+  return head+(list.length?'<div class="shops">'+list.map(shopHTML).join('')+'</div>':'<div class="shopnote">'+esc(r.name)+' 안에 있는 LG전자 베스트샵이 없습니다. <a href="'+esc((B&&B.reserve_any)||'https://bestshop.lge.co.kr/shop/findBestshop')+'" target="_blank" rel="noopener">상담예약에서 매장 직접 선택 ↗</a></div>');
+}
+function renderShops(){
+  var el=$('#shopCard'); if(!el) return;
+  var ids={}; yItems().filter(function(e){ return status(e)==='on' && (!S.sido||e.sido===S.sido) && (!S.sgg||e.sigungu===S.sgg); })
+    .forEach(function(e){ ids[e.sido+'|'+e.sigungu]=1; });
+  var keys=Object.keys(ids);
+  if (!keys.length){ el.innerHTML='<div class="ch"><h2>보조금 접수 중인 지역의 LG전자 베스트샵</h2><small>'+(S.sgg||S.sido?'선택한 지역은 현재 접수 중인 보조금이 없습니다':'현재 접수 중인 지역이 없습니다')+'</small></div><div class="shopnote">보조금 접수가 진행 중인 시·군·구가 생기면, 그 지역 안에 있는 매장만 자동으로 보여 드립니다.</div>'; return; }
+  el.innerHTML='<div class="ch"><h2>보조금 접수 중인 지역의 LG전자 베스트샵</h2><small>접수 중 '+keys.length+'개 지역 · 같은 시·군·구 매장만 · 매장 정보 '+(B&&B.updated_at?fmtDT(B.updated_at)+' 기준':'')+'</small></div>'+keys.map(function(k){return shopsHTML(k,false)}).join('');
+}
 function openDrawer(id){
   var e=D.items.filter(function(x){return x.id===id})[0]; if(!e) return;
   var s=status(e), a=amount(e), v=VF[e.verify], rid=e.sido+'|'+e.sigungu, lv=dlevel(rid);
   var per = e.start ? e.start.replace(/-/g,'.')+' ~ '+(e.end?e.end.replace(/-/g,'.'):'예산 소진 시') : '공고문 확인';
   var f=function(lbl,val){ return '<dt>'+lbl+'</dt><dd>'+(val?esc(val):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'; };
-  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i}).sort(function(a,b){return tier(a)-tier(b)}), bl=bestLink(e);
+  var srcs=[e.url].concat(e.sources||[]).filter(Boolean).filter(function(u,i,arr){return arr.indexOf(u)===i && gov(u) && linkOK(u)}), bl=bestLink(e), lc=e.url?lcheck(e.url):null;
   $('#drawer').innerHTML =
     '<button class="x2" type="button" id="dx" aria-label="닫기">×</button>'+
     '<div class="dh"><div class="r">'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</div><h3>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</h3>'+
     '<span class="st '+s+'"><i class="dot d-'+s+'"></i>'+ST[s]+'</span> <span class="vf '+v[0]+'" style="margin-left:6px"><i></i>'+v[1]+' · '+esc(e.verified_at)+' 확인</span> <span class="dbl d'+lv+'" style="margin-left:4px">'+DL[lv]+'</span></div>'+
     '<div class="db"><div class="big"><div><small>지원금</small><b>'+a.b+'</b><small>'+esc(a.s)+'</small></div><div><small>신청기간</small><b style="font-size:15px">'+per+'</b><small>'+(s==='on'&&e.end?'마감까지 '+Math.max(0,days(today,e.end))+'일':'')+'</small></div></div>'+
     '<dl>'+(e.note?f('비고',e.note):'')+f('지원 대상',e.target)+f('필요 서류',e.docs)+f('신청 방법',e.how)+
-    '<dt>전화번호</dt><dd>'+(e.phone?esc(e.phone):'<span style="color:var(--faint)">공고문·시군구청 대표번호로 문의</span>')+'</dd>'+
+    '<dt>전화번호</dt><dd>'+(e.phone?esc(e.phone)+' <span style="color:var(--mute);font-size:12px">('+(e.phone_src==='rep'?'지자체 대표번호 — 담당부서 번호 미확인':esc(e.dept||'담당부서')+' · 공고문 기재')+')</span>':'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'+
     (e.notice?f('공고 번호',e.notice):'')+
-    '<dt>출처 (공고문 → 뉴스 → 블로그 순)</dt><dd class="srcs">'+srcs.map(function(u){return '<a href="'+esc(u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">['+(TIER[tier(u)]||'기타')+']</b> '+esc(u.replace(/^https?:\/\//,'').slice(0,70))+'</a>'}).join('')+'</dd></dl>'+
+    '<dt>공공기관 공고 (더블체크)</dt><dd class="srcs">'+(srcs.length?srcs.map(function(u){var c=lcheck(u);return '<a href="'+esc(u)+'" target="_blank" rel="noopener"><b style="color:var(--ink2)">[공공기관]</b> '+esc(u.replace(/^https?:\/\//,'').slice(0,70))+'</a>'+(c&&c.state==='ok'?'<small style="color:#059669;display:block">✓ 자동 점검 '+esc(fmtDT(c.checked_at))+' — 링크 열림 · 음식물처리기 내용 일치</small>':'')}).join(''):'<span style="color:var(--faint)">공고문 원문 링크 확인 중'+(e.home?' — 지자체 공식 누리집에서 확인하세요':'')+'</span>')+'</dd></dl>'+
+    (s==='on'?shopsHTML(rid,true):'')+
     (e.verify==='secondary'?'<div class="warn">이 공고는 이미 마감된 것으로 확인된 2026년 사업입니다. 다음 모집은 해당 지자체 공고를 확인하세요.</div>':
       '<div class="ok">'+(e.verify==='official'?'지자체 공식 공고 본문과 대조했습니다.':'구청 보도자료 기반 언론 보도와 대조했습니다.')+' 예산 소진 시 조기 마감될 수 있습니다.</div>')+
-    '</div><div class="df"><a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">'+(bl.t<3?TIER[bl.t]+' 바로가기':'공고문 찾기')+' ↗</a>'+(e.phone?'<a class="btn" href="tel:'+esc(e.phone.replace(/[^0-9-]/g,''))+'">전화 '+esc(e.phone.replace(/\(.*\)/,''))+'</a>':'')+'</div>';
+    '</div><div class="df">'+(bl?'<a class="btn dark" href="'+esc(bl.u)+'" target="_blank" rel="noopener">'+esc(bl.lbl)+' 바로가기 ↗</a>':'')+(e.phone?'<a class="btn" href="tel:'+esc(e.phone.replace(/[^0-9]/g,''))+'">☎ '+esc(e.phone)+(e.phone_src==='rep'?' (대표)':'')+'</a>':'')+'</div>';
   $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden','false');
 }
 function closeDrawer(){ $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden','true'); }
@@ -368,7 +400,7 @@ function suggest(){
 function pick(o){ S.sido=o.sido; S.sgg=o.sgg; S.q=''; $('#q').value=''; $('#searchBox').classList.remove('has'); $('#sugg').classList.remove('on'); S.page=1; if (S.view!=='subsidy') setView('subsidy'); render(); focusSido(S.sido); }
 
 /* ── 렌더 ── */
-function render(){
+function render(){ try{ renderShops(); }catch(_e){}
   if (!D || !R) return;
   renderYearBar(); $('#yearLbl').textContent='· '+S.year+'년 사업';
   if (S.view==='subsidy'){ renderKPI(); renderIndex(); renderList(); renderMap(); }
@@ -439,10 +471,16 @@ $('#map').addEventListener('mouseleave', function(){ tip.classList.remove('on');
 window.addEventListener('hashchange', function(){ var h=location.hash.slice(1); if (['subsidy','products','radar'].indexOf(h)>=0 && h!==S.view) setView(h); });
 
 /* ── 로드: 접속할 때마다 최신 JSON을 캐시 없이 다시 받음 ── */
+/* 접속·새로고침할 때마다 GitHub 저장소의 최신 파일(자동 점검 결과)을 캐시 없이 직접 받음 → 실패 시 사이트 파일 → 페이지 내장본 */
+var RAW='https://raw.githubusercontent.com/newyangs007/food-subsidy/main/';
+function fetchJ(u){ return fetch(u+(u.indexOf('?')<0?'?':'&')+'t='+Date.now(), {cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+function newer(a,b){ var ta=a&&a.updated_at||'', tb=b&&b.updated_at||''; return ta>=tb ? a : b; }
 function getJSON(name){
-  return fetch(name+'?t='+Date.now(), {cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .catch(function(){ return EMB[name.replace('.json','')] || null; });
+  var emb=EMB[name.replace('.json','')]||null;
+  return Promise.all([fetchJ(RAW+name).catch(function(){return null}), fetchJ(name).catch(function(){return null})])
+    .then(function(r){ var x=r[0]&&r[1]?newer(r[0],r[1]):(r[0]||r[1]); return x? (emb&&x.updated_at&&emb.updated_at&&emb.updated_at>x.updated_at? emb : x) : emb; });
 }
+function toast(t){ var el=$('#toast'); if(!el) return; el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(function(){el.classList.remove('on')},3200); }
 function stamp(){
   nowD=kst(); today=ymd(nowD);
   $('#nowLbl').textContent = fmtDT(today+'T'+String(nowD.getHours()).padStart(2,'0')+':'+String(nowD.getMinutes()).padStart(2,'0'));
@@ -453,17 +491,25 @@ function stamp(){
   if (lu) $('#lastUpd').textContent = lu.slice(0,16).replace('T',' ').replace(/-/g,'.')+' (KST) · 공고 검증 '+fmtDT(D.updated_at)+' · 자동 점검 '+(V&&V.updated_at?fmtDT(V.updated_at):'배포 후 첫 실행 대기');
 }
 function load(isRefresh){
-  var btn=$('#refresh'); btn.disabled=true; btn.style.opacity=.6;
-  Promise.all(['data.json','products.json','candidates.json','geo.json','regions.json','keywords.json','coverage.json'].map(getJSON)).then(function(r){
-    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}};
+  var btn=$('#refresh'); btn.disabled=true; btn.classList.add('spin');
+  var names=['data.json','products.json','candidates.json',G?null:'geo.json','regions.json','keywords.json','coverage.json','bestshops.json','link_check.json'];
+  return Promise.all(names.map(function(n){ return n?getJSON(n):Promise.resolve(null); })).then(function(r){
+    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}}; B=r[7]||{items:[]}; L=r[8]||{links:{}};
     if (!G) { G=r[3]; buildMap(); }
     nowD=kst(); today=ymd(nowD);
     if (!S.year || (D.years||[]).indexOf(S.year)<0) S.year=autoYear();
-    buildSyn(); indexRegions(); renderKw(); stamp(); render(); if (isRefresh) focusSido(S.sido);
-  }).finally(function(){ btn.disabled=false; btn.style.opacity=1; });
+    buildSyn(); indexRegions(); renderKw(); stamp(); render(); if (isRefresh===true) focusSido(S.sido);
+    LAST=Date.now();
+    if (isRefresh===true) toast('실시간 업데이트 완료 · 자동 점검 '+(V&&V.updated_at?fmtDT(V.updated_at):'대기')+' · 지금 '+$('#nowLbl').textContent+' 기준');
+  }).catch(function(){ if (isRefresh===true) toast('최신 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'); })
+    .finally(function(){ btn.disabled=false; btn.classList.remove('spin'); });
 }
 var h0=location.hash.slice(1); if (['products','radar'].indexOf(h0)>=0) S.view=h0;
 setView(S.view);
+var LAST=0;
 load(false);
+/* 페이지를 열어 둔 동안에도 5분마다, 그리고 다른 탭에서 돌아올 때 자동으로 최신화 */
+setInterval(function(){ if (!document.hidden) load('auto'); }, 5*60*1000);
+document.addEventListener('visibilitychange', function(){ if (!document.hidden && Date.now()-LAST>60*1000) load('auto'); });
 setInterval(function(){ var d=ymd(kst()); if (d!==today && D){ var was=autoYear(); stamp(); if (S.year===was && autoYear()!==was){ S.year=autoYear(); indexRegions(); } render(); } }, 60000);
 })();

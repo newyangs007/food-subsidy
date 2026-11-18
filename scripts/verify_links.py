@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEVICE = re.compile(r"음식물.{0,12}(처리기|감량기|소멸기|처리 기기|감량 기기)|감량기")
 PHONE = re.compile(r"(?<!\d)(0(?:2|[3-6][1-5]|70))[-.)\s]?(\d{3,4})[-.\s](\d{4})(?!\d)")
 NEAR = re.compile(r"(문의|담당|연락처|전화|☎|TEL|Tel|tel)")
-OFFICIAL = re.compile(r"(\.go\.kr|\.or\.kr)(/|$|:)")
+OFFICIAL = re.compile(r"(\.go\.kr|\.seoul\.kr)(/|$|:)")
 
 CTX = ssl.create_default_context()
 CTX_LAX = ssl.create_default_context(); CTX_LAX.check_hostname = False; CTX_LAX.verify_mode = ssl.CERT_NONE  # 일부 지자체 인증서 체인 불완전

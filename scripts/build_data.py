@@ -263,6 +263,62 @@ add("경남", "김해시", "2026-01-14", "2026-02-13", 30, 20, sources=[FWS])
 add("경남", "산청군", "2026-01-12", None, 50, 40, closed=True, sources=[FWS])
 add("경남", "의령군", "2026-04-01", None, 50, 50, closed=True, sources=[FWS])
 
+# ───────────── 공식(공공기관) 공고 링크 · 담당 전화 더블체크 결과 (2026-11-18 브라우저로 직접 열어 확인) ─────────────
+# 바로가기에는 공공기관 누리집(.go.kr / .seoul.kr 등) 주소만 씁니다. 언론·블로그 주소는 sources(근거)로만 보관합니다.
+# phone_src: dept = 공고문·누리집에 적힌 담당부서 번호 / rep = 담당 번호를 찾지 못해 지자체 대표번호
+OFFICIAL_FIX = {
+  ("서울", "마포구", "2026-10-26"): dict(url="https://www.mapo.go.kr/site/main/nPortal/detail?bcId=21496",
+        notice="마포구 공고 제2026-1856호(선정결과)", phone="02-3153-9224", phone_src="dept", dept="청소행정과"),
+  ("서울", "양천구", "2026-08-18"): dict(url="https://www.yangcheon.go.kr/reservation/reservation/ex/reservationEtc/reservationView.do?riIdx=RI002058",
+        phone="02-2620-3441", phone_src="dept", dept="청소행정과"),
+  ("서울", "양천구", "2026-03-30"): dict(phone="02-2620-3441", phone_src="dept", dept="청소행정과"),
+  ("서울", "서대문구", "2026-03-10"): dict(url="https://www.sdm.go.kr/news/news/notice.do?mode=view&sdmBoardSeq=309636",
+        phone="02-330-1528", phone_src="dept", dept="청소행정과"),
+  ("서울", "동대문구", "2026-03-16"): dict(url="https://www.ddm.go.kr/www/selectEminwonWebView.do?key=3291&searchNotAncmtSeCode=01%2C02%2C04%2C05%2C06%2C07&notAncmtMgtNo=21285",
+        notice="동대문구 공고 제2026-310호", phone="02-2127-4731", phone_src="dept", dept="청소행정과"),
+  ("서울", "중구", "2026-03-03"): dict(url="https://www.junggu.seoul.kr/content.do?cmsid=14390&mode=view&cid=1433344271",
+        url_kind="보도자료", phone="02-3396-4114", phone_src="rep"),
+  ("서울", "관악구", "2026-03-24"): dict(phone="02-879-6222", phone_src="dept", dept="청소행정과"),
+  ("서울", "성북구", "2026-04-13"): dict(phone="02-2241-4414", phone_src="dept", dept="청소행정과"),
+  ("서울", "송파구", "2026-03-16"): dict(phone="02-2147-6382", phone_src="dept", dept="자원활용과"),
+  ("서울", "도봉구", "2026-03-16"): dict(phone="02-2091-3295", phone_src="dept", dept="자원순환과"),
+  ("서울", "성동구", "2026-03-20"): dict(phone="02-2286-5114", phone_src="rep"),
+  ("서울", "강서구", "2026-05-18"): dict(phone="02-2600-6114", phone_src="rep"),
+  ("서울", "강북구", "2026-03-16"): dict(phone="02-901-6114", phone_src="rep"),
+  ("서울", "서초구", "2026-11-09"): dict(phone_src="dept", dept="청소행정과"),
+  ("서울", "강동구", "2026-10-05"): dict(phone_src="dept", dept="청소행정과"),
+  ("서울", "금천구", "2026-04-13"): dict(phone_src="dept"),
+  ("부산", "연제구", "2026-11-09"): dict(phone="051-665-4000", phone_src="rep"),
+  ("부산", "강서구", "2026-02-20"): dict(phone="051-970-4000", phone_src="rep"),
+  ("인천", "제물포구", "2026-08-03"): dict(phone_src="dept"),
+  ("전남광주", "함평군", "2026-11-02"): dict(phone_src="dept"),
+  ("경북", "안동시", "2026-09-10"): dict(phone_src="dept"),
+  ("경북", "포항시", "2026-01-12"): dict(phone="054-270-3193", phone_src="dept", dept="공고 담당자"),
+  ("경북", "경산시", "2026-01-19"): dict(phone="053-811-2231", phone_src="rep"),
+}
+# 지자체 공식 누리집(공고문을 찾지 못한 경우의 바로가기) — 하단 대표번호와 함께 직접 열어 확인
+HOME = {
+  "서울|강서구": "https://www.gangseo.seoul.kr/", "서울|강북구": "https://www.gangbuk.go.kr/",
+  "서울|중구": "https://www.junggu.seoul.kr/", "서울|성동구": "https://www.sd.go.kr/",
+  "부산|강서구": "https://www.bsgangseo.go.kr/", "경북|경산시": "https://www.gbgs.go.kr/",
+}
+import re as _re
+GOV = _re.compile(r"^https?://[^/]*(\.go\.kr|\.seoul\.kr)(/|$)")
+for e in E:
+    fx = OFFICIAL_FIX.get((e["sido"], e["sigungu"], e["start"]))
+    if fx:
+        if fx.get("url") and e.get("url") and e["url"] != fx["url"]:
+            e["sources"] = [e["url"]] + [u for u in e["sources"] if u != e["url"]]
+        e.update(fx)
+        if fx.get("url") and e["verify"] == "news": e["verify"] = "official"
+    if e.get("url") and not GOV.match(e["url"]):          # 공공기관 주소가 아니면 바로가기에서 제외(근거로만 보관)
+        e["sources"] = [e["url"]] + [u for u in e["sources"] if u != e["url"]]
+        e["url"] = ""
+    e.setdefault("phone_src", "")
+    e.setdefault("dept", "")
+    e.setdefault("url_kind", "공고문")
+    e["home"] = HOME.get(f'{e["sido"]}|{e["sigungu"]}', "")
+
 REG = {r["id"] for r in json.load(open(sys.argv[2], encoding="utf-8"))["regions"]}
 for e in E:
     assert f'{e["sido"]}|{e["sigungu"]}' in REG, ("지자체 목록에 없음", e["sido"], e["sigungu"])
