@@ -1,1 +1,174 @@
-{"updated_at": "2026-11-19T00:00:00+09:00", "rule": "지자체 누리집 게시글만 · 제목에 사업연도 포함 · 최대 3회 재확인", "items": []}
+{
+ "updated_at": "2026-11-20T00:40:31+09:00",
+ "rule": "지자체 누리집 게시글만 · 제목에 사업연도 포함 · 최대 3회 재확인",
+ "items": [
+  {
+   "title": "[보도자료] 광진구, 가정용 소형 감량기 부산물 일반 종량제봉투에 버리세요 [2026-11-17]",
+   "link": "https://www.gwangjin.go.kr/portal/bbs/B0000002/view.do?nttId=6634905&menuNo=200191",
+   "date": "2026-11-17",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "가정용 건조방식 소형 감량기 부산물 배출방법 개선 안내 [2026-11-09]",
+   "link": "https://www.gwangjin.go.kr/health/bbs/B0000001/view.do?nttId=6632839&menuNo=300240",
+   "date": "2026-11-09",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "가정용 건조방식 소형 감량기 부산물 배출방법 개선 안내 [2026-11-09]",
+   "link": "https://www.gwangjin.go.kr/portal/bbs/B0000001/view.do?nttId=6632839&menuNo=200190",
+   "date": "2026-11-09",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "가정용 건조방식 소형 감량기 부산물 배출방법 개선 안내 [2026-11-09]",
+   "link": "https://www.gwangjin.go.kr/health/bbs/B0000001/view.do?nttId=6632839&menuNo=300350",
+   "date": "2026-11-09",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "2026년 가정용 음식물쓰레기 처리기 지원사업 1차 선정 대상자 증빙서류 제출",
+   "link": "https://www.bsjunggu.go.kr/board/view.junggu?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=260552",
+   "date": "2026-10-02",
+   "year": 2026,
+   "sido": "부산",
+   "sigungu": "중구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "2026년 음식물류 폐기물 가정용 소형 감량기 설치 지원사업 추가 지원대상자 선정결과 안내",
+   "link": "https://www.guro.go.kr/www/selectBbsNttView.do?key=1790&bbsNo=662&nttNo=234932",
+   "date": "2026-06-09",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "구로구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "2026년 음식물류 폐기물 가정용 소형 감량기 설치 지원사업 추가 지원대상자 선정결과 안내",
+   "link": "https://www.guro.go.kr/www/selectBbsNttView.do?key=1790&bbsNo=662&nttNo=234294",
+   "date": "2026-05-19",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "구로구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "2026년 음식물류 폐기물 가정용 소형 감량기 설치 지원사업 추가 지원대상자 선정결과 안내",
+   "link": "https://www.guro.go.kr/www/selectBbsNttView.do?key=1790&bbsNo=662&nttNo=233423",
+   "date": "2026-04-28",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "구로구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "[마감] 2026년 가정용 음식물류 폐기물 소형감량기 구매 지원사업 [2026-03-24]",
+   "link": "https://www.gwangjin.go.kr/health/bbs/B0000001/view.do?nttId=6570452&menuNo=300350",
+   "date": "2026-04-17",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "[마감] 2026년 가정용 음식물류 폐기물 소형감량기 구매 지원사업 [2026-03-24]",
+   "link": "https://www.gwangjin.go.kr/portal/bbs/B0000001/view.do?nttId=6570452&menuNo=200190",
+   "date": "2026-04-17",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "[마감] 2026년 가정용 음식물류 폐기물 소형감량기 구매 지원사업 [2026-03-24]",
+   "link": "https://www.gwangjin.go.kr/health/bbs/B0000001/view.do?nttId=6570452&menuNo=300240",
+   "date": "2026-04-17",
+   "year": 2026,
+   "sido": "서울",
+   "sigungu": "광진구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "[마감] 2026년 음식물류 폐기물 감량기 기 보조금 지원사업(음식물처리기)",
+   "link": "https://www.nyj.go.kr/www/selectBbsNttView.do?key=2481&bbsNo=62&nttNo=528929",
+   "date": "2026-03-03",
+   "year": 2026,
+   "sido": "경기",
+   "sigungu": "남양주시",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "2026년 가정용 음식물류 폐기물 감량기 설치 사업 공고",
+   "link": "https://www.seogu.go.kr/prog/saeolGosi/GOSI/kor/sub04_02_01/view.do?notAncmtMgtNo=49563",
+   "date": "2026-02-23",
+   "year": 2026,
+   "sido": "대전",
+   "sigungu": "서구",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  },
+  {
+   "title": "♣ 음식물 처리기 지원금 신청 안내(2026년)♣",
+   "link": "https://www.jincheon.go.kr/home/sub.do?menukey=2895&mode=view&no=929871167",
+   "date": "2026-01-09",
+   "year": 2026,
+   "sido": "충북",
+   "sigungu": "진천군",
+   "via": "search",
+   "checks": 2,
+   "checked_at": "2026-11-20T00:40:31+09:00",
+   "first_seen": "2026-11-20T00:40:31+09:00"
+  }
+ ]
+}
