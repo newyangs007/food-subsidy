@@ -99,7 +99,7 @@ h1{font-size:22px;line-height:1.25;margin:0;font-weight:800;letter-spacing:-.03e
 #map path.pv.h1{fill:#D6E9E2}#map path.pv.h2{fill:#B8DDCF}#map path.pv.h3{fill:#93CDB7}
 #map path.pv.sel{fill:#0F172A0d;stroke:var(--ink);stroke-width:2}
 #map path.pv.dim{fill:#F8FAFC}
-#map .lb{font-size:11px;font-weight:700;fill:#334155;pointer-events:none;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+#map .lb{font-size:16px;font-weight:800;fill:#1E293B;pointer-events:none;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;letter-spacing:-.02em}
 #map .lb .cnt{fill:var(--on)}
 #map path.mu{fill:#fff;stroke:#CBD5E1;vector-effect:non-scaling-stroke;stroke-width:.8;cursor:pointer;transition:fill .15s}
 #map path.mu:hover{fill:#F1F5F9}
@@ -376,7 +376,11 @@ td.ac{width:1%;white-space:nowrap}
 .lgbtn .lgw{font-style:normal}
 #rows .lgbtn .lgw{display:none}
 #rows .lgbtn{min-width:86px}
-.shop .acts a,.shop .acts span{font-size:12px;padding:5px 8px}
+.shop .acts{flex-wrap:nowrap;gap:5px}
+.shop .acts a,.shop .acts span{font-size:11.5px;padding:5px 6px;white-space:nowrap}
+.shop .rgtag{font-size:11px;font-weight:700;color:#A50034;margin-bottom:-2px}
+.shopnote{padding-top:2px}
+.mapbox{min-height:560px}
 .ci .src{font-size:11px;font-weight:700;color:#047857;background:#ECFDF5;border-radius:6px;padding:2px 7px;flex:none;margin-top:2px}
 @media (max-width:1320px){.grid{grid-template-columns:232px minmax(0,1fr)}.listcol{grid-column:1/-1}.shops{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:780px){

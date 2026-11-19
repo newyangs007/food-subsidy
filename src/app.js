@@ -123,6 +123,9 @@ function status(e){
   return 'on';                                                         // 모든 공고가 지자체 누리집 게시글로 확인됨 → 진행 중 / 종료 두 가지
 
 }
+/* '예산 소진 시까지' 공고: 시작 후 두 달이 지나면 '종료 예상'(접수 여부는 전화 확인) */
+function expEnd(e){ return !e.end && !e.closed && !!e.start && days(e.start,today) > 60; }
+function stl(e,s){ return s==='off' && expEnd(e) ? '종료 예상' : ST[s]; }
 function why(e){
   if (status(e)!=='chk') return '';
   if (e.force) return '기간·금액 미공개';
@@ -272,11 +275,11 @@ function renderList(){
   var rows = f.slice((S.page-1)*S.ps, S.page*S.ps).map(function(e){
     var s=status(e), a=amount(e), v=VF[vkey(e)];
     var per = e.start ? md(e.start)+' ~ '+(e.end?md(e.end):'예산 소진 시') : '공고문 확인';
-    var sub = s==='on' && e.end ? 'D-'+Math.max(0,days(today,e.end)) : s==='soon' ? days(today,e.start)+'일 후 시작' : (s==='off' && !e.end && !e.closed ? '예산 소진 여부 전화 확인' : (e.round||''));
+    var sub = s==='on' && e.end ? 'D-'+Math.max(0,days(today,e.end)) : s==='soon' ? days(today,e.start)+'일 후 시작' : (expEnd(e) ? '예산 소진 여부 전화 확인' : (e.round||''));
     return '<tr data-id="'+e.id+'"><td class="rg"><b>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</b><small>'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</small></td>'+
       '<td class="amt"><b>'+a.b+'</b><small>'+esc(a.s)+(e.note&&/최대/.test(e.note)?' · 우대 있음':'')+'</small></td>'+
       '<td class="per">'+per+'<small>'+esc(sub)+'</small></td>'+
-      '<td class="stc"><span class="st '+s+'"'+(s==='chk'?' title="'+CHK_TIP+'"':'')+'><i class="dot d-'+s+'"></i>'+ST[s]+'</span>'+(s==='chk'?'<span class="why">'+why(e)+'</span>':'')+'<span class="vf '+v[0]+'"><i></i>'+v[1]+'</span></td>'+
+      '<td class="stc"><span class="st '+s+'"'+(s==='chk'?' title="'+CHK_TIP+'"':'')+'><i class="dot d-'+s+'"></i>'+stl(e,s)+'</span>'+(s==='chk'?'<span class="why">'+why(e)+'</span>':'')+'<span class="vf '+v[0]+'"><i></i>'+v[1]+'</span></td>'+
       '<td class="ac">'+linkHTML(e)+'</td></tr>';
   }).join('');
   var card = S.sgg ? regionCard(S.sido+'|'+S.sgg) : '';
@@ -300,7 +303,7 @@ function pager(p,pages,key){
 var VB, FULL;
 function provKey(code){ return code==='gwangju' ? '전남광주' : G.prov[code]; }
 function buildMap(){
-  var svg=$('#map'); FULL={x:-6,y:-6,w:G.w+12,h:G.h+12}; VB=Object.assign({},FULL);
+  var svg=$('#map'); FULL={x:12,y:-2,w:408,h:728}; VB=Object.assign({},FULL);   // 본토+제주 기준으로 잘라 지도를 크게(울릉·먼 섬은 확대 시 표시)
   svg.setAttribute('viewBox',[VB.x,VB.y,VB.w,VB.h].join(' '));
   var h='<defs><pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#fff"/><line x1="0" y1="0" x2="0" y2="5" stroke="#DCE3EC" stroke-width="2.4"/></pattern></defs><g id="rgs">';
   Object.keys(G.mp).forEach(function(id){ h+='<path class="rg2" data-r="'+esc(id)+'" d="'+G.mp[id]+'"/>'; });
@@ -323,11 +326,11 @@ function renderMap(){
   var lab='';
   if (!S.sido) D.sido.forEach(function(s){ var a=G.anchor[s[0]]; if(!a) return; var x=m[s[0]];
     lab+='<text class="lb" x="'+a[0].toFixed(1)+'" y="'+a[1].toFixed(1)+'" text-anchor="middle">'+s[0]+(x.on?' <tspan class="cnt">●'+x.on+'</tspan>':'')+'</text>'; });
-  else { var fs=(13/z).toFixed(2), sw=(3.2/z).toFixed(2);
+  else { var fs=(16/z).toFixed(2), sw=(3.6/z).toFixed(2);
     R.regions.forEach(function(r){ if (r.sido!==S.sido) return; var c=G.cent[r.id]; if(!c) return; var st=rstate(r.id);
       lab+='<text class="ml" x="'+c[0]+'" y="'+c[1]+'" text-anchor="middle" font-size="'+fs+'" stroke-width="'+sw+'"'+(st==='unk'||st==='none'?' style="fill:#94A3B8;font-weight:500"':'')+'>'+esc(r.name)+'</text>'; }); }
   $('#labels').innerHTML=lab;
-  var mk=''; R.regions.forEach(function(r){ if (rstate(r.id)!=='on' || !matchR(r.id)) return; var c=G.cent[r.id]; if(!c) return; var rr=(5.5/Math.pow(z,.8)).toFixed(2);
+  var mk=''; R.regions.forEach(function(r){ if (rstate(r.id)!=='on' || !matchR(r.id)) return; var c=G.cent[r.id]; if(!c) return; var rr=(7/Math.pow(z,.8)).toFixed(2);
     mk+='<circle class="mk" data-k="'+esc(r.id)+'" cx="'+c[0]+'" cy="'+(S.sido?c[1]+9/z:c[1])+'" r="'+rr+'" fill="#059669" stroke-width="'+(1.6/Math.pow(z,.8)).toFixed(2)+'"><animate attributeName="opacity" values="1;.45;1" dur="1.8s" repeatCount="indefinite"/></circle>'; });
   $('#marks').innerHTML=mk;
   var tot=0, ran=0; R.regions.forEach(function(r){ if(!matchR(r.id)) return; if(S.sido && r.sido!==S.sido) return; tot++; if (BYR[r.id].length) ran++; });
@@ -344,7 +347,7 @@ function focusSido(s){
   if (!s){ animateVB(FULL); return; }
   var b=null; document.querySelectorAll('#map path.pvo[data-sido="'+s+'"]').forEach(function(p){ var r=p.getBBox(); if(!b) b={x:r.x,y:r.y,x2:r.x+r.width,y2:r.y+r.height}; else { b.x=Math.min(b.x,r.x); b.y=Math.min(b.y,r.y); b.x2=Math.max(b.x2,r.x+r.width); b.y2=Math.max(b.y2,r.y+r.height);} });
   if(!b) return; if (s==='경북') b.x2=Math.min(b.x2, 470); if (s==='인천') b.x=Math.max(b.x, 20);
-  var w=b.x2-b.x, h=b.y2-b.y, pad=Math.max(w,h)*0.12+4, ar=FULL.w/FULL.h;
+  var w=b.x2-b.x, h=b.y2-b.y, pad=Math.max(w,h)*0.06+3, ar=FULL.w/FULL.h;
   w+=pad*2; h+=pad*2; if (w/h>ar) h=w/ar; else w=h*ar;
   animateVB({x:(b.x+b.x2)/2-w/2, y:(b.y+b.y2)/2-h/2, w:w, h:h});
 }
@@ -353,18 +356,18 @@ function zoom(f){ var cx=VB.x+VB.w/2, cy=VB.y+VB.h/2, w=Math.min(FULL.w,Math.max
 /* ── 상세 패널 ── */
 /* ── LG전자 베스트샵: 접수 중인 지역과 같은 시·군·구(동) 매장만 ── */
 function shopsIn(rid){ return (B && B.items || []).filter(function(x){ return x.region===rid; }); }
-function shopHTML(x){
-  return '<div class="shop"><div class="nm">'+esc(x.name)+'<span class="'+(x.type==='베스트샵'?'lg':'')+'">'+esc(x.type)+'</span>'+(x.dong?'<span>'+esc(x.dong)+'</span>':'')+'</div>'+
+function shopHTML(x, tag){
+  return '<div class="shop">'+(tag?'<div class="rgtag">'+esc(tag)+'</div>':'')+'<div class="nm">'+esc(x.name)+'<span class="'+(x.type==='베스트샵'?'lg':'')+'">'+esc(x.type)+'</span>'+(x.dong?'<span>'+esc(x.dong)+'</span>':'')+'</div>'+
     '<div class="ad">'+esc(x.addr)+'</div>'+
     '<div class="acts">'+(x.tel?'<span class="btn tel">☎ '+esc(x.tel)+'</span>':'')+
     '<a class="btn rsv" data-rsv="1" href="'+esc(x.reserve)+'" target="_blank" rel="noopener">상담예약 ↗</a>'+
     '<a class="btn" href="'+esc(x.page)+'" target="_blank" rel="noopener">매장 정보</a></div></div>';
 }
+function rname(rid){ var r=REG[rid]||{name:rid.split('|')[1]}; return sidoName(rid.split('|')[0])+' '+r.name; }
 function shopsHTML(rid, inDrawer){
   var r=REG[rid]||{name:rid.split('|')[1]}, list=shopsIn(rid);
-  var head='<div class="shopgrp">'+esc(sidoName(rid.split('|')[0]))+' '+esc(r.name)+' LG전자 베스트샵 <small>'+(list.length?list.length+'곳 · 같은 지역 매장만':'같은 지역 매장 없음')+'</small></div>';
-  if (inDrawer) return '<dt>같은 지역 LG전자 베스트샵</dt><dd>'+(list.length?'<div class="shops" style="padding:6px 0 0;grid-template-columns:1fr">'+list.map(shopHTML).join('')+'</div>':'<span style="color:var(--faint)">'+esc(r.name)+' 안에 있는 베스트샵이 없습니다.</span>')+'</dd>';
-  return head+(list.length?'<div class="shops">'+list.map(shopHTML).join('')+'</div>':'<div class="shopnote">'+esc(r.name)+' 안에 있는 LG전자 베스트샵이 없습니다. <a data-rsv="1" href="'+esc((B&&B.reserve_any)||'https://bestshop.lge.co.kr/shop/findBestshop')+'" target="_blank" rel="noopener">상담예약에서 매장 직접 선택 ↗</a></div>');
+  if (inDrawer) return '<dt>같은 지역 LG전자 베스트샵</dt><dd>'+(list.length?'<div class="shops" style="padding:6px 0 0;grid-template-columns:1fr">'+list.map(function(x){return shopHTML(x)}).join('')+'</div>':'<span style="color:var(--faint)">'+esc(r.name)+' 안에 있는 베스트샵이 없습니다.</span>')+'</dd>';
+  return '';
 }
 function renderShops(){
   var el=$('#shopCard'); if(!el) return;
@@ -372,7 +375,11 @@ function renderShops(){
     .forEach(function(e){ ids[e.sido+'|'+e.sigungu]=1; });
   var keys=Object.keys(ids);
   if (!keys.length){ el.innerHTML='<div class="ch"><h2>보조금 접수 중인 지역의 LG전자 베스트샵</h2><small>'+(S.sgg||S.sido?'선택한 지역은 현재 접수 중인 보조금이 없습니다':'현재 접수 중인 지역이 없습니다')+'</small></div><div class="shopnote">보조금 접수가 진행 중인 시·군·구가 생기면, 그 지역 안에 있는 매장만 자동으로 보여 드립니다.</div>'; return; }
-  el.innerHTML='<div class="ch"><h2>보조금 접수 중인 지역의 LG전자 베스트샵</h2><small>접수 중 '+keys.length+'개 지역 · 같은 시·군·구 매장만 · 매장 정보 '+(B&&B.updated_at?fmtDT(B.updated_at)+' 기준':'')+'</small></div>'+keys.map(function(k){return shopsHTML(k,false)}).join('');
+  var cards=[], none=[];
+  keys.forEach(function(k){ var l=shopsIn(k); if (!l.length) none.push(k); l.forEach(function(x){ cards.push(shopHTML(x, rname(k))); }); });   // 지역 구분 없이 한 줄에 5개씩 이어서
+  el.innerHTML='<div class="ch"><h2>보조금 접수 중인 지역의 LG전자 베스트샵</h2><small>접수 중 '+keys.length+'개 지역 · 매장 '+cards.length+'곳 · 같은 시·군·구 매장만 · 매장 정보 '+(B&&B.updated_at?fmtDT(B.updated_at)+' 기준':'')+'</small></div>'+
+    (cards.length?'<div class="shops">'+cards.join('')+'</div>':'')+
+    (none.length?'<div class="shopnote">'+none.map(function(k){return '<b>'+esc(rname(k))+'</b>에는 LG전자 베스트샵이 없습니다'}).join(' · ')+' — <a data-rsv="1" href="'+esc((B&&B.reserve_any)||'https://bestshop.lge.co.kr/shop/findBestshop')+'" target="_blank" rel="noopener">상담예약에서 매장 직접 선택 ↗</a></div>':'');
 }
 function openDrawer(id){
   var e=D.items.filter(function(x){return x.id===id})[0]; if(!e) return;
@@ -383,7 +390,7 @@ function openDrawer(id){
   $('#drawer').innerHTML =
     '<button class="x2" type="button" id="dx" aria-label="닫기">×</button>'+
     '<div class="dh"><div class="r">'+esc(sidoName(e.sido))+(e.round?' · '+esc(e.round):'')+'</div><h3>'+esc(e.sigungu)+(isNew(e)?'<span class="new">신규</span>':'')+'</h3>'+
-    '<span class="st '+s+'"><i class="dot d-'+s+'"></i>'+ST[s]+'</span> <span class="vf '+v[0]+'" style="margin-left:6px"><i></i>'+v[1]+' · '+esc(e.verified_at)+' 확인</span> <span class="dbl d'+lv+'" style="margin-left:4px">'+DL[lv]+'</span></div>'+
+    '<span class="st '+s+'"><i class="dot d-'+s+'"></i>'+stl(e,s)+'</span> <span class="vf '+v[0]+'" style="margin-left:6px"><i></i>'+v[1]+' · '+esc(e.verified_at)+' 확인</span> <span class="dbl d'+lv+'" style="margin-left:4px">'+DL[lv]+'</span></div>'+
     '<div class="db"><div class="big"><div><small>지원금</small><b>'+a.b+'</b><small>'+esc(a.s)+'</small></div><div><small>신청기간</small><b style="font-size:15px">'+per+'</b><small>'+(s==='on'&&e.end?'마감까지 '+Math.max(0,days(today,e.end))+'일':'')+'</small></div></div>'+
     '<dl>'+(e.note?f('비고',e.note):'')+f('지원 대상',e.target)+f('필요 서류',e.docs)+f('신청 방법',e.how)+
     '<dt>전화번호</dt><dd>'+(ph?'☎ '+esc(ph):'<span style="color:var(--faint)">공고문에서 확인</span>')+'</dd>'+
@@ -582,7 +589,7 @@ function load(isRefresh){
     buildSyn(); indexRegions(); renderKw(); stamp(); render(); if (isRefresh===true) focusSido(S.sido);
     LAST=Date.now();
     if (isRefresh===true) toast('실시간 업데이트 완료 · 자동 점검 '+(V&&V.updated_at?fmtDT(V.updated_at):'대기')+' · 지금 '+$('#nowLbl').textContent+' 기준');
-  }).catch(function(){ if (isRefresh===true) toast('최신 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'); })
+  }).catch(function(err){ try{console.error('load',err)}catch(_e){} if (isRefresh===true) toast('최신 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'); })
     .finally(function(){ btn.disabled=false; btn.classList.remove('spin'); });
 }
 /* 브라우저 확장 프로그램이 페이지 위에 끼워 넣는 '약관동의' 같은 버튼은 숨김(사이트가 만든 요소가 아님) */
