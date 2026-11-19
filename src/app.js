@@ -585,6 +585,16 @@ function load(isRefresh){
   }).catch(function(){ if (isRefresh===true) toast('최신 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'); })
     .finally(function(){ btn.disabled=false; btn.classList.remove('spin'); });
 }
+/* 브라우저 확장 프로그램이 페이지 위에 끼워 넣는 '약관동의' 같은 버튼은 숨김(사이트가 만든 요소가 아님) */
+(function(){
+  var OWN={'scrim':1,'drawer':1,'pop':1,'toast':1};
+  function txt(el){ var t=el.textContent||''; try{ if(el.shadowRoot) t+=el.shadowRoot.textContent||''; }catch(_e){} return t; }
+  function sweep(){ [].slice.call(document.body.children).forEach(function(el){
+    if (el.classList.contains('wrap') || OWN[el.id] || /^(SCRIPT|FORM|STYLE)$/.test(el.tagName)) return;
+    if (/약관\s*동의/.test(txt(el))) el.style.setProperty('display','none','important'); }); }
+  try{ new MutationObserver(sweep).observe(document.body,{childList:true}); }catch(_e){}
+  sweep(); setTimeout(sweep,1500); setTimeout(sweep,5000);
+})();
 var h0=location.hash.slice(1); if (['products','radar'].indexOf(h0)>=0) S.view=h0;
 setView(S.view);
 var LAST=0;

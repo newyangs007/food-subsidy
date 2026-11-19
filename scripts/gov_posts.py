@@ -24,6 +24,7 @@ LAX = ssl.create_default_context(); LAX.check_hostname = False; LAX.verify_mode 
 GOV = re.compile(r"(\.go\.kr|\.seoul\.kr|\.daegu\.kr|(^|\.)suseong\.kr)$")
 DEV = re.compile(r"감량기|음식물\s*(?:쓰레기|류\s*폐기물)?\s*처리기")
 PROG = re.compile(r"지원|보조|보급|구매|구입|설치|신청|모집|선정|공고|안내")
+TPROG = re.compile(r"지원|보조|보급|구매|구입|설치|신청|모집|선정|공고")      # 제목에 사업(지원·보조·모집 등) 단어가 있어야 함
 SKIP = re.compile(r"(?i)download|fileDown|filedown|\.hwp|\.pdf|\.xlsx?|\.zip|javascript:|mailto:|blog\.naver|youtube|instagram|facebook")
 NOT_HOME = re.compile(r"공동주택|RFID|대형\s*감량기|다량배출|음식점|경진대회|임차")      # 가정용 지원사업이 아닌 글
 YR = {2026: re.compile(r"2026|(?<!\d)26년|['’‘]26\."), 2027: re.compile(r"2027|(?<!\d)27년|['’‘]27\.")}
@@ -74,7 +75,8 @@ def anchors(page, base):
         if SKIP.search(href) or href.startswith("#"): continue
         t = plain(inner) or (TITLE.search(attrs).group(1) if TITLE.search(attrs) else "")
         t = re.sub(r"\s+", " ", html.unescape(t)).strip()
-        if len(t) < 8 or not DEV.search(t) or NOT_HOME.search(t): continue
+        t = re.sub(r"\s*\[?\(?20\d\d[.\-]\d\d[.\-]\d\d\)?\]?\s*$", "", t)   # 검색 결과 제목 끝의 [날짜] 제거
+        if len(t) < 8 or not DEV.search(t) or not TPROG.search(t) or NOT_HOME.search(t): continue
         url = urllib.parse.urljoin(base, href)
         if not GOV.search(urllib.parse.urlparse(url).hostname or ""): continue
         tail = page[m.end(): m.end() + 400]
@@ -166,6 +168,12 @@ def main():
             items.append(it)
         elif it["link"] in prev and prev[it["link"]].get("checked_at", "") > (datetime.now(KST) - timedelta(days=2)).strftime("%Y-%m-%d"):
             items.append(prev[it["link"]])           # 해외 서버에서 일시적으로 막힌 경우 이틀간 유지
+    seen, uniq = set(), []                           # 같은 글이 portal/health 등 여러 주소로 잡히면 하나만
+    for it in sorted(items, key=lambda x: ("/portal/" not in x["link"], len(x["link"]))):
+        k = (it["sido"], it["sigungu"], re.sub(r"\s+", "", it["title"]), it.get("date", ""))
+        if k in seen: continue
+        seen.add(k); uniq.append(it)
+    items = uniq
     items.sort(key=lambda x: (x.get("date") or x.get("first_seen", "")), reverse=True)
     json.dump({"updated_at": now, "rule": "지자체 누리집 게시글만 · 제목에 사업연도 포함 · 최대 3회 재확인",
                "items": items}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
