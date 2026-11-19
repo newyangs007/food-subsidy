@@ -341,10 +341,64 @@ tr.mine{background:#F5F9FF}
   #v-subsidy thead{display:none}
   .stamp{justify-content:flex-start}
 }
+
+/* ── 2026-11-19 개편: 상단 고정 · 지도와 같은 높이의 목록 · 8개씩 ── */
+.fixhead{position:sticky;top:0;z-index:35;background:var(--bg);margin:-20px -24px 0;padding:14px 24px 0;box-shadow:0 10px 18px -16px rgba(15,23,42,.35)}
+.fixhead .top{padding-bottom:10px}
+.fixhead .yearbar{margin-bottom:8px;padding-top:5px;padding-bottom:5px}
+.fixhead .bar{margin-bottom:8px}
+.fixhead .hint{margin:-2px 0 8px 2px}
+.fixhead .disc{margin-bottom:12px}
+#v-subsidy,#v-products,#v-radar{padding-top:2px}
+.card,section{scroll-margin-top:290px}
+body > :not(.wrap):not(#scrim):not(#drawer):not(script):not(#pop):not(#toast):not(form){display:none!important}  /* 브라우저 확장 프로그램이 끼워 넣는 버튼(예: 약관동의) 숨김 */
+.kpis{grid-template-columns:repeat(3,1fr)}
+.grid{grid-template-columns:232px minmax(300px,1fr) minmax(0,780px);align-items:stretch}
+.grid > .card{display:flex;flex-direction:column}
+.mapbox{flex:1 1 auto;min-height:440px}
+#map{position:absolute;left:8px;top:0;width:calc(100% - 16px);height:calc(100% - 4px);max-height:none}
+.listcol .pager{margin-top:auto}
+.act{flex-direction:row;flex-wrap:nowrap;width:auto;align-items:center;gap:6px}
+td.ac{width:1%;white-space:nowrap}
+.act .gobtn,.act .gobox,.act .gomore,.act .gobox .gobtn{height:30px}
+.act .gobtn{padding:0 11px;font-size:12px}
+.act .telc{height:30px;padding:0 8px;font-size:12px}
+.act .lgbtn{height:30px;padding:0 9px;font-size:11.5px}
+#rows td{padding:8px 8px}
+.listcol th{padding:8px 8px}
+#rows td small{display:block;white-space:normal;line-height:1.35}
+#rows td.rg{width:108px}#rows td.amt{width:96px}#rows td.per{width:86px}#rows td.stc{width:78px}
+#rows td.ac{padding-right:12px}
+#rows .stc .vf{margin-top:3px}
+.pgrid{align-items:stretch}
+.pgrid > .card{display:flex;flex-direction:column}
+.pgrid > .card .pager:first-of-type{margin-top:auto}
+.shops{grid-template-columns:repeat(5,minmax(0,1fr))}
+.lgbtn .lgw{font-style:normal}
+#rows .lgbtn .lgw{display:none}
+#rows .lgbtn{min-width:86px}
+.shop .acts a,.shop .acts span{font-size:12px;padding:5px 8px}
+.ci .src{font-size:11px;font-weight:700;color:#047857;background:#ECFDF5;border-radius:6px;padding:2px 7px;flex:none;margin-top:2px}
+@media (max-width:1320px){.grid{grid-template-columns:232px minmax(0,1fr)}.listcol{grid-column:1/-1}.shops{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:780px){
+  .fixhead{margin:-14px -12px 0;padding:10px 12px 0}
+  .fixhead .stamp,.fixhead .hint{display:none}
+  .fixhead .sub{display:none}
+  .fixhead .top{padding-bottom:6px}.fixhead h1{font-size:17px}.fixhead .logo{width:32px;height:32px;border-radius:10px}
+  .fixhead .yearbar{padding:5px 8px;gap:6px}.fixhead .yearbar .yl,.fixhead .yn,.fixhead .yb small{display:none}.fixhead .yb{padding:6px 10px}
+  .fixhead .bar{gap:6px;margin-bottom:6px}.fixhead .tab{padding:6px 10px;font-size:13px}.fixhead .search input{height:38px}
+  .fixhead .disc{font-size:11.5px;padding:7px 11px;gap:1px;margin-bottom:8px;line-height:1.45}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .mapbox{min-height:360px}
+  .shops{grid-template-columns:minmax(0,1fr)}
+  td.ac{width:auto;white-space:normal}
+  #rows .act{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="fixhead" id="fixhead">
   <header class="top">
     <div class="brand">
       <div class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><path d="M9.5 10.5l2 2 3.5-4"/></svg></div>
@@ -382,6 +436,7 @@ tr.mine{background:#F5F9FF}
     <span>* 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다.</span>
     <span>* 지자체 예산이 소진되면 접수가 <b>조기 마감</b>될 수 있습니다.</span>
   </div>
+  </div>
 
   <!-- ───── 보조금 현황 ───── -->
   <section id="v-subsidy">
@@ -393,14 +448,14 @@ tr.mine{background:#F5F9FF}
         <div class="sgg" id="sggBox"><div class="t"><span id="sggTitle"></span><span id="sggCnt"></span></div><div class="chips" id="sggChips"></div></div>
       </aside>
       <div class="card">
-        <div class="ch"><h2>대한민국 지자체 현황 지도</h2><div class="crumb" id="crumb"></div></div>
+        <div class="ch"><h2>지자체 현황 지도</h2><div class="crumb" id="crumb"></div></div>
         <div class="mapbox">
           <svg id="map" role="img" aria-label="대한민국 시도별 음식물처리기 보조금 현황 지도"></svg>
           <div class="maptools"><button type="button" id="zin" aria-label="확대">+</button><button type="button" id="zout" aria-label="축소">−</button></div>
           <div class="tip" id="tip"></div>
         </div>
         <div class="legend">
-          <span><i class="sw" style="background:#34D399"></i>접수 중</span><span><i class="sw" style="background:#60A5FA"></i>접수 예정</span><span><i class="sw" style="background:#B6C2D2"></i>올해 운영(마감)</span><span><i class="sw" style="background:#E9EEF4"></i>확인된 공고 없음</span><span><i class="sw unk"></i>점검 대기</span>
+          <span><i class="sw" style="background:#34D399"></i>접수 중</span><span><i class="sw" style="background:#94A3B8"></i>접수 마감</span>
         </div>
       </div>
       <div class="card listcol">
@@ -476,8 +531,8 @@ tr.mine{background:#F5F9FF}
   </section>
 
   <footer>
-    <b>팩트체크 원칙</b> — 모든 공고는 출처를 함께 표시합니다. <span class="vf o"><i></i>공식 공고</span> 지자체 공고 본문 확인 · <span class="vf n"><i></i>언론 보도</span> 구청 보도자료 기반 기사 확인 · <span class="vf s"><i></i>2차 출처</span> 공식 링크 또는 민간 집계로만 확인(전화 확인 권장). 마감 전이지만 공식 공고로 확인되지 않은 공고는 <b>표시하지 않습니다</b>(확실하게 확인된 공고만 표시).<br>
-    상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. ‘보조금 뉴스’에 자동으로 모인 기사는 공고문을 확인한 뒤에 지도·목록에 올립니다.<br>
+    <b>팩트체크 원칙</b> — 지도·목록의 모든 공고는 해당 지자체 누리집의 실제 게시글(공고·안내)로 바로 연결됩니다. 뉴스·블로그만으로 확인된 사업은 싣지 않으며, 지자체 누리집에서 게시글을 찾지 못하면 목록에서 뺍니다.<br>
+    상태는 페이지에 접속할 때마다 오늘 날짜로 다시 계산되며, 신규 배지는 공고 등록 14일 이내 공고에 붙습니다. ‘보조금 뉴스’는 지자체 누리집에서 찾은 게시글만 모아 보여줍니다(언론 기사·블로그 제외).<br>
     지원 여부·금액·서류는 반드시 해당 지자체 공고문과 담당 부서에서 최종 확인하세요. 이 사이트는 정부 공식 사이트가 아닙니다.<br>
     <span class="disc2">* 지역별 지원금 규모는 상이할 수 있습니다. * 거주 지역 지자체 홈페이지 공고 확인 후 접수 바랍니다. * 지자체 예산 소진 시 조기 마감될 수 있습니다.</span>
     <b>최종 업데이트</b> <span id="lastUpd">/*__LASTUPD__*/</span>

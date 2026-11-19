@@ -266,6 +266,7 @@ add("경남", "의령군", "2026-04-01", None, 50, 50, closed=True, sources=[FWS
 # ───────────── 공식(공공기관) 공고 링크 · 담당 전화 더블체크 결과 (2026-11-18 브라우저로 직접 열어 확인) ─────────────
 # 바로가기에는 공공기관 누리집(.go.kr / .seoul.kr 등) 주소만 씁니다. 언론·블로그 주소는 sources(근거)로만 보관합니다.
 # phone_src: dept = 공고문·누리집에 적힌 담당부서 번호 / rep = 담당 번호를 찾지 못해 지자체 대표번호
+EM = "https://eminwon.{h}/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no={n}&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject"
 OFFICIAL_FIX = {
   ("서울", "마포구", "2026-10-26"): dict(url="https://www.mapo.go.kr/site/main/nPortal/detail?bcId=21496",
         notice="마포구 공고 제2026-1856호(선정결과)", phone="02-3153-9224", phone_src="dept", dept="청소행정과"),
@@ -307,13 +308,15 @@ OFFICIAL_FIX = {
         url_kind="보조금 지급 신청 안내", phone="051-440-4458", phone_src="dept", dept="환경청소위생과"),
   ("부산", "수영구", "2026-10-06"): dict(url="https://www.suyeong.go.kr/board/view.suyeong?boardId=BBS_0000001&menuCd=DOM_000000103001001000&dataSid=375442",
         notice="2026년 수영구 가정용 음식물쓰레기 처리기 지원사업 실시 알림", phone="051-610-4452", phone_src="dept", dept="자원순환과", verify="official"),
-  ("부산", "사상구", "2026-08-24"): dict(phone="051-310-4452", phone_src="dept", dept="청소행정과"),
-  ("인천", "미추홀구", "2026-03-04"): dict(phone="032-880-4368", phone_src="dept", dept="자원순환과"),
+  ("부산", "사상구", "2026-08-24"): dict(url=EM.format(h="sasang.go.kr", n=41718), notice="사상구 공고 제2026-957호",
+        phone="051-310-4452", phone_src="dept", dept="청소행정과", verify="official"),
+  ("인천", "미추홀구", "2026-03-04"): dict(url=EM.format(h="michuhol.go.kr", n=65355), notice="미추홀구 공고 제2026-213호",
+        phone="032-880-4367", phone_src="dept", dept="자원순환과 음식물자원화팀", verify="official"),
   ("대구", "동구", "2026-02-02"): dict(phone="053-662-2722", phone_src="dept", dept="청소자원과"),
   ("강원", "삼척시", "2026-01-12"): dict(url="https://www.samcheok.go.kr/00095.web?amode=view&mgtNo=36143", notice="삼척시 공고 제2026-49호",
         phone="033-570-3648", phone_src="dept", dept="환경과", verify="official"),
   ("경남", "김해시", "2026-01-14"): dict(url="https://www.gimhae.go.kr/00024.web?amode=view&idx=2576988", verify="official"),
-  ("강원", "영월군", "2026-03-17"): dict(url=""),     # 자동 점검에서 내용 불일치 → 공식 누리집으로 대체
+  ("강원", "영월군", "2026-03-17"): dict(url="https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269", verify="official"),  # 11.20 재확인: 공고 제2026-428호, 신청 3.17~4.6 일치
   # ── 2026-11-19: 각 지자체 누리집 게시판·통합검색에서 찾아 직접 열어 확인한 실제 게시글 ──
   ("부산", "해운대구", "2026-10-01"): dict(url="https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000101005020002&dataSid=3175012",
         notice="「2026년 가정용 음식물쓰레기 처리기 보조금 지원사업」 시행 안내", phone="051-749-4454", phone_src="dept", dept="자원순환과", verify="official"),
@@ -341,7 +344,32 @@ OFFICIAL_FIX = {
         notice="2026년 음식물류 폐기물 가정용 감량기 구매 지원사업(2차) 공고", phone="053-810-6061", phone_src="dept", dept="자원순환과 재활용팀"),
   ("경남", "산청군", "2026-01-12"): dict(url="https://www.sancheong.go.kr/www/selectBbsNttView.do?key=157&bbsNo=1&nttNo=154692",
         notice="2026년 음식물류 폐기물 감량기기 설치 지원사업 공고"),
+  # ── 2026-11-20: 뉴스·블로그·민간 집계로만 확인됐던 곳 → 지자체 누리집(고시공고·새소식)에서 실제 게시글을 찾아 직접 열어 확인 ──
+  ("부산", "부산진구", "2026-08-10"): dict(url=EM.format(h="busanjin.go.kr", n=52757), notice="2026년 가정용 음식물쓰레기 처리기 보조금 지원사업(신청 8.10~8.19)", dept="자원순환과", verify="official"),
+  ("부산", "기장군", "2026-08-24"): dict(url=EM.format(h="gijang.go.kr", n=52431), notice="기장군 공고 제2026-1586호", dept="청소자원과", verify="official"),
+  ("인천", "강화군", "2026-01-23"): dict(url="https://www.ganghwa.go.kr/main/eminwon/eminwonAnnounceDetail.do?mgt_no=50949", notice="강화군 공고 제2026-149호", dept="환경위생과", verify="official"),
+  ("인천", "연수구", "2026-02-11"): dict(url="https://www.yeonsu.go.kr/etc/bbs/SearchView.asp?bbs_code=board_1&seq=118512", url_kind="마감 안내", notice="2026년 가정용 감량기 설치 보조금 지원사업 마감 안내", closed=True),
+  ("인천", "남동구", "2026-01-26"): dict(url="https://www.namdong.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=15684&bcd=notice", notice="[마감] 2026년 가정용 음식물류 폐기물 감량기 설치보조금 지원 공고", closed=True),
+  ("경기", "동두천시", "2026-04-20"): dict(url=EM.format(h="ddc.go.kr", n=44520), notice="동두천시 공고 제2026-715호", dept="자원위생과",
+        end="2026-05-11", closed=True, note="공고 제2026-823호(5.11)로 접수 마감"),
+  ("강원", "철원군", "2026-04-29"): dict(url="https://www.cwg.go.kr/www/selectBbsNttView.do?key=1226&bbsNo=25&nttNo=274862", notice="2026년 가정용 음식물류폐기물 감량기기 설치 보조사업 공고", dept="청정환경과", end="2026-05-08", verify="official"),  # 접수 4.29~5.8(1주)
+  ("충북", "진천군", "2026-01-12"): dict(url=EM.format(h="jincheon.go.kr", n=43987), notice="진천군 공고 제2026-24호", dept="식산업자원과"),
+  ("충남", "청양군", "2026-01-19"): dict(url=EM.format(h="cheongyang.go.kr", n=35997), notice="청양군 공고 제2026-63호", dept="환경정책과", verify="official",
+        end="2026-03-09", closed=True, note="공고 제2026-460호(3.9)로 접수 종료"),
+  ("전남광주", "해남군", "2026-01-08"): dict(url=EM.format(h="haenam.go.kr", n=54641), notice="해남군 공고 제2026-27호", dept="환경과", verify="official"),
+  ("경남", "거창군", "2026-01-21"): dict(url=EM.format(h="geochang.go.kr", n=45748), notice="거창군 공고 제2026-89호", dept="환경과",
+        start="2026-01-19", end="2026-02-27", force="", verify="official"),
+  ("경남", "남해군", "2026-02-09"): dict(url=EM.format(h="namhae.go.kr", n=35325), notice="남해군 공고 제2026-206호", dept="환경과 환경시설팀", phone="055-860-3280", phone_src="dept", verify="official"),
+  ("경남", "창녕군", "2026-01-07"): dict(url=EM.format(h="cng.go.kr", n=46116), notice="창녕군 공고 제2026-44호", dept="환경위생과", verify="official"),
+  ("경남", "의령군", "2026-04-01"): dict(url="https://www.uiryeong.go.kr/board/view.uiryeong?boardId=BBS_0000070&menuCd=DOM_000000203003001002&dataSid=316445",
+        notice="2026년 가정용 음식물처리기 지원 보조금 지원 공고", verify="official"),
 }
+# 지자체 누리집에서 3번 이상(통합검색 · 고시공고 · 새소식/보도자료) 찾아도 실제 게시글이 나오지 않은 곳 → 목록에서 뺌
+REMOVED = {
+  ("부산", "영도구", "2026-09-01"), ("대전", "유성구", "2026-03-09"), ("대구", "동구", "2026-02-02"),
+  ("대구", "북구", "2026-05-26"), ("대구", "수성구", "2026-04-20"), ("경북", "울릉군", "2026-05-13"), ("경남", "고성군", "2026-02-25"),
+}
+E[:] = [e for e in E if (e["sido"], e["sigungu"], e["start"]) not in REMOVED]
 # 지자체 공식 누리집(공고문이 없는 종료 사업 등의 바로가기) — scripts/check_sites.py 가 2시간마다 접속·이름·대표번호를 더블체크
 sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
 from check_sites import HOME, REP_PHONE, SEARCH

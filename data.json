@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19T07:37:43+09:00",
+ "updated_at": "2026-11-20T00:12:41+09:00",
  "verified_at": "2026-11-18",
  "years": [
   2026,
@@ -1185,40 +1185,6 @@
   {
    "year": 2026,
    "sido": "부산",
-   "sigungu": "영도구",
-   "start": "2026-09-01",
-   "end": "2026-09-11",
-   "rate": 70,
-   "max": 70,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-09-01",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.yeongdo.go.kr/",
-   "search": {
-    "u": "https://www.yeongdo.go.kr/search/searchResult.web?sstring={q}"
-   },
-   "rep_phone": "051-419-4000",
-   "url_ok": false,
-   "id": "e034"
-  },
-  {
-   "year": 2026,
-   "sido": "부산",
    "sigungu": "중구",
    "start": "2026-09-07",
    "end": "2026-09-18",
@@ -1248,7 +1214,7 @@
    },
    "rep_phone": "051-600-4000",
    "url_ok": true,
-   "id": "e035"
+   "id": "e034"
   },
   {
    "year": 2026,
@@ -1281,7 +1247,7 @@
    "search": null,
    "rep_phone": "051-240-4000",
    "url_ok": true,
-   "id": "e036"
+   "id": "e035"
   },
   {
    "year": 2026,
@@ -1316,7 +1282,7 @@
    },
    "rep_phone": "051-440-4000",
    "url_ok": true,
-   "id": "e037"
+   "id": "e036"
   },
   {
    "year": 2026,
@@ -1330,27 +1296,28 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.gijang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=52431&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "posted": "2026-08-24",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "기장군 공고 제2026-1586호",
+   "dept": "청소자원과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.gijang.go.kr/",
    "search": {
     "u": "https://www.gijang.go.kr/search/front/Search.jsp?qt={q}"
    },
    "rep_phone": "051-709-4000",
-   "url_ok": false,
-   "id": "e038"
+   "url_ok": true,
+   "id": "e037"
   },
   {
    "year": 2026,
@@ -1363,18 +1330,19 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "051-310-4452",
-   "url": "",
+   "url": "https://eminwon.sasang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=41718&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "round": "",
    "posted": "2026-08-24",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "사상구 공고 제2026-957호",
    "phone_src": "dept",
    "dept": "청소행정과",
    "url_kind": "공고문",
@@ -1383,8 +1351,8 @@
     "u": "https://www.sasang.go.kr/search/front/Search.jsp?qt={q}"
    },
    "rep_phone": "051-310-4000",
-   "url_ok": false,
-   "id": "e039"
+   "url_ok": true,
+   "id": "e038"
   },
   {
    "year": 2026,
@@ -1397,28 +1365,29 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.busanjin.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=52757&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "round": "",
    "posted": "2026-08-10",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 가정용 음식물쓰레기 처리기 보조금 지원사업(신청 8.10~8.19)",
+   "dept": "자원순환과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.busanjin.go.kr/",
    "search": {
     "u": "https://www.busanjin.go.kr/index.busanjin?menuCd=DOM_000000112000000000&searchTerm={q}"
    },
    "rep_phone": "051-605-4000",
-   "url_ok": false,
-   "id": "e040"
+   "url_ok": true,
+   "id": "e039"
   },
   {
    "year": 2026,
@@ -1452,7 +1421,7 @@
    },
    "rep_phone": "051-519-4000",
    "url_ok": true,
-   "id": "e041"
+   "id": "e040"
   },
   {
    "year": 2026,
@@ -1483,7 +1452,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": true,
-   "id": "e042"
+   "id": "e041"
   },
   {
    "year": 2026,
@@ -1493,31 +1462,31 @@
    "end": null,
    "rate": 50,
    "max": 30,
-   "notice": "연수구 공고 제2026-237호",
+   "notice": "2026년 가정용 감량기 설치 보조금 지원사업 마감 안내",
    "note": "예산 소진 시 마감 — 잔여 예산 전화 확인",
    "sources": [
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
    ],
    "verify": "secondary",
-   "closed": false,
+   "closed": true,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.yeonsu.go.kr/etc/bbs/SearchView.asp?bbs_code=board_1&seq=118512",
    "round": "",
    "posted": "2026-02-11",
    "force": "",
    "verified_at": "2026-11-18",
+   "url_kind": "마감 안내",
    "phone_src": "",
    "dept": "",
-   "url_kind": "공고문",
    "home": "https://www.yeonsu.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e043"
+   "rep_phone": "032-749-7114",
+   "url_ok": true,
+   "id": "e042"
   },
   {
    "year": 2026,
@@ -1551,7 +1520,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e044"
+   "id": "e043"
   },
   {
    "year": 2026,
@@ -1567,23 +1536,24 @@
     "https://dikr.co.kr/2026%EB%85%84-%EC%9D%B8%EC%B2%9C-%EB%82%A8%EB%8F%99%EA%B5%AC-%EC%9D%8C%EC%8B%9D%EB%AC%BC%EC%B2%98%EB%A6%AC%EA%B8%B0-%EC%A7%80%EC%9B%90%EA%B8%88-50%EB%A7%8C%EC%9B%90-%EC%8B%A0%EC%B2%AD-%EC%A0%95/"
    ],
    "verify": "secondary",
-   "closed": false,
+   "closed": true,
    "target": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.namdong.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=15684&bcd=notice",
    "round": "",
    "posted": "2026-01-26",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "[마감] 2026년 가정용 음식물류 폐기물 감량기 설치보조금 지원 공고",
    "phone_src": "",
    "dept": "",
    "url_kind": "공고문",
    "home": "https://www.namdong.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e045"
+   "rep_phone": "032-466-3811",
+   "url_ok": true,
+   "id": "e044"
   },
   {
    "year": 2026,
@@ -1615,7 +1585,7 @@
    "search": null,
    "rep_phone": "032-504-2114",
    "url_ok": false,
-   "id": "e046"
+   "id": "e045"
   },
   {
    "year": 2026,
@@ -1647,7 +1617,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e047"
+   "id": "e046"
   },
   {
    "year": 2026,
@@ -1660,28 +1630,29 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.ganghwa.go.kr/main/eminwon/eminwonAnnounceDetail.do?mgt_no=50949",
    "note": "",
    "round": "",
    "posted": "2026-01-23",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "강화군 공고 제2026-149호",
+   "dept": "환경위생과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ganghwa.go.kr/",
    "search": {
     "u": "https://www.ganghwa.go.kr/search/search.do?query={q}"
    },
    "rep_phone": "032-930-3114",
-   "url_ok": false,
-   "id": "e048"
+   "url_ok": true,
+   "id": "e047"
   },
   {
    "year": 2026,
@@ -1695,19 +1666,20 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "032-880-4368",
-   "url": "",
+   "phone": "032-880-4367",
+   "url": "https://eminwon.michuhol.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=65355&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "round": "",
    "posted": "2026-03-04",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "미추홀구 공고 제2026-213호",
    "phone_src": "dept",
-   "dept": "자원순환과",
+   "dept": "자원순환과 음식물자원화팀",
    "url_kind": "공고문",
    "home": "https://www.michuhol.go.kr/",
    "search": {
@@ -1717,8 +1689,8 @@
     }
    },
    "rep_phone": "",
-   "url_ok": false,
-   "id": "e049"
+   "url_ok": true,
+   "id": "e048"
   },
   {
    "year": 2026,
@@ -1751,7 +1723,7 @@
    "search": null,
    "rep_phone": "042-251-4114",
    "url_ok": false,
-   "id": "e050"
+   "id": "e049"
   },
   {
    "year": 2026,
@@ -1784,7 +1756,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e051"
+   "id": "e050"
   },
   {
    "year": 2026,
@@ -1817,7 +1789,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e052"
+   "id": "e051"
   },
   {
    "year": 2026,
@@ -1856,144 +1828,7 @@
    },
    "rep_phone": "042-288-2114",
    "url_ok": true,
-   "id": "e053"
-  },
-  {
-   "year": 2026,
-   "sido": "대전",
-   "sigungu": "유성구",
-   "start": "2026-03-09",
-   "end": "2026-03-13",
-   "rate": 70,
-   "max": 70,
-   "url": "",
-   "note": "선정 후 구매",
-   "sources": [
-    "https://jab-guyver.co.kr/7817",
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "round": "",
-   "posted": "2026-03-09",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.yuseong.go.kr/",
-   "search": {
-    "u": "https://www.yuseong.go.kr/search/front/Search.jsp?s_type=all&qt={q}"
-   },
-   "rep_phone": "042-611-2114",
-   "url_ok": false,
-   "id": "e054"
-  },
-  {
-   "year": 2026,
-   "sido": "대구",
-   "sigungu": "동구",
-   "start": "2026-02-02",
-   "end": "2026-05-03",
-   "rate": 50,
-   "max": 30,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "053-662-2722",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-02-02",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "dept",
-   "dept": "청소자원과",
-   "url_kind": "공고문",
-   "home": "https://dong.daegu.kr/",
-   "search": {
-    "u": "https://dong.daegu.kr/search/front/Search.jsp?qt={q}"
-   },
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e055"
-  },
-  {
-   "year": 2026,
-   "sido": "대구",
-   "sigungu": "북구",
-   "start": "2026-05-26",
-   "end": "2026-06-10",
-   "rate": 50,
-   "max": 30,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-05-26",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.buk.daegu.kr/",
-   "search": {
-    "u": "https://www.buk.daegu.kr/search/front/Search.jsp?qt={q}"
-   },
-   "rep_phone": "053-665-2000",
-   "url_ok": false,
-   "id": "e056"
-  },
-  {
-   "year": 2026,
-   "sido": "대구",
-   "sigungu": "수성구",
-   "start": "2026-04-20",
-   "end": "2026-04-24",
-   "rate": 50,
-   "max": 30,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-04-20",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.suseong.kr/",
-   "search": {
-    "u": "https://www.suseong.kr/search/index.do?query={q}"
-   },
-   "rep_phone": "053-666-2000",
-   "url_ok": false,
-   "id": "e057"
+   "id": "e052"
   },
   {
    "year": 2026,
@@ -2029,7 +1864,7 @@
    },
    "rep_phone": "031-590-2114",
    "url_ok": false,
-   "id": "e058"
+   "id": "e053"
   },
   {
    "year": 2026,
@@ -2064,39 +1899,40 @@
    },
    "rep_phone": "031-538-2114",
    "url_ok": true,
-   "id": "e059"
+   "id": "e054"
   },
   {
    "year": 2026,
    "sido": "경기",
    "sigungu": "동두천시",
    "start": "2026-04-20",
-   "end": "2026-11-30",
+   "end": "2026-05-11",
    "rate": 50,
    "max": 30,
-   "note": "예산 소진 여부 확인 필요",
+   "note": "공고 제2026-823호(5.11)로 접수 마감",
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
    "verify": "secondary",
-   "closed": false,
+   "closed": true,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.ddc.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=44520&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "round": "",
    "posted": "2026-04-20",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "동두천시 공고 제2026-715호",
+   "dept": "자원위생과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.ddc.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e060"
+   "rep_phone": "031-860-2114",
+   "url_ok": true,
+   "id": "e055"
   },
   {
    "year": 2026,
@@ -2107,13 +1943,13 @@
    "rate": 80,
    "max": 70,
    "notice": "영월군 공고 제2026-428호",
-   "url": "",
+   "url": "https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269",
    "sources": [
     "https://www.yw.go.kr/www/selectBbsNttView.do?key=273&bbsNo=17&nttNo=152269&searchCtgry=&searchCnd=SJ&searchKrwd=%EC%9D%8C%EC%8B%9D%EB%AC%BC&pageIndex=1&integrDeptCode=&pageUnit=10",
     "https://jab-guyver.co.kr/7817",
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
@@ -2132,8 +1968,8 @@
     "u": "https://www.yw.go.kr/search/search.jsp?categoryNm=&searchTerm={q}"
    },
    "rep_phone": "1577-0545",
-   "url_ok": false,
-   "id": "e061"
+   "url_ok": true,
+   "id": "e056"
   },
   {
    "year": 2026,
@@ -2167,39 +2003,40 @@
    "search": null,
    "rep_phone": "033-481-2191",
    "url_ok": false,
-   "id": "e062"
+   "id": "e057"
   },
   {
    "year": 2026,
    "sido": "강원",
    "sigungu": "철원군",
    "start": "2026-04-29",
-   "end": null,
+   "end": "2026-05-08",
    "rate": 70,
    "max": 50,
    "note": "예산 소진 시 마감 — 잔여 예산 전화 확인",
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.cwg.go.kr/www/selectBbsNttView.do?key=1226&bbsNo=25&nttNo=274862",
    "round": "",
    "posted": "2026-04-29",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 가정용 음식물류폐기물 감량기기 설치 보조사업 공고",
+   "dept": "청정환경과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cwg.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e063"
+   "rep_phone": "033-450-5114",
+   "url_ok": true,
+   "id": "e058"
   },
   {
    "year": 2026,
@@ -2234,7 +2071,7 @@
    },
    "rep_phone": "033-530-2114",
    "url_ok": false,
-   "id": "e064"
+   "id": "e059"
   },
   {
    "year": 2026,
@@ -2267,7 +2104,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": true,
-   "id": "e065"
+   "id": "e060"
   },
   {
    "year": 2026,
@@ -2299,7 +2136,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e066"
+   "id": "e061"
   },
   {
    "year": 2026,
@@ -2332,7 +2169,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e067"
+   "id": "e062"
   },
   {
    "year": 2026,
@@ -2351,14 +2188,15 @@
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.jincheon.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=43987&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "round": "",
    "posted": "2026-01-12",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "진천군 공고 제2026-24호",
+   "dept": "식산업자원과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.jincheon.go.kr/",
    "search": {
@@ -2368,8 +2206,8 @@
     }
    },
    "rep_phone": "043-539-3114",
-   "url_ok": false,
-   "id": "e068"
+   "url_ok": true,
+   "id": "e063"
   },
   {
    "year": 2026,
@@ -2402,7 +2240,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e069"
+   "id": "e064"
   },
   {
    "year": 2026,
@@ -2435,39 +2273,40 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e070"
+   "id": "e065"
   },
   {
    "year": 2026,
    "sido": "충남",
    "sigungu": "청양군",
    "start": "2026-01-19",
-   "end": "2026-12-18",
+   "end": "2026-03-09",
    "rate": 50,
    "max": 30,
-   "note": "예산 소진 여부 확인 필요",
+   "note": "공고 제2026-460호(3.9)로 접수 종료",
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
-   "closed": false,
+   "verify": "official",
+   "closed": true,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.cheongyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=35997&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "round": "",
    "posted": "2026-01-19",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "청양군 공고 제2026-63호",
+   "dept": "환경정책과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cheongyang.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e071"
+   "rep_phone": "041-940-2114",
+   "url_ok": true,
+   "id": "e066"
   },
   {
    "year": 2026,
@@ -2501,7 +2340,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": true,
-   "id": "e072"
+   "id": "e067"
   },
   {
    "year": 2026,
@@ -2537,7 +2376,7 @@
    },
    "rep_phone": "061-350-5114",
    "url_ok": false,
-   "id": "e073"
+   "id": "e068"
   },
   {
    "year": 2026,
@@ -2550,28 +2389,29 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.haenam.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=54641&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "note": "",
    "round": "",
    "posted": "2026-01-08",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "해남군 공고 제2026-27호",
+   "dept": "환경과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.haenam.go.kr/",
    "search": {
     "u": "https://www.haenam.go.kr/index.9is?contentUid=18e3368f655bdbc60166c79c2abe160b&search_word={q}"
    },
    "rep_phone": "061-530-5114",
-   "url_ok": false,
-   "id": "e074"
+   "url_ok": true,
+   "id": "e069"
   },
   {
    "year": 2026,
@@ -2602,7 +2442,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": true,
-   "id": "e075"
+   "id": "e070"
   },
   {
    "year": 2026,
@@ -2632,7 +2472,7 @@
    "search": null,
    "rep_phone": "054-270-8282",
    "url_ok": true,
-   "id": "e076"
+   "id": "e071"
   },
   {
    "year": 2026,
@@ -2667,7 +2507,7 @@
    },
    "rep_phone": "053-811-2231",
    "url_ok": true,
-   "id": "e077"
+   "id": "e072"
   },
   {
    "year": 2026,
@@ -2702,7 +2542,7 @@
    },
    "rep_phone": "053-811-2231",
    "url_ok": true,
-   "id": "e078"
+   "id": "e073"
   },
   {
    "year": 2026,
@@ -2735,7 +2575,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e079"
+   "id": "e074"
   },
   {
    "year": 2026,
@@ -2768,7 +2608,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e080"
+   "id": "e075"
   },
   {
    "year": 2026,
@@ -2801,54 +2641,20 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e081"
-  },
-  {
-   "year": 2026,
-   "sido": "경북",
-   "sigungu": "울릉군",
-   "start": "2026-05-13",
-   "end": "2026-05-26",
-   "rate": 60,
-   "max": 50,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-05-13",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.ulleung.go.kr/",
-   "search": {
-    "u": "https://www.ulleung.go.kr/Search/front/Search.jsp?qt={q}"
-   },
-   "rep_phone": "054-791-2191",
-   "url_ok": false,
-   "id": "e082"
+   "id": "e076"
   },
   {
    "year": 2026,
    "sido": "경남",
    "sigungu": "거창군",
-   "start": "2026-01-21",
-   "end": null,
+   "start": "2026-01-19",
+   "end": "2026-02-27",
    "rate": null,
    "max": null,
-   "verify": "news",
-   "force": "chk",
+   "verify": "official",
+   "force": "",
    "note": "2026년 가정용 음식물 감량기 설치 지원사업 시행 보도(1.21.) — 기간·금액은 군청 공고 확인",
-   "url": "",
+   "url": "https://eminwon.geochang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=45748&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "closed": false,
    "target": "",
    "docs": "",
@@ -2858,16 +2664,17 @@
     "https://view.asiae.co.kr/en/article/2026012107493257159"
    ],
    "round": "",
-   "posted": "2026-01-21",
+   "posted": "2026-01-19",
    "verified_at": "2026-11-18",
+   "notice": "거창군 공고 제2026-89호",
+   "dept": "환경과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.geochang.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e083"
+   "rep_phone": "055-940-3114",
+   "url_ok": true,
+   "id": "e077"
   },
   {
    "year": 2026,
@@ -2881,25 +2688,26 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
-   "phone": "",
-   "url": "",
+   "phone": "055-860-3280",
+   "url": "https://eminwon.namhae.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=35325&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "round": "",
    "posted": "2026-02-09",
    "force": "",
    "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
+   "notice": "남해군 공고 제2026-206호",
+   "dept": "환경과 환경시설팀",
+   "phone_src": "dept",
    "url_kind": "공고문",
    "home": "https://www.namhae.go.kr/",
    "search": null,
    "rep_phone": "",
-   "url_ok": false,
-   "id": "e084"
+   "url_ok": true,
+   "id": "e078"
   },
   {
    "year": 2026,
@@ -2913,25 +2721,26 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "closed": false,
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://eminwon.cng.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&not_ancmt_mgt_no=46116&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01,02,03,04,05&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&initValue=Y&countYn=Y&Key=B_Subject",
    "round": "",
    "posted": "2026-01-07",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "창녕군 공고 제2026-44호",
+   "dept": "환경위생과",
    "phone_src": "",
-   "dept": "",
    "url_kind": "공고문",
    "home": "https://www.cng.go.kr/",
    "search": null,
-   "rep_phone": "",
-   "url_ok": false,
-   "id": "e085"
+   "rep_phone": "055-530-1000",
+   "url_ok": true,
+   "id": "e079"
   },
   {
    "year": 2026,
@@ -2965,41 +2774,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": false,
-   "id": "e086"
-  },
-  {
-   "year": 2026,
-   "sido": "경남",
-   "sigungu": "고성군",
-   "start": "2026-02-25",
-   "end": "2026-10-30",
-   "rate": 50,
-   "max": 50,
-   "sources": [
-    "https://foodwastesubsidy.kr/"
-   ],
-   "verify": "secondary",
-   "closed": false,
-   "target": "",
-   "docs": "",
-   "how": "",
-   "phone": "",
-   "url": "",
-   "note": "",
-   "round": "",
-   "posted": "2026-02-25",
-   "force": "",
-   "verified_at": "2026-11-18",
-   "phone_src": "",
-   "dept": "",
-   "url_kind": "공고문",
-   "home": "https://www.goseong.go.kr/",
-   "search": {
-    "u": "https://www.goseong.go.kr/index.goseong?contentsSid=1554&collection=ALL&searchTerm={q}"
-   },
-   "rep_phone": "055-670-2114",
-   "url_ok": false,
-   "id": "e087"
+   "id": "e080"
   },
   {
    "year": 2026,
@@ -3031,7 +2806,7 @@
    "search": null,
    "rep_phone": "",
    "url_ok": true,
-   "id": "e088"
+   "id": "e081"
   },
   {
    "year": 2026,
@@ -3066,7 +2841,7 @@
    },
    "rep_phone": "055-970-6000",
    "url_ok": true,
-   "id": "e089"
+   "id": "e082"
   },
   {
    "year": 2026,
@@ -3080,17 +2855,18 @@
    "sources": [
     "https://foodwastesubsidy.kr/"
    ],
-   "verify": "secondary",
+   "verify": "official",
    "target": "",
    "docs": "",
    "how": "",
    "phone": "",
-   "url": "",
+   "url": "https://www.uiryeong.go.kr/board/view.uiryeong?boardId=BBS_0000070&menuCd=DOM_000000203003001002&dataSid=316445",
    "note": "",
    "round": "",
    "posted": "2026-04-01",
    "force": "",
    "verified_at": "2026-11-18",
+   "notice": "2026년 가정용 음식물처리기 지원 보조금 지원 공고",
    "phone_src": "",
    "dept": "",
    "url_kind": "공고문",
@@ -3099,8 +2875,8 @@
     "u": "https://www.uiryeong.go.kr/index.uiryeong?contentsSid=1496&searchTerm={q}"
    },
    "rep_phone": "055-570-2114",
-   "url_ok": false,
-   "id": "e090"
+   "url_ok": true,
+   "id": "e083"
   }
  ]
 }

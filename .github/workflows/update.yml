@@ -32,6 +32,9 @@ jobs:
       - name: 지자체 공식 누리집·대표번호 더블체크
         continue-on-error: true
         run: python scripts/check_sites.py
+      - name: 지자체 누리집 게시글 수집(음식물처리기 보조금·지원금 연관검색, 3회 재확인)
+        continue-on-error: true
+        run: python scripts/gov_posts.py
       - name: LG전자 베스트샵 매장 목록 갱신
         continue-on-error: true
         run: python scripts/fetch_bestshops.py
@@ -41,7 +44,7 @@ jobs:
         run: |
           git config user.name  "subsidy-bot"
           git config user.email "subsidy-bot@users.noreply.github.com"
-          git add coverage.json candidates.json index.html link_check.json bestshops.json site_check.json 2>/dev/null || git add coverage.json candidates.json index.html
+          git add coverage.json candidates.json index.html link_check.json bestshops.json site_check.json gov_posts.json 2>/dev/null || git add coverage.json candidates.json index.html
           git diff --cached --quiet || git commit -m "자동 점검 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git pull --rebase -q || true
           git push
