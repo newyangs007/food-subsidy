@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-25T23:06:10+09:00",
+ "updated_at": "2026-11-26T08:02:17+09:00",
  "keywords": [
   "음식물처리기 보조금",
   "음식물처리기 지원금",
@@ -96,22 +96,6 @@
    "sigungu": "마포구",
    "gov": false,
    "first_seen": "2026-11-25T11:10:58+09:00"
-  },
-  {
-   "title": "마포구, 가정용 음식물 감량기 구입비 최대 17만5천원 지원 - 데일리뉴스",
-   "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxPNEJhVVFQU18ya0YwaXBSN0FqZXcxeWtuUlNGRmtPR0hEcWpUT2JJcUFsLXJ3RmNWc3dKVEpOb3ZNLVJ1SWdwS2pmVmNiZko1QlFwVW05SjZTSXlkcC1IY1J3YkdrN0VHcURVLVhQUW1acnFLQmVfQTNEbm11anVxV09TaE9oOWZsYy1GOTJPZE5yak42WU9rTlMwQXNGcTlvYllGZE9xRGI5THpOWUxzVmVUWnYzbFZ4ZlQzbVZKQkVUTkJSRWNvY181a2VJOTZDV0x2NzFSbFRrRDJQRlgyQ1VNM2VyOHNoOVNtb2piOEo4eWJDYmVtTUdGUE1ZN2l1cnpGdGlRR1l4WElFb0s0Um1tbzhpYVNpYUlNNUxKOE9rTmNuODRETFhfQnRyTTdiSVc1WFFhdU9DRUpjMHF3aXRQMjdXV0VOSFo4cUdTUTdGUTFNNFR5bEtSZnZ3UQ?oc=5",
-   "desc": "마포구, 가정용 음식물 감량기 구입비 최대 17만5천원 지원 데일리뉴스",
-   "published": "2026-10-26T16:00:00+09:00",
-   "via": "google-news",
-   "source": "데일리뉴스",
-   "source_url": "https://idailynews.co.kr",
-   "year": 2026,
-   "keyword": "가정용 감량기 보급 지원사업",
-   "region": "서울|마포구",
-   "sido": "서울",
-   "sigungu": "마포구",
-   "gov": false,
-   "first_seen": "2026-11-24T13:41:13+09:00"
   },
   {
    "title": "천안시 음식물 처리기 지원금 신청 바로가기 - 브런치",
@@ -320,6 +304,22 @@
    "sigungu": "경산시",
    "gov": false,
    "first_seen": "2026-11-18T06:39:47+09:00"
+  },
+  {
+   "title": "광주 북구, 음식물류 폐기물 감량기 설치 지원 - 서울일보",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBYcXNya3QwcDhPRkJkWmd2UVY0RFZSUDEtUXlEblhrQkJXU1I3Z3JwdjUzRGFlSW1BemlndUhyT3kyUnk2blNFMlByYWJIMzlGcUJDc0VCSnR3UlREeGZqWVVSSTFCTGJWaWtj0gFvQVVfeXFMTUN3WkdGcjdxUTFsZms2TzNhQi1RRmEyNzF0dEVIZmFyZlBHWHFSeTA2N2F1alhlcXA0ak8tZ1lmNHJTZ0NwWDZTelc1T2dMNW92X1V2a2h6YmJyWXdnS0JBd2c0d2YtS2FuOVVzX180?oc=5",
+   "desc": "광주 북구, 음식물류 폐기물 감량기 설치 지원 서울일보",
+   "published": "2026-06-08T16:00:00+09:00",
+   "via": "google-news",
+   "source": "서울일보",
+   "source_url": "http://www.seoulilbo.com",
+   "year": 2026,
+   "keyword": "\"광주 북구\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
+   "region": "전남광주|북구",
+   "sido": "전남광주",
+   "sigungu": "북구",
+   "gov": false,
+   "first_seen": "2026-11-26T08:02:17+09:00"
   }
  ]
 }
