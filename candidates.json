@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-26T16:54:56+09:00",
+ "updated_at": "2026-11-27T03:19:28+09:00",
  "keywords": [
   "음식물처리기 보조금",
   "음식물처리기 지원금",
@@ -138,7 +138,7 @@
    "source": "브런치",
    "source_url": "https://brunch.co.kr",
    "year": 2026,
-   "keyword": "음식물처리기 보조금",
+   "keyword": "\"화성시\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
    "region": "경기|화성시",
    "sido": "경기",
    "sigungu": "화성시",
@@ -154,7 +154,7 @@
    "source": "브런치",
    "source_url": "https://brunch.co.kr",
    "year": 2026,
-   "keyword": "음식물처리기 보조금",
+   "keyword": "\"원주시\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
    "region": "강원|원주시",
    "sido": "강원",
    "sigungu": "원주시",
@@ -210,6 +210,22 @@
    "first_seen": "2026-11-18T06:39:47+09:00"
   },
   {
+   "title": "대구 달서구 음식물 처리기 지원금 신청꿀팁 노하우정리 - 브런치",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Ta0JQQ1Rfa0JpdHBIc2ZUWXBuWHVqU2VuV3R3WkQ0Rnc4S3NBU2ZLNmJfckUtOV80REVyUnJoSERDZXBfVzFTaFByc0FpLUxjTW5F?oc=5",
+   "desc": "대구 달서구 음식물 처리기 지원금 신청꿀팁 노하우정리 브런치",
+   "published": "2026-09-21T16:00:00+09:00",
+   "via": "google-news",
+   "source": "브런치",
+   "source_url": "https://brunch.co.kr",
+   "year": 2026,
+   "keyword": "\"달서구\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
+   "region": "대구|달서구",
+   "sido": "대구",
+   "sigungu": "달서구",
+   "gov": false,
+   "first_seen": "2026-11-27T03:19:28+09:00"
+  },
+  {
    "title": "양천구, 가정용 음식물류폐기물 소형감량기 구매비 지원 - 시정일보",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE16aHRUQkNxNXR3VWVXSXdvTWhKZDY3VExwdWctWFNYdkJDRmlDd3M5VnVOY1RuZnpkWUZWbHdmQmZiZHVjckMwYmpCVEpIR2lYSzhjN1lodjNMRTAyUmtXZXhCZGI4U1ZJc1dR?oc=5",
    "desc": "양천구, 가정용 음식물류폐기물 소형감량기 구매비 지원 시정일보",
@@ -242,6 +258,22 @@
    "first_seen": "2026-11-19T07:38:30+09:00"
   },
   {
+   "title": "경산시, 음식물류 폐기물 가정용 감량기 구매시 최대 40만 원 지원 - 한국방송뉴스",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE90dUtwNUUtaUV6UlFkQUdZWUdiSlozcnp4cTkwdWpGNEdQNkhpZzIxd1lLLWZTcHhPbEdma1JVZFlFLTVPcnBkVEJ2elFzdTdYYU9GWEhhYm1jeTJrUkE?oc=5",
+   "desc": "경산시, 음식물류 폐기물 가정용 감량기 구매시 최대 40만 원 지원 한국방송뉴스",
+   "published": "2026-07-03T16:00:00+09:00",
+   "via": "google-news",
+   "source": "한국방송뉴스",
+   "source_url": "https://www.ikbn.news",
+   "year": 2026,
+   "keyword": "\"경산시\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
+   "region": "경북|경산시",
+   "sido": "경북",
+   "sigungu": "경산시",
+   "gov": false,
+   "first_seen": "2026-11-27T03:19:28+09:00"
+  },
+  {
    "title": "경산시, 음식물 감량기 구매 지원 확대…가구당 최대 40만 원 보조 - 경북일보",
    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1LNk1qZzZmaEpLOVl5SE96cjREcTFkcUVKUXJRdU1Pa0h2TzZ5SUswSGJfVHc4VE42enRhTEpUX2xKNkFLc09hQ1daTXBSQkcyTWVSejJoTVFUT0w3cDBNVi1LcDZyQy1FX2tnQ2lRbw?oc=5",
    "desc": "경산시, 음식물 감량기 구매 지원 확대…가구당 최대 40만 원 보조 경북일보",
@@ -272,22 +304,6 @@
    "sigungu": "경산시",
    "gov": false,
    "first_seen": "2026-11-21T21:24:03+09:00"
-  },
-  {
-   "title": "경산시, 음식물류 폐기물 가정용 감량기 구매시 최대 40만 원 지원 - 뉴스줌",
-   "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE9CRXpXZ0VVNDBNY2d2cEZEOFJfU3dTNGpTNC1VSURIQzFnaG1oblp3ekx1UnBPVXJZT0RrZUtwZFdMdEl4?oc=5",
-   "desc": "경산시, 음식물류 폐기물 가정용 감량기 구매시 최대 40만 원 지원 뉴스줌",
-   "published": "2026-07-02T16:00:00+09:00",
-   "via": "google-news",
-   "source": "뉴스줌",
-   "source_url": "http://www.newszoom.kr",
-   "year": 2026,
-   "keyword": "\"경산시\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
-   "region": "경북|경산시",
-   "sido": "경북",
-   "sigungu": "경산시",
-   "gov": false,
-   "first_seen": "2026-11-18T06:39:47+09:00"
   },
   {
    "title": "광주 북구, 음식물류 폐기물 감량기 설치 지원 - 서울일보",
