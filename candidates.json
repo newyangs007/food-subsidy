@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-26T08:02:17+09:00",
+ "updated_at": "2026-11-26T16:54:56+09:00",
  "keywords": [
   "음식물처리기 보조금",
   "음식물처리기 지원금",
@@ -26,7 +26,7 @@
    "source": "베이비뉴스",
    "source_url": "https://www.ibabynews.com",
    "year": 2026,
-   "keyword": "음식물폐기물 감량기 보조금",
+   "keyword": "음식물류 폐기물 감량기 지원",
    "region": "서울|마포구",
    "sido": "서울",
    "sigungu": "마포구",
@@ -66,6 +66,22 @@
    "first_seen": "2026-11-18T06:39:47+09:00"
   },
   {
+   "title": "음식물쓰레기·구매 부담↓... 마포구, 음식물 감량기 구매비 최대 17만5000원 지원 - 헤럴드경제",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9qZ2lvc3FfN015VWctUTIwWndxQS1hczNLbUw2UHVPU2trLTcyd3NEdTlhRldkUmYtdVN5VmJwODJwcm5rX0xsUHVaN1NXdGQtVV9Zam9R?oc=5",
+   "desc": "음식물쓰레기·구매 부담↓... 마포구, 음식물 감량기 구매비 최대 17만5000원 지원 헤럴드경제",
+   "published": "2026-10-26T16:00:00+09:00",
+   "via": "google-news",
+   "source": "헤럴드경제",
+   "source_url": "https://biz.heraldcorp.com",
+   "year": 2026,
+   "keyword": "음식물류 폐기물 감량기 지원",
+   "region": "서울|마포구",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "gov": false,
+   "first_seen": "2026-11-25T11:10:58+09:00"
+  },
+  {
    "title": "음식물쓰레기 '쏙'·구매 부담 '뚝' 마포구, 음식물 감량기 구매비 지원 - 연합뉴스",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5pbkxHVy1RSFZNaFF4MTl1dkRQOWZ2ZEE3elFmemNXSWVIdkJyOHpwdVU3dW0zZkR6ZFVyMVRZRmdJOWRtZHh1NnhZRUhOUVBJdll2bFVITURXOGc?oc=5",
    "desc": "음식물쓰레기 '쏙'·구매 부담 '뚝' 마포구, 음식물 감량기 구매비 지원 연합뉴스",
@@ -80,22 +96,6 @@
    "sigungu": "마포구",
    "gov": false,
    "first_seen": "2026-11-24T13:41:13+09:00"
-  },
-  {
-   "title": "음식물쓰레기·구매 부담↓... 마포구, 음식물 감량기 구매비 최대 17만5000원 지원 - 헤럴드경제",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9qZ2lvc3FfN015VWctUTIwWndxQS1hczNLbUw2UHVPU2trLTcyd3NEdTlhRldkUmYtdVN5VmJwODJwcm5rX0xsUHVaN1NXdGQtVV9Zam9R?oc=5",
-   "desc": "음식물쓰레기·구매 부담↓... 마포구, 음식물 감량기 구매비 최대 17만5000원 지원 헤럴드경제",
-   "published": "2026-10-26T16:00:00+09:00",
-   "via": "google-news",
-   "source": "헤럴드경제",
-   "source_url": "https://biz.heraldcorp.com",
-   "year": 2026,
-   "keyword": "가정용 소형감량기 구매 지원",
-   "region": "서울|마포구",
-   "sido": "서울",
-   "sigungu": "마포구",
-   "gov": false,
-   "first_seen": "2026-11-25T11:10:58+09:00"
   },
   {
    "title": "천안시 음식물 처리기 지원금 신청 바로가기 - 브런치",
@@ -206,22 +206,6 @@
    "region": "경기|의정부시",
    "sido": "경기",
    "sigungu": "의정부시",
-   "gov": false,
-   "first_seen": "2026-11-18T06:39:47+09:00"
-  },
-  {
-   "title": "대구 달서구 음식물 처리기 지원금 신청꿀팁 노하우정리 - 브런치",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Ta0JQQ1Rfa0JpdHBIc2ZUWXBuWHVqU2VuV3R3WkQ0Rnc4S3NBU2ZLNmJfckUtOV80REVyUnJoSERDZXBfVzFTaFByc0FpLUxjTW5F?oc=5",
-   "desc": "대구 달서구 음식물 처리기 지원금 신청꿀팁 노하우정리 브런치",
-   "published": "2026-09-21T16:00:00+09:00",
-   "via": "google-news",
-   "source": "브런치",
-   "source_url": "https://brunch.co.kr",
-   "year": 2026,
-   "keyword": "\"달서구\" (\"음식물처리기\" OR \"감량기\" OR \"음식물 처리기\" OR \"음식물폐기물\" OR \"소형감량기\") (보조금 OR 지원금 OR 지원) when:180d",
-   "region": "대구|달서구",
-   "sido": "대구",
-   "sigungu": "달서구",
    "gov": false,
    "first_seen": "2026-11-18T06:39:47+09:00"
   },
