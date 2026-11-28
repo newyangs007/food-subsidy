@@ -240,11 +240,12 @@ def main():
             except Exception as e:
                 print('딥링크 변환 실패:', e, file=sys.stderr)
 
-    items, seen = [], set()
-    for x in manual + api_items:
-        if x['pid'] in seen:
+    items, seen, mp = [], set(), {x['pid'] for x in manual}
+    for x in manual + [a for a in api_items if a['pid'] not in mp]:   # 직접 입력은 같은 모델 다른 용량·색상도 모두 표시
+        k = x['url'] if x.get('via') == 'manual' else x['pid']
+        if k in seen:
             continue
-        seen.add(x['pid']); items.append(x)
+        seen.add(k); items.append(x)
     items = items[:MAX_ITEMS]
     for i, x in enumerate(items):
         x['rank'] = i + 1

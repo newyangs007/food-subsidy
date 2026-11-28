@@ -6,6 +6,87 @@
   "위에 적은 순서가 인기 순위(1위부터)로 쓰입니다. price·image·name은 비워 두면 기본 문구로 나옵니다.",
   "쿠팡 파트너스 API 키를 등록했다면 이 파일을 비워 둬도 매일 쿠팡 랭킹으로 자동 갱신됩니다(여기 적은 링크가 먼저 나옴)."
  ],
- "_예시": {"model": "SC-D0404", "url": "https://link.coupang.com/a/XXXXXX", "name": "스마트카라 블레이드X AI 음식물처리기", "price": 0, "image": "", "rocket": true},
- "items": []
+ "_예시": {
+  "model": "SC-D0404",
+  "url": "https://link.coupang.com/a/XXXXXX",
+  "name": "스마트카라 블레이드X AI 음식물처리기",
+  "price": 0,
+  "image": "",
+  "rocket": true
+ },
+ "items": [
+  {
+   "model": "CFD-E",
+   "url": "https://link.coupang.com/a/i2ZPFvPSM0",
+   "name": "쿠쿠 에코웨일 건조분쇄 음식물처리기 가정용 CFD-ENL201DCGW 그레이스 화이트",
+   "price": 353900,
+   "image": "https://thumbnail15.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/167241925197175-c3cff543-57b4-4036-856c-e6ba8a6f0fd7.jpg",
+   "rocket": true
+  },
+  {
+   "model": "CFP-LD03VW",
+   "url": "https://link.coupang.com/a/i2ZVZs4Bwa",
+   "name": "쿠첸 제로빈 음식물 처리기 가정용 CFP-LD03VW 샌드화이트",
+   "price": 251100,
+   "image": "https://thumbnail15.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/44653553440162-058ceb9c-74d5-41ba-a40e-9d89be4d91ad.jpg",
+   "rocket": true
+  },
+  {
+   "model": "CFD-D301DCNW",
+   "url": "https://link.coupang.com/a/i2ZRJPE4tg",
+   "name": "쿠쿠 음식물처리기 건조분쇄타입 가정용 CFD-D301DCNW 노블화이트",
+   "price": 423900,
+   "image": "https://thumbnail2.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/39330931421126-3550d541-4f89-4082-a092-f6b171d7658f.png",
+   "rocket": true
+  },
+  {
+   "model": "CFP-EN301DBIW",
+   "url": "https://link.coupang.com/a/i2ZWaVQbdI",
+   "name": "쿠첸 제로핏 음식물 처리기 가정용 CFP-EN301DBIW 화이트",
+   "price": 379050,
+   "image": "https://t1a.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/54065321243639-4538e810-c73b-46cf-99b6-4d859b813877.jpg",
+   "rocket": true
+  },
+  {
+   "model": "CFD-E",
+   "url": "https://link.coupang.com/a/i2ZRyVyDzo",
+   "name": "쿠쿠 에코웨일 메가 건조분쇄형 음식물처리기 3L CFD-ENL301DCGW",
+   "price": 402710,
+   "image": "https://thumbnail13.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/302228107043905-24a7f9af-b3e4-4626-8702-3ad112cd33b2.jpg",
+   "rocket": true
+  },
+  {
+   "model": "SC-D0404",
+   "url": "https://link.coupang.com/a/i2ZVsysjqm",
+   "name": "스마트카라 블레이드X 그라나이트 건조분쇄 음식물처리기 5L SC-D0404-A 스노우 화이트",
+   "price": 672050,
+   "image": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2026/05/27/18/7/c3190431-1882-445c-8cf7-e15b7f3f859c.jpg",
+   "rocket": true
+  },
+  {
+   "model": "SC-D0208",
+   "url": "https://link.coupang.com/a/i2ZVDKi3oG",
+   "name": "스마트카라 400 Pro 2 음식물처리기 SC-D0208 라이트베이지 (+필터 1개)",
+   "price": 379000,
+   "image": "https://t1a.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/86cc/dec9efe01305d41d312eeab73ab962af9b5fe4fa11a6f0bc36c4b09d68ae.jpg",
+   "rocket": false
+  },
+  {
+   "model": "BV-A12S-RKR",
+   "url": "https://link.coupang.com/a/i2ZWlIVth6",
+   "name": "블루벤트 NEW 아이디 음식물처리기 가정용 2L 화이트 BV-A12S-RKR",
+   "price": 375060,
+   "image": "https://t5c.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2026/10/13/14/0/01c768e4-1da0-4577-8cc7-82fad8672a14.jpg",
+   "rocket": true
+  },
+  {
+   "model": "SC-D0209",
+   "url": "https://link.coupang.com/a/i2ZVOQMJWK",
+   "name": "스마트카라 400 PRO X 음식물처리기 2L SC-D0209 스노우화이트",
+   "price": 399000,
+   "image": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/c41b/a447c6809531a4fb234392a412d455eae995a91e2a715543ad56f151f0f6.jpg",
+   "rocket": false
+  }
+ ],
+ "_메모": "2026-11-28 쿠팡 파트너스 상품 링크로 생성 · 쿠팡 랭킹 검색 기준 리뷰 수 순으로 정렬(쿠쿠·쿠첸·스마트카라·블루벤트, 바이툴즈는 인증 미확인으로 제외)"
 }
