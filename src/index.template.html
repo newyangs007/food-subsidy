@@ -397,6 +397,42 @@ td.ac{width:1%;white-space:nowrap}
   td.ac{width:auto;white-space:normal}
   #rows .act{flex-wrap:wrap}
 }
+/* 쿠팡 인기 제품 롤링 */
+.deals{margin-bottom:14px;overflow:hidden}
+.deals .lh h2 .tag{font-size:11px;font-weight:800;color:#fff;background:var(--brand);border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px;letter-spacing:0}
+.dnav{display:flex;gap:6px;align-items:center}
+.dnav button{width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:9px;display:grid;place-items:center;font-size:15px;line-height:1;color:var(--ink2)}
+.dnav button:hover{border-color:#cbd5e1;color:var(--ink)}
+.dnav #dPlay{font-size:11px;letter-spacing:-1px}
+.dview{overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px 16px 4px;scroll-padding:0 16px;overscroll-behavior-x:contain}
+.dview::-webkit-scrollbar{display:none}
+.dtrack{display:flex;gap:12px}
+.deal{flex:0 0 calc((100% - 48px)/5);min-width:0;scroll-snap-align:start;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;transition:border .15s,box-shadow .15s,transform .15s}
+.deal:hover{border-color:#cbd5e1;box-shadow:0 6px 18px rgba(15,23,42,.08);transform:translateY(-2px)}
+.deal:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.deal .drk{position:absolute;left:8px;top:8px;z-index:1;min-width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;padding:0 6px}
+.deal .drk.top{background:var(--brand)}
+.deal .dimg{aspect-ratio:1/1;border-radius:12px 12px 0 0;background:#F8FAFC;display:grid;place-items:center;overflow:hidden}
+.deal .dimg img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.deal .dimg .ph{font-size:28px;font-weight:800;color:#CBD5E1}
+.deal .dbody{padding:10px 11px 11px;display:flex;flex-direction:column;gap:4px;flex:1}
+.deal .dbr{font-size:12px;font-weight:700;color:var(--ink2);display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.deal .dbr .cert{font-size:10.5px;padding:1px 6px}
+.deal .dnm{font-size:13px;line-height:1.4;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.deal .dmd{font-size:11.5px;color:var(--mute)}
+.deal .dpr{margin-top:auto;padding-top:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.deal .dpr b{font-size:16px;font-weight:800;letter-spacing:-.02em}
+.deal .dpr .rkt{font-size:10.5px;font-weight:800;color:#0073E9;background:#EAF3FE;border-radius:5px;padding:1px 6px}
+.deal .dgo{margin-top:6px;height:32px;border-radius:9px;background:var(--brand);color:#fff;font-size:12.5px;font-weight:700;display:grid;place-items:center}
+.deal:hover .dgo{background:#BE123C}
+.ddots{display:flex;justify-content:center;gap:5px;padding:8px 0 2px}
+.ddots button{width:6px;height:6px;border-radius:999px;border:0;padding:0;background:#CBD5E1;transition:width .2s,background .2s}
+.ddots button[aria-current=true]{width:18px;background:var(--ink)}
+.ddisc{margin:0;padding:6px 16px 12px;font-size:11.5px;color:var(--mute);line-height:1.55}
+.ddisc b{color:var(--ink2);font-weight:700}
+@media (max-width:1320px){.deal{flex-basis:calc((100% - 36px)/4)}}
+@media (max-width:1000px){.deal{flex-basis:calc((100% - 24px)/3)}}
+@media (max-width:780px){.deal{flex-basis:calc((100% - 12px)/2.15)}.dnav #dPrev,.dnav #dNext{display:none}.dview{padding:2px 12px 4px;scroll-padding:0 12px}.ddisc{padding:6px 12px 12px}}
 </style>
 </head>
 <body>
@@ -489,6 +525,15 @@ td.ac{width:1%;white-space:nowrap}
 
   <!-- ───── 지원 제품 ───── -->
   <section id="v-products" hidden>
+    <div class="card deals" id="deals" hidden aria-roledescription="carousel" aria-label="쿠팡 인기 보조금 대상 제품">
+      <div class="lh">
+        <h2>쿠팡에서 잘 팔리는 보조금 대상 제품<span class="tag">TOP</span> <span id="dealsN"></span></h2>
+        <div class="dnav"><button type="button" id="dPrev" aria-label="이전 제품">‹</button><button type="button" id="dPlay" aria-label="자동 넘김 멈춤" aria-pressed="false">❚❚</button><button type="button" id="dNext" aria-label="다음 제품">›</button></div>
+      </div>
+      <div class="dview" id="dview" tabindex="-1"><div class="dtrack" id="dtrack"></div></div>
+      <div class="ddots" id="ddots"></div>
+      <p class="ddisc" id="ddisc"></p>
+    </div>
     <div class="pgrid">
       <aside class="card">
         <div class="ch"><h2>지원 대상이 되는 조건</h2></div>

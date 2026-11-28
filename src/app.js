@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 var EMB = {}; try { EMB = JSON.parse(document.getElementById('embed').textContent); } catch(e) {}
-var D, P, C, G, R, K, V, B, L, W, GP;      // data, products, candidates, geo, regions, keywords, coverage, bestshops, link_check
+var D, P, C, G, R, K, V, B, L, W, GP, CP;      // CP: 쿠팡 파트너스 인기 제품(coupang.json)      // data, products, candidates, geo, regions, keywords, coverage, bestshops, link_check
 var S = {year:null, rpage:1, ppage:1, view:'subsidy', status:'on', sido:null, sgg:null, q:'', page:1, ps:8, pm:'all', pc:'all', brand:null, cs:'all', csido:'', cdbl:'', cpage:1};
 var $ = function(s){return document.querySelector(s)};
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
@@ -427,8 +427,76 @@ function renderProducts(){
   $('#pinfo2').textContent = grp.length ? '제품 '+grp.length+'개(모델 '+f.length+'개) · '+S.ppage+'/'+ppages+'페이지' : '';
   $('#ppg').innerHTML = grp.length>pps ? pager(S.ppage,ppages,'ppg') : '';
   $('#prows').innerHTML = grp.slice((S.ppage-1)*pps, S.ppage*pps).map(function(p){ return '<tr style="cursor:default"'+(p.mine?' class="mine"':'')+'><td><b>'+esc(p.brand)+'</b>'+(p.mine?'<span class="new" style="background:var(--soon)">등록 제품</span>':'')+'</td><td><div class="mdl">'+p.models.map(function(m){return '<span>'+esc(m)+'</span>'}).join('')+'</div></td><td style="font-size:13px">'+esc(p.method)+'</td><td><span class="cert '+esc(p.cert)+'">'+esc(p.cert)+'</span><div class="ls">'+esc(p.body)+'</div></td><td class="hide-m" style="font-size:12.5px">'+esc(p.maker)+'<div class="ls">'+esc(p.phone||'')+'</div></td><td class="hide-m"><span class="ls">'+({L26:'2026 공고',L25:'2025.6 목록',L27:'2027 공고'}[p.list]||p.list)+'</span></td></tr>'; }).join('') || (all.length?'':yearChecklist()) || '<tr><td colspan="6" class="empty">일치하는 모델이 없습니다. 목록에 없더라도 품질인증+KC를 받았다면 대상일 수 있으니 초록누리·제조사에 인증서를 확인하세요.</td></tr>';
+  renderDeals();
   var L=P.lists; $('#plist').innerHTML='출처: <a href="'+L.L26.url+'" target="_blank" rel="noopener">'+L.L26.name+'</a> · <a href="'+L.L25.url+'" target="_blank" rel="noopener">'+L.L25.name+'</a> — 지자체마다 인정 목록이 다를 수 있습니다.';
 }
+
+/* ── 쿠팡 인기 제품 롤링: 인증 목록 모델 중 쿠팡 랭킹 상위(=잘 팔리는) 제품만, 자동으로 한 칸씩 넘김 ── */
+var DL={sig:'', timer:null, paused:false, hold:false, idx:0};
+var DL_OK=/^https:\/\/(link\.coupang\.com|www\.coupang\.com|m\.coupang\.com|coupa\.ng)\//;
+var DL_IMG=/^https:\/\/[a-z0-9.-]*coupangcdn\.com\//i;
+function dealList(){
+  var it=((CP&&CP.items)||[]).filter(function(x){ return x && DL_OK.test(x.url||''); }), basis=S.year;
+  var ids=function(y){ var o={}; P.items.forEach(function(p){ if ((p.years||[2026]).indexOf(y)>=0) o[p.id]=1; }); return o; };
+  var ok=ids(S.year);
+  if (!Object.keys(ok).length){ var ys=(D&&D.years||[2026]).filter(function(y){return y<S.year}); basis=ys.length?ys[ys.length-1]:2026; ok=ids(basis); }   // 다음 연도 목록 공개 전 → 직전 연도 인증 목록 기준
+  return {items:it.filter(function(x){ return ok[x.pid]; }), basis:basis};
+}
+function won(n){ n=+n; return n>0 ? n.toLocaleString('ko-KR') : ''; }
+function renderDeals(){
+  var box=$('#deals'); if (!box) return;
+  var r=dealList(), it=r.items;
+  var sig=S.year+'|'+r.basis+'|'+it.map(function(x){return x.url+x.price+x.rank}).join(',')+'|'+(CP&&CP.updated_at);
+  if (sig===DL.sig) return; DL.sig=sig;
+  if (!it.length){ box.hidden=true; dStop(); return; }
+  box.hidden=false;
+  $('#dealsN').textContent=it.length+'개';
+  $('#dtrack').innerHTML=it.map(function(x,i){
+    var img=DL_IMG.test(x.image||'') ? '<img src="'+esc(x.image)+'" alt="" loading="lazy" decoding="async">' : '<span class="ph">'+esc((x.brand||'?').slice(0,2))+'</span>';
+    var pr=won(x.price);
+    return '<a class="deal" href="'+esc(x.url)+'" target="_blank" rel="sponsored nofollow noopener" role="group" aria-roledescription="slide" aria-label="'+(i+1)+'위 '+esc(x.brand+' '+x.model)+'">'+
+      '<span class="drk'+(i<3?' top':'')+'">'+(i+1)+'</span><div class="dimg">'+img+'</div><div class="dbody">'+
+      '<div class="dbr">'+esc(x.brand)+(x.cert?'<span class="cert '+esc(x.cert)+'">'+esc(x.cert)+'</span>':'')+'</div>'+
+      '<div class="dnm">'+esc(x.name||x.brand+' '+x.model)+'</div><div class="dmd">인증 모델 '+esc(x.model)+'</div>'+
+      '<div class="dpr">'+(pr?'<b>'+pr+'</b>원':'<b style="font-size:13.5px">쿠팡 최저가 확인</b>')+(x.rocket?'<span class="rkt">로켓배송</span>':'')+'</div>'+
+      '<span class="dgo">쿠팡에서 보기 ↗</span></div></a>';
+  }).join('');
+  $('#ddots').innerHTML=it.map(function(x,i){ return '<button type="button" data-dot="'+i+'" aria-label="'+(i+1)+'위 제품 보기"'+(i===0?' aria-current="true"':'')+'></button>'; }).join('');
+  var at=CP&&(CP.api_at||CP.updated_at);
+  $('#ddisc').innerHTML='<b>'+esc((CP&&CP.disclosure)||'이 영역은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.')+'</b><br>'+
+    (r.basis!==S.year?esc(r.basis)+'년 인증 목록 기준(' + S.year + '년 목록 공개 전) · ':'')+
+    '\'음식물처리기\' 등 쿠팡 검색 랭킹 상위 제품 중 지자체 인증 목록에 있는 모델만 골랐습니다'+(at?' · '+fmtDT(at)+' 기준':'')+'. 가격·재고는 수시로 바뀝니다. 보조금 인정 여부는 거주지 공고의 인증제품 목록과 영수증 요건을 꼭 확인하세요.';
+  var v=$('#dview'); v.style.scrollBehavior='auto'; v.scrollLeft=0; v.style.scrollBehavior=''; DL.idx=0;
+  dStart();
+}
+function dStep(){ var v=$('#dview'), c=v.querySelector('.deal'); if (!c) return 0; return c.getBoundingClientRect().width+12; }
+function dGo(i){
+  var v=$('#dview'), n=v.querySelectorAll('.deal').length, w=dStep(); if (!n||!w) return;
+  var max=v.scrollWidth-v.clientWidth-2;
+  if (i<0) i = v.scrollLeft<=2 ? n-1 : 0;
+  if (i>=n || (i>DL.idx && v.scrollLeft>=max)) i=0;               // 끝까지 가면 처음으로
+  v.scrollTo({left:i*w, behavior:'smooth'}); DL.idx=i; dDots(i);
+}
+function dDots(i){ [].forEach.call(document.querySelectorAll('#ddots button'), function(b,k){ b.setAttribute('aria-current', k===i?'true':'false'); }); }
+function dStart(){ dStop(); if (DL.paused || DL.hold || document.hidden || $('#deals').hidden) return;
+  DL.timer=setInterval(function(){ if (S.view==='products' && !document.hidden) dGo(DL.idx+1); }, 3500); }
+function dStop(){ if (DL.timer){ clearInterval(DL.timer); DL.timer=null; } }
+function dPlayLbl(){ var b=$('#dPlay'); b.textContent=DL.paused?'▶':'❚❚'; b.setAttribute('aria-label', DL.paused?'자동 넘김 시작':'자동 넘김 멈춤'); b.setAttribute('aria-pressed', DL.paused?'true':'false'); }
+(function(){
+  var box=$('#deals'), v=$('#dview'); if (!box) return;
+  try{ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) DL.paused=true; }catch(_e){}
+  dPlayLbl();
+  $('#dPrev').addEventListener('click', function(){ dGo(DL.idx-1); dStart(); });
+  $('#dNext').addEventListener('click', function(){ dGo(DL.idx+1); dStart(); });
+  $('#dPlay').addEventListener('click', function(){ DL.paused=!DL.paused; dPlayLbl(); DL.paused?dStop():dStart(); });
+  $('#ddots').addEventListener('click', function(e){ var b=e.target.closest('[data-dot]'); if (b){ dGo(+b.dataset.dot); dStart(); } });
+  ['mouseenter','focusin','touchstart'].forEach(function(n){ box.addEventListener(n, function(){ DL.hold=true; dStop(); }, {passive:true}); });
+  box.addEventListener('mouseleave', function(){ DL.hold=false; dStart(); });
+  box.addEventListener('focusout', function(e){ if (!box.contains(e.relatedTarget)){ DL.hold=false; dStart(); } });
+  box.addEventListener('touchend', function(){ setTimeout(function(){ DL.hold=false; dStart(); }, 5000); }, {passive:true});
+  var sT; v.addEventListener('scroll', function(){ clearTimeout(sT); sT=setTimeout(function(){ var w=dStep(); if (w){ DL.idx=Math.round(v.scrollLeft/w); dDots(DL.idx); } }, 80); }, {passive:true});
+  document.addEventListener('visibilitychange', function(){ document.hidden?dStop():dStart(); });
+})();
 
 function yearChecklist(){
   var m=(P.year_meta||{})[S.year]||{}, prev=(D.years||[]).filter(function(y){return y<S.year}).pop();
@@ -580,9 +648,9 @@ function stamp(){
 }
 function load(isRefresh){
   var btn=$('#refresh'); btn.disabled=true; btn.classList.add('spin');
-  var names=['data.json','products.json','candidates.json',G?null:'geo.json','regions.json','keywords.json','coverage.json','bestshops.json','link_check.json','site_check.json','gov_posts.json'];
+  var names=['data.json','products.json','candidates.json',G?null:'geo.json','regions.json','keywords.json','coverage.json','bestshops.json','link_check.json','site_check.json','gov_posts.json','coupang.json'];
   return Promise.all(names.map(function(n){ return n?getJSON(n):Promise.resolve(null); })).then(function(r){
-    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}}; B=r[7]||{items:[]}; L=r[8]||{links:{}}; W=r[9]||{sites:{}}; GP=r[10]||{items:[]};
+    D=r[0]; P=r[1]; C=r[2]||{items:[]}; R=r[4]; K=r[5]||{}; V=r[6]||{regions:{}}; B=r[7]||{items:[]}; L=r[8]||{links:{}}; W=r[9]||{sites:{}}; GP=r[10]||{items:[]}; CP=r[11]||{items:[]};
     if (!G) { G=r[3]; buildMap(); }
     nowD=kst(); today=ymd(nowD);
     if (!S.year || (D.years||[]).indexOf(S.year)<0) S.year=autoYear();
