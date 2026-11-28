@@ -287,7 +287,7 @@ function renderList(){
     card = '<div class="rcard yempty"><h4>'+S.year+'년 음식물처리기 보조금 공고를 기다리는 중입니다</h4><p>'+esc(((D.year_meta||{})[S.year]||{}).note||'')+'</p>'+
       '<p>전국 '+R.regions.length+'개 지자체를 2시간마다 자동 점검해, '+S.year+'년 공고가 감지되면 지도와 목록에 바로 표시합니다.'+(st.auto?' 현재 <b>'+st.auto+'곳</b>에서 새 공고 신호가 감지됐어요 — 보조금 뉴스 탭에서 확인하세요.':'')+'</p>'+
       (prev?'<p style="margin-top:10px"><button class="btn" type="button" data-year="'+prev+'">'+prev+'년 공고 '+yearStats(prev).items+'건 보기</button></p>':'')+'</div>'+card; }
-  $('#rows').innerHTML = rows || (yItems().length ? '<tr><td colspan="6" class="empty">'+(S.status==='on'?'지금 접수 중인 '+S.year+'년 공고가 없습니다. <button class="btn" type="button" data-st="all" style="margin-left:6px">전체 공고 보기</button>':S.year+'년 조건에 맞는 공고가 없습니다.')+'</td></tr>' : '');
+  $('#rows').innerHTML = rows || (yItems().length ? '<tr><td colspan="6" class="empty">'+(S.q?'\''+esc(S.q)+'\' 검색 결과가 없습니다. <button class="btn" type="button" id="qx2" style="margin-left:6px">검색어 지우기</button>':S.status==='on'?'지금 접수 중인 '+S.year+'년 공고가 없습니다. <button class="btn" type="button" data-st="all" style="margin-left:6px">전체 공고 보기</button>':S.year+'년 조건에 맞는 공고가 없습니다.')+'</td></tr>' : '');
   $('#rows').closest('table').hidden = !yItems().length;
   $('#regionCard') ? ($('#regionCard').innerHTML=card) : $('#rows').closest('div').insertAdjacentHTML('beforebegin','<div id="regionCard">'+card+'</div>');
   $('#pinfo').textContent = '총 '+n+'건 · '+S.page+'/'+pages+'페이지';
@@ -562,7 +562,9 @@ function render(){ try{ renderShops(); }catch(_e){}
   if (S.view==='products') renderProducts();
   renderRadar();
 }
+var QV={};   // 탭마다 검색어를 따로 보관 — 제품 탭에서 친 '쿠첸'이 보조금 현황을 0건으로 만들지 않도록
 function setView(v){
+  if (S.view!==v){ QV[S.view]=S.q; S.q=QV[v]||''; $('#q').value=S.q; $('#searchBox').classList.toggle('has',!!S.q); $('#sugg').classList.remove('on'); S.page=1; S.ppage=1; S.rpage=1; }
   S.view=v; ['subsidy','products','radar'].forEach(function(k){ $('#v-'+k).hidden = k!==v; });
   document.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-selected', t.dataset.view===v); });
   $('#q').placeholder = v==='products' ? '브랜드·모델명 검색 — 예: 린클, 스마트카라, MNFD, 미생물' : '지역 또는 연관검색어 — 예: 서초구, 부산 연제 감량기, 함평 음식물처리기 지원금';
@@ -601,6 +603,7 @@ document.addEventListener('click', function(ev){
   if (t.dataset.brand!=null){ S.brand=t.dataset.brand||null; S.ppage=1; renderProducts(); return; }
   if (t.dataset.i!=null && t.closest('#sugg')){ pick($('#sugg')._o[+t.dataset.i]); return; }
   if (t.id==='dx'){ closeDrawer(); return; }
+  if (t.id==='qx2'){ $('#q').value=''; S.q=''; $('#searchBox').classList.remove('has'); S.page=1; render(); return; }
   if (t.id==='qx'){ $('#q').value=''; S.q=''; $('#searchBox').classList.remove('has'); S.page=1; render(); return; }
   if (t.id==='zin'){ zoom(0.6); return; } if (t.id==='zout'){ zoom(1/0.6); return; }
   if (t.id==='refresh'){ load(true); return; }
