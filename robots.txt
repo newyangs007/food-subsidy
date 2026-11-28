@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://newyangs007.github.io/food-subsidy/sitemap.xml
