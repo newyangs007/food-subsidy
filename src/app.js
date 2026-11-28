@@ -434,7 +434,7 @@ function renderProducts(){
 /* ── 쿠팡 인기 제품 롤링: 인증 목록 모델 중 쿠팡 랭킹 상위(=잘 팔리는) 제품만, 자동으로 한 칸씩 넘김 ── */
 var DL={sig:'', timer:null, paused:false, hold:false, idx:0};
 var DL_OK=/^https:\/\/(link\.coupang\.com|www\.coupang\.com|m\.coupang\.com|coupa\.ng)\//;
-var DL_IMG=/^https:\/\/[a-z0-9.-]*coupangcdn\.com\//i;
+var DL_IMG=/^https:\/\/([a-z0-9-]+\.)*(coupangcdn\.com|coupang\.com)\//i;   // 쿠팡 이미지 서버(ads-partners.coupang.com, thumbnail*.coupangcdn.com 등)
 function dealList(){
   var it=((CP&&CP.items)||[]).filter(function(x){ return x && DL_OK.test(x.url||''); }), basis=S.year;
   var ids=function(y){ var o={}; P.items.forEach(function(p){ if ((p.years||[2026]).indexOf(y)>=0) o[p.id]=1; }); return o; };
@@ -452,7 +452,7 @@ function renderDeals(){
   box.hidden=false;
   $('#dealsN').textContent=it.length+'개';
   $('#dtrack').innerHTML=it.map(function(x,i){
-    var img=DL_IMG.test(x.image||'') ? '<img src="'+esc(x.image)+'" alt="" loading="lazy" decoding="async">' : '<span class="ph">'+esc((x.brand||'?').slice(0,2))+'</span>';
+    var img=DL_IMG.test(x.image||'') ? '<img src="'+esc(x.image)+'" alt="'+esc(x.brand+' '+x.model)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<span class=ph>'+esc((x.brand||'?').slice(0,2))+'</span>\'">' : '<span class="ph">'+esc((x.brand||'?').slice(0,2))+'</span>';
     var pr=won(x.price);
     return '<a class="deal" href="'+esc(x.url)+'" target="_blank" rel="sponsored nofollow noopener" role="group" aria-roledescription="slide" aria-label="'+(i+1)+'위 '+esc(x.brand+' '+x.model)+'">'+
       '<span class="drk'+(i<3?' top':'')+'">'+(i+1)+'</span><div class="dimg">'+img+'</div><div class="dbody">'+

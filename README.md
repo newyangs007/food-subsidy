@@ -80,3 +80,12 @@
      하루 1회 '음식물처리기' 등 검색어 5개의 쿠팡 랭킹 상위 10개를 받아, 인증 모델과 일치하는 판매글만 인기순(여러 검색어에서 상위일수록 높음)으로 최대 12개 보여 줍니다. 렌탈·중고·필터·미생물 리필 등은 제외합니다.
      (쿠팡 검색 API는 시간당 호출 제한이 있어 하루 1회·5회만 호출합니다.)
   2. **직접 입력** — API 권한이 없으면 `coupang_links.json`의 `items`에 파트너스에서 만든 단축 링크와 모델명을 넣으면 됩니다. 적은 순서가 순위이며, API 결과보다 앞에 나옵니다.
+
+### 쿠팡 자동 갱신 설정 (한 번만)
+1. 쿠팡 파트너스(partners.coupang.com) → 추천 도구 → **Open API** → 키 발급 → Access Key / Secret Key 확인
+2. GitHub 저장소 → Settings → Secrets and variables → Actions → **New repository secret** 으로
+   `COUPANG_ACCESS_KEY`, `COUPANG_SECRET_KEY` 두 개 등록 (선택: `COUPANG_SUB_ID` — 채널 구분용 아이디)
+3. Actions 탭 → **쿠팡 파트너스 인기 제품 갱신** → Run workflow → 1~2분 뒤 '지원 제품 찾기'에 제품·이미지·가격이 나옵니다.
+   이후 매일 06:43(KST)에 자동 갱신되고, `coupang_links.json`을 고치면 바로 다시 반영됩니다.
+- 제품 이미지·가격·상품명은 쿠팡 API 응답(productImage 등)을 그대로 씁니다. 직접 입력한 링크에 이미지가 비어 있으면 키가 있을 때 쿠팡 검색으로 채웁니다(하루 최대 3건).
+- 이미지가 깨지면 브랜드 이름 칸으로 자동 대체됩니다.

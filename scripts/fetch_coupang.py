@@ -13,7 +13,7 @@
     - API 권한이 없을 때(최종 승인 전 등)도 이 파일만 채우면 캐러셀이 나옵니다.
     - 적은 순서가 인기 순위로 쓰이며, API 결과보다 먼저 나옵니다.
 """
-import hashlib, hmac, json, os, re, sys, time, urllib.parse, urllib.request
+import hashlib, hmac, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from datetime import datetime, timezone, timedelta
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,8 +90,11 @@ def call(method, path, query='', body=None):
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(url, data=data, method=method, headers={
         'Authorization': sign(method, path, query, ak, sk), 'Content-Type': 'application/json;charset=UTF-8'})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.loads(r.read().decode('utf-8'))
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return json.loads(r.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f'HTTP {e.code} {e.read().decode("utf-8", "replace")[:200]}')
 
 
 def search(keyword, sub_id):
@@ -186,12 +189,47 @@ def main():
         if got or not errors:               # 실패하면 이전 결과 유지
             api_items, api_at = got, now.isoformat(timespec='seconds')
         print(f'쿠팡 API: 검색 {calls}회, 인증 모델 일치 {len(got)}개', ('· 오류 ' + ' | '.join(errors)) if errors else '')
+        if errors and os.environ.get('GITHUB_ACTIONS'):
+            print('::error::쿠팡 API 오류 — ' + ' | '.join(errors) + ' (401/403이면 키 오타·API 미승인, 429면 호출 제한)')
     elif not has_key:
         print('쿠팡 API 키 없음 → coupang_links.json(직접 입력)만 반영')
+        if os.environ.get('GITHUB_ACTIONS'):
+            print('::warning::쿠팡 파트너스 API 키가 없습니다. Settings → Secrets and variables → Actions에 COUPANG_ACCESS_KEY, COUPANG_SECRET_KEY를 등록하세요.')
     else:
         print(f'쿠팡 API: 마지막 호출 {api_at} — {MIN_HOURS}시간 뒤 다시 호출')
 
     manual = from_manual(products)
+    if manual and has_key:              # 직접 입력한 링크에 이미지·가격·상품명이 비어 있으면 쿠팡 검색으로 채움(하루 1회, 최대 3건)
+        cache = prev.get('manual_info') or {}
+        fresh = []
+        for x in manual:
+            c = cache.get(x['pid'])
+            if c and c.get('image'):
+                for k in ('image', 'price', 'name', 'rocket'):
+                    if not x.get(k) and c.get(k):
+                        x[k] = c[k]
+            elif not x.get('image'):
+                fresh.append(x)
+        if fresh and (due or '--force' in sys.argv):
+            for x in fresh[:3]:
+                try:
+                    rows = search(f"{x['brand']} {re.sub(r'[()]', ' ', x['model'])}", os.environ.get('COUPANG_SUB_ID', 'foodsubsidy'))
+                    time.sleep(2)
+                except Exception as e:
+                    errors.append(str(e)[:200]); break
+                for d in rows:
+                    nm = d.get('productName', '')
+                    if EXCLUDE.search(nm) or not match(nm, [q for q in products if q['id'] == x['pid']]):
+                        continue
+                    info = dict(image=d.get('productImage', ''), price=d.get('productPrice'), name=nm, rocket=bool(d.get('isRocket')))
+                    cache[x['pid']] = info
+                    for k, v in info.items():
+                        if not x.get(k) and v:
+                            x[k] = v
+                    break
+        manual_info = {k: v for k, v in cache.items() if any(m['pid'] == k for m in manual)}
+    else:
+        manual_info = prev.get('manual_info') or {}
     if manual and has_key:              # coupang.com 일반 주소는 파트너스 링크로 변환
         plain = [x['url'] for x in manual if 'link.coupang.com' not in x['url'] and 'coupa.ng' not in x['url']]
         if plain:
@@ -213,7 +251,7 @@ def main():
 
     out = dict(updated_at=now.isoformat(timespec='seconds'), disclosure=DISCLOSURE,
                source=('api+manual' if api_items and manual else 'api' if api_items else 'manual' if manual else 'none'),
-               keywords=KEYWORDS, api_at=api_at, api_items=api_items, items=items)
+               keywords=KEYWORDS, api_at=api_at, api_items=api_items, manual_info=manual_info, items=items)
     if errors:
         out['errors'] = errors
     old = {k: v for k, v in prev.items() if k != 'updated_at'}

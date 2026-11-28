@@ -1,0 +1,42 @@
+name: 쿠팡 파트너스 인기 제품 갱신 (매일 + 수동 실행)
+
+on:
+  schedule:
+    - cron: "43 21 * * *"    # 매일 06:43 KST
+  workflow_dispatch: {}       # Actions 탭 → 이 워크플로 → Run workflow 로 즉시 갱신
+  push:
+    branches: [main]
+    paths: ["coupang_links.json"]   # 직접 입력 파일을 고치면 바로 반영
+
+permissions:
+  contents: write
+
+concurrency:
+  group: subsidy-collect      # 2시간 자동 점검과 겹치지 않게 순서대로 실행
+  cancel-in-progress: false
+
+jobs:
+  coupang:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 쿠팡 랭킹 상위 중 보조금 인증 모델만 수집
+        env:
+          COUPANG_ACCESS_KEY: ${{ secrets.COUPANG_ACCESS_KEY }}
+          COUPANG_SECRET_KEY: ${{ secrets.COUPANG_SECRET_KEY }}
+          COUPANG_SUB_ID: ${{ secrets.COUPANG_SUB_ID }}
+        run: python scripts/fetch_coupang.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+      - name: 페이지에 내장
+        run: python scripts/build_html.py
+      - name: 변경 사항 커밋
+        run: |
+          git config user.name  "subsidy-bot"
+          git config user.email "subsidy-bot@users.noreply.github.com"
+          git add coupang.json index.html
+          git diff --cached --quiet || git commit -m "쿠팡 인기 제품 갱신 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+          git pull --rebase -q || true
+          git push
